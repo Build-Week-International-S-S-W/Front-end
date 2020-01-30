@@ -22,9 +22,9 @@ function App() {
             <Route exact path="/" component={SignIn} />
             <Route path="/sign-up" component={SignUp} />
             <Route path="/home-page" component={Home} />
-            <Route path="/server-error-500" component={ServerError} />
-            <Route path="/page-not-found-error-404" component={PageNotFound} />
-            <Route path="/not-authorized-error-401" component={NotAuthorized} />
+            <Route path="/server-error" component={ServerError} />
+            <Route path="/page-not-found" component={PageNotFound} />
+            <Route path="/not-authorized" component={NotAuthorized} />
             <Route path="/page-loading" component={Loading} />
             <Route component={SignIn} />
           </Switch>
