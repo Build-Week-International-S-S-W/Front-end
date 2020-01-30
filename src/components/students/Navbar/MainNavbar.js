@@ -7,23 +7,24 @@ function MainNavbar(props) {
 
    return(
     <Navbar className='header' style={{background: 'rgba(0,0,0,.5)', color: '#FFFFFF'}}>     
-         <Navbar.Brand href="#home" style={{color:'#FFF'}}>Home</Navbar.Brand>
-      
+      <Navbar.Brand href="#home" style={{color:'#FFF'}}>LOGO HERE</Navbar.Brand>      
       <Nav className="mr-auto">
         <p className='one-day-a-line'>International School Social Worker</p>       
       </Nav> 
       <Nav>         
-         <button className='logout-button' >Add Students</button>
+        Home
       </Nav>
       <Nav>         
-         <button className='logout-button' >Modify Students</button>
+        Add Students
       </Nav>
       <Nav>         
-         <button className='logout-button' >Logout</button>
+         Modify Students
       </Nav>
-    
+      <Nav>         
+         Logout
+      </Nav>    
     </Navbar>
-   )
+   );
 }
 
 export default MainNavbar;
