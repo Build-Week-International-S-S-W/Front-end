@@ -1,4 +1,6 @@
 import React from 'react';
+import SignUp from "../src/components/form/SignUp";
+import SignIn from "../src/components/form/SignIn";
 import './App.css';
 
 function App() {
