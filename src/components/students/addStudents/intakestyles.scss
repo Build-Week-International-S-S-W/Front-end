@@ -19,6 +19,7 @@ $label-text: #777;
         justify-content: space-evenly;
         display: flex;
         flex-wrap: wrap;
+        margin: 5%;
 
         .label-text {
           color: $label-text;
@@ -28,6 +29,11 @@ $label-text: #777;
 
       }
      
+    }
+
+    .rep-info {
+      border: 1px solid yellow;
+      margin: 5%;
     }
 
     Button {

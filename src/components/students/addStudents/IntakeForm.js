@@ -2,7 +2,6 @@ import React from 'react';
 import {Formik, Form, Field, ErrorMessage} from 'formik';
 import {Button} from 'reactstrap';
 import './intakestyles.scss'
-// import '/assests/css/_schoolConfig.scss';
 
 export default function IntakeForm() {
     return (
@@ -50,7 +49,7 @@ export default function IntakeForm() {
                     setTimeout(() => {
                         alert(JSON.stringify('Received', null, 2));
                         setSubmitting(false)
-                    }, 1400)
+                    }, 400)
 
                 }}
             >
@@ -65,10 +64,10 @@ export default function IntakeForm() {
                             <Field type='name' name='name' placeholder='(Student Name)'/>
                             <ErrorMessage name='name' component='div' />
 
-                            <label htmlFor="age">Age</label>
+                            <label htmlFor="age">Age:</label>
                             <Field type='number' name='age' placeholder='(Students Age)'/>
 
-                            <label htmlFor="grade">Grade</label>
+                            <label htmlFor="grade">Grade:</label>
                             <Field as='select' name='grade' placeholder='(Grade)'>
                                 {
                                     // TODO: add loop to fill in options for more DRY code
@@ -91,7 +90,7 @@ export default function IntakeForm() {
                             </div>
 
 
-                            <label htmlFor="story">BackStory</label>
+                            <label htmlFor="story">BackStory:</label>
                             <Field type='textarea' name='story' placeholder='(Students Backstory)'/>
 
                             <label htmlFor="insurance">Insurance:</label>
@@ -106,7 +105,7 @@ export default function IntakeForm() {
                             <Field type='checkbox' name='n'/>
 
 
-                            <label htmlFor="needs">Special Needs?</label>
+                            <label htmlFor="needs">Special Needs:</label>
                             <Field type='textarea' name='needs'/>
 
 
@@ -133,15 +132,15 @@ export default function IntakeForm() {
                         </div>
 
 
+                        <Button color='primary' type="submit" disabled={isSubmitting}>
+                            Submit
+                        </Button>
                     </Form>
 
                 )}
 
             </Formik>
 
-            <Button color='primary'>
-                Submit
-            </Button>
         </div>
 
     )
