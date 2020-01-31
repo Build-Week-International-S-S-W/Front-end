@@ -14,16 +14,16 @@ function MainNavbar(props) {
             </Nav>
             <Nav>
 
-                <Link exact to="/">Home</Link>
+                <Link exact to="/sign-in">Home</Link>
             </Nav>
             <Nav>
                 <Link to="/add-students">Add Students</Link>
             </Nav>
             <Nav>
-                <Link>Modify Students</Link>
+                <Link to="/modify-students">Modify Students</Link>
             </Nav>
             <Nav>
-               <Link>Logout</Link>
+               <Link to="sign-out">Logout</Link>
             </Nav>
         </Navbar>
     );
