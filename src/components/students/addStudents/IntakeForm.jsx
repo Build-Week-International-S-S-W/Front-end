@@ -1,6 +1,6 @@
 import React from 'react';
 import {Formik, Form, Field, ErrorMessage} from "formik";
-import Button from "reactstrap/es/Button";
+import {Button } from "reactstrap";
 
 
 export default function IntakeForm() {
