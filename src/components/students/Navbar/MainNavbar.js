@@ -15,10 +15,16 @@ function MainNavbar(props) {
         Home
       </Nav>
       <Nav>         
+        About us
+      </Nav>
+      <Nav>         
         Add Students
       </Nav>
       <Nav>         
          Modify Students
+      </Nav>
+      <Nav>         
+        Contact us
       </Nav>
       <Nav>         
          Logout
