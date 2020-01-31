@@ -1,11 +1,12 @@
 import React from 'react';
-import {Formik, Form, Field, ErrorMessage} from "formik";
+import {Formik, Form, Field, ErrorMessage} from 'formik';
 import {Button} from 'reactstrap';
+// import '/assests/css/_schoolConfig.scss';
 
 export default function IntakeForm() {
     return (
         <div className="Intake-Form">
-            <h1>Student Information</h1>
+            <h1 className='bg-primary'>Student Information</h1>
             <Formik
                 initialValues={{
                     student: {
@@ -94,7 +95,7 @@ export default function IntakeForm() {
                         <br/>
                         <br/>
                         <br/>
-                        <h1>Representative Information</h1>
+                        <h1 className='bg-primary'>Representative Information</h1>
 
                         <label htmlFor="repFirstName">First Name</label>
                         <Field type='name' name='repFirstName' placeholder='Representative Name'/>
