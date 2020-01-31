@@ -3,7 +3,11 @@ import {BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import SignUp from "../src/components/form/SignUp";
 import SignIn from "../src/components/form/SignIn";
 import Home from "../src/components/students/Home";
+<<<<<<< HEAD
 import MainNavbar from "./components/students/header/MainNavbar";
+=======
+import MainNavbar from "./components/students/Navbar/MainNavbar";
+>>>>>>> dajuan-mcdonald
 import ServerError from "../src/components/errors/ServerError";
 import PageNotFound from "../src/components/errors/PageNotFound";
 import NotAuthorized from "../src/components/errors/NotAuthorized";
