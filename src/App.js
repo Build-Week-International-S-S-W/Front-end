@@ -3,7 +3,7 @@ import {BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import SignUp from "../src/components/form/SignUp";
 import SignIn from "../src/components/form/SignIn";
 import Home from "../src/components/students/Home";
-import MainNavbar from "./components/students/navBar/MainNavbar";
+import MainNavbar from "./components/students/Navbar/MainNavbar";
 import ServerError from "../src/components/errors/ServerError";
 import PageNotFound from "../src/components/errors/PageNotFound";
 import NotAuthorized from "../src/components/errors/NotAuthorized";
