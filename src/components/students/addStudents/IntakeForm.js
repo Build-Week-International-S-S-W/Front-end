@@ -1,6 +1,7 @@
 import React from 'react';
 import {Formik, Form, Field, ErrorMessage} from 'formik';
 import {Button} from 'reactstrap';
+import './intakestyles.scss'
 // import '/assests/css/_schoolConfig.scss';
 
 export default function IntakeForm() {

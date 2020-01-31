@@ -7,7 +7,7 @@ function MainNavbar(props) {
 
 
     return (
-        <Navbar className='header' style={{background: 'rgba(0,0,0,.5)', color: '#FFFFFF'}}>
+        <Navbar className='header' style={{background: 'rgb(68,69,69)', color: '#FFFFFF'}}>
             <Navbar.Brand href="#home" style={{color: '#FFF'}}>LOGO HERE</Navbar.Brand>
             <Nav className="mr-auto">
                 <p className='one-day-a-line'>Educell International School</p>
