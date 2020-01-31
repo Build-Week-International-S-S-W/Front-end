@@ -1,5 +1,6 @@
 $base-color: #77A6F7;
 $font-color: #444545;
+$label-text: #777;
 
   .Intake-Form {
     color: $font-color;
@@ -9,9 +10,23 @@ $font-color: #444545;
 
 
 
-    .form-section {
-      display: flex;
-      flex-direction: column;
+    .student-info {
+     border: 1px solid red;
+      height: 300px;
+
+      .name-age-grade {
+        border: 2px solid green;
+        justify-content: space-evenly;
+        display: flex;
+        flex-wrap: wrap;
+
+        .label-text {
+          color: $label-text;
+        }
+
+        //width: 600px;
+
+      }
      
     }
 
