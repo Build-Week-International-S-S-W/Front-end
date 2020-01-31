@@ -4,6 +4,22 @@ $font-color: #444545;
   .Intake-Form {
     color: $font-color;
     background-color: $base-color;
+    display: flex;
+    flex-direction: column;
+
+
+
+    .form-section {
+      display: flex;
+      flex-direction: column;
+     
+    }
+
+    Button {
+      width: 300px;
+      align-self: center;
+
+    }
   }
 
 .header {

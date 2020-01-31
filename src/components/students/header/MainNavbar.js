@@ -13,6 +13,7 @@ function MainNavbar(props) {
                 <p className='one-day-a-line'>Educell International School</p>
             </Nav>
             <Nav>
+
                 <Link exact to="/">Home</Link>
             </Nav>
             <Nav>

@@ -56,73 +56,76 @@ export default function IntakeForm() {
                 }}
             >
                 {({isSubmitting}) => (
-                    <Form>
-                        <label htmlFor="studentFirst">First Name</label>
-                        <Field type='name' name='studentFirst' placeholder='Student First Name'/>
+                    <div className='form-section'>
+
+                        <Form>
+                            <label htmlFor="studentFirst">First Name</label>
+                            <Field type='name' name='studentFirst' placeholder='Student First Name'/>
 
 
-                        <label htmlFor="studentLast">Last Name</label>
-                        <Field type='name' name='studentLast' placeholder='Student Last Name'/>
+                            <label htmlFor="studentLast">Last Name</label>
+                            <Field type='name' name='studentLast' placeholder='Student Last Name'/>
 
 
-                        <label htmlFor="age">Age</label>
-                        <Field type='number' name='age'/>
-                        <br/>
+                            <label htmlFor="age">Age</label>
+                            <Field type='number' name='age'/>
+                            <br/>
 
-                        <label htmlFor="grade">Grade</label>
-                        <Field type='number' name='grade'/>
+                            <label htmlFor="grade">Grade</label>
+                            <Field type='number' name='grade'/>
 
-                        <label htmlFor="story">BackStory</label>
-                        <Field type='textarea' name='story'/>
-                        <br/>
-
-
-                        <label htmlFor="insurance">Insurance?</label>
-                        <Field type='checkbox' name='insurance'/>
-
-                        <br/>
+                            <label htmlFor="story">BackStory</label>
+                            <Field type='textarea' name='story'/>
+                            <br/>
 
 
-                        <label htmlFor="birthCertificate">Birth Certificate?</label>
-                        <Field type='checkbox' name='birthCertificate'/>
-                        <br/>
+                            <label htmlFor="insurance">Insurance?</label>
+                            <Field type='checkbox' name='insurance'/>
 
-                        <label htmlFor="needs">Special Needs?</label>
-                        <Field type='textarea' name='needs'/>
-                        <br/>
+                            <br/>
 
-                        <label htmlFor="expiration">Expiration Date</label>
-                        <Field type='date' name='expiration'/>
-                        <br/>
-                        <br/>
-                        <br/>
-                        <h1 className='bg-primary'>Representative Information</h1>
 
-                        <label htmlFor="repFirstName">First Name</label>
-                        <Field type='name' name='repFirstName' placeholder='Representative Name'/>
+                            <label htmlFor="birthCertificate">Birth Certificate?</label>
+                            <Field type='checkbox' name='birthCertificate'/>
+                            <br/>
 
-                        <label htmlFor="repLastName">Last Name</label>
-                        <Field type='name' name='repLastName' placeholder='Representative Name'/>
-                        <br/>
-                        <br/>
+                            <label htmlFor="needs">Special Needs?</label>
+                            <Field type='textarea' name='needs'/>
+                            <br/>
 
-                        <label htmlFor="phone">Phone</label>
-                        <Field type='phone' name='phone' placeholder='Phone'/>
+                            <label htmlFor="expiration">Expiration Date</label>
+                            <Field type='date' name='expiration'/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <h1 className='bg-primary'>Representative Information</h1>
 
-                        <label htmlFor="email">Email</label>
-                        <Field type='email' name='email' placeholder='Email'/>
-                        <br/>
-                        <br/>
+                            <label htmlFor="repFirstName">First Name</label>
+                            <Field type='name' name='repFirstName' placeholder='Representative Name'/>
 
-                        <label htmlFor="relation">Relationship</label>
-                        <Field type='textarea' name='relation' placeholder='Worker'/>
+                            <label htmlFor="repLastName">Last Name</label>
+                            <Field type='name' name='repLastName' placeholder='Representative Name'/>
+                            <br/>
+                            <br/>
 
-                    </Form>
+                            <label htmlFor="phone">Phone</label>
+                            <Field type='phone' name='phone' placeholder='Phone'/>
+
+                            <label htmlFor="email">Email</label>
+                            <Field type='email' name='email' placeholder='Email'/>
+                            <br/>
+                            <br/>
+
+                            <label htmlFor="relation">Relationship</label>
+                            <Field type='textarea' name='relation' placeholder='Worker'/>
+
+                        </Form>
+                    </div>
                 )}
 
             </Formik>
 
-            <Button>
+            <Button className='bg-primary'>
                 Submit
             </Button>
         </div>
