@@ -3,7 +3,7 @@ import {BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import SignUp from "../src/components/form/SignUp";
 import SignIn from "../src/components/form/SignIn";
 import Home from "../src/components/students/Home";
-import MainNavbar from "./components/students/navBar/MainNavbar";
+import MainNavbar from "./components/students/header/MainNavbar";
 import ServerError from "../src/components/errors/ServerError";
 import PageNotFound from "../src/components/errors/PageNotFound";
 import NotAuthorized from "../src/components/errors/NotAuthorized";
@@ -14,14 +14,14 @@ import IntakeForm from "./components/students/addStudents/IntakeForm";
 function App() {
   return (
     <div className="App">
+    <Router>
       <div className="main-header">
         <MainNavbar />  
       </div>
-      <div className="main-container">
-       <Router>
+      <div className="main-container">       
           <Switch>
             <Route exact path="/" component={SignIn} />
-            <Route path="/sign-up" component={SignUp} />
+            <Route exact path="/sign-up" component={SignUp} />
             <Route path="/home-page" component={Home} />
             <Route path="/server-error" component={ServerError} />
             <Route path="/page-not-found" component={PageNotFound} />
@@ -29,9 +29,9 @@ function App() {
             <Route path="/page-loading" component={Loading} />
             <Route path="/add-students/" component={IntakeForm} />
             <Route component={SignIn} />
-          </Switch>
-       </Router>        
+          </Switch>             
       </div>
+      </Router>
     </div>
   );
 }
