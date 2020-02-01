@@ -2,6 +2,7 @@ import React from 'react';
 
 
 function Administration() {
+
     return (
         <div>
             <h2>Welcome, please choose an administrative task below:</h2>
