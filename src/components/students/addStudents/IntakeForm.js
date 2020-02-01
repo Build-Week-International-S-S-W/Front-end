@@ -2,7 +2,11 @@ import React from 'react';
 import {Formik, Form, Field, ErrorMessage} from 'formik';
 import {Button} from 'reactstrap';
 import './intakestyles.scss'
+
+import '../../assests/css/_schoolConfig.scss';
+
 import Load from "../../Loader/Loading";
+
 
 export default function IntakeForm() {
     return (
@@ -37,18 +41,18 @@ export default function IntakeForm() {
                     } else if (
                         !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
                     ) {
-                        errors.email = 'Invalid email address';
+                        // errors.email = 'Invalid email address';
                     } else if (
                         !values.name
-                    ) {
+                    )  {
                         errors.name = 'Required';
-
+                        errors.name = 'Name cannot be empty';
                     }
                     return errors;
                 }}
                 onSubmit={(values, {setSubmitting}) => {
                     setTimeout(() => {
-                        alert(JSON.stringify('Received', null, 2));
+                        alert(JSON.stringify('Submitted',  null, 2));
                         setSubmitting(false)
                     }, 400)
 
@@ -63,7 +67,7 @@ export default function IntakeForm() {
 
                             <label className='label-text' htmlFor="name">Name:</label>
                             <Field type='name' name='name' placeholder='(Student Name)'/>
-                            <ErrorMessage name='name' component='div' />
+                            <ErrorMessage name='name' component='span' />
 
                             <label htmlFor="age">Age:</label>
                             <Field type='number' name='age' placeholder='(Students Age)'/>
