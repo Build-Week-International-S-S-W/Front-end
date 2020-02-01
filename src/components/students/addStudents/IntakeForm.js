@@ -10,6 +10,20 @@ import Load from "../../Loader/Loading";
 
 export default function IntakeForm() {
     return (
+        <>
+
+
+
+{
+    console.log('hello')
+}
+
+
+
+        
+        
+
+
         <div className="Intake-Form">
             <Formik
                 initialValues={{
@@ -137,7 +151,7 @@ export default function IntakeForm() {
                         </div>
 
 
-                        <Button color='primary' type="submit" disabled={isSubmitting}>
+                        <Button onClick={() => console.log('clicked')} color='primary' type="submit" enable={isSubmitting}>
                             Submit
                         </Button>
                     </Form>
@@ -149,5 +163,6 @@ export default function IntakeForm() {
 
         </div>
 
+    </>
     )
 }
