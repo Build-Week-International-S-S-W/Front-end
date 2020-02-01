@@ -1,30 +1,32 @@
 import React, {useState} from 'react';
 import {Navbar, Nav} from 'react-bootstrap';
+import {Link} from 'react-router-dom';
 import './Navbar.scss';
 
 function MainNavbar(props) {
 
 
-   return(
-    <Navbar className='header' style={{background: 'rgba(0,0,0,.5)', color: '#FFFFFF'}}>     
-      <Navbar.Brand href="#home" style={{color:'#FFF'}}>LOGO HERE</Navbar.Brand>      
-      <Nav className="mr-auto">
-        <p className='one-day-a-line'>International School Social Worker</p>       
-      </Nav> 
-      <Nav>         
-        Home
-      </Nav>
-      <Nav>         
-        Add Students
-      </Nav>
-      <Nav>         
-         Modify Students
-      </Nav>
-      <Nav>         
-         Logout
-      </Nav>    
-    </Navbar>
-   );
+    return (
+        <Navbar className='header' style={{background: 'rgb(68,69,69)', color: '#FFFFFF'}}>
+            <Navbar.Brand href="#home" style={{color: '#FFF'}}>LOGO HERE</Navbar.Brand>
+            <Nav className="mr-auto">
+                <p className='one-day-a-line'>Educell International School</p>
+            </Nav>
+            <Nav>
+
+                <Link exact to="/sign-in">Home</Link>
+            </Nav>
+            <Nav>
+                <Link to="/add-students">Add Students</Link>
+            </Nav>
+            <Nav>
+                <Link to="/modify-students">Modify Students</Link>
+            </Nav>
+            <Nav>
+               <Link to="sign-out">Logout</Link>
+            </Nav>
+        </Navbar>
+    );
 }
 
 export default MainNavbar;

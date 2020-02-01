@@ -27,7 +27,7 @@ function App() {
             <Route path="/page-not-found" component={PageNotFound} />
             <Route path="/not-authorized" component={NotAuthorized} />
             <Route path="/page-loading" component={Loading} />
-            <Route path="/add-students/" component={IntakeForm} />
+            <Route path="/add-students" component={IntakeForm} />
             <Route component={SignIn} />
           </Switch>             
       </div>

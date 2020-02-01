@@ -1,11 +1,11 @@
 import React from 'react';
-import {Formik, Form, Field, ErrorMessage} from "formik";
+import {Formik, Form, Field, ErrorMessage} from 'formik';
 import {Button} from 'reactstrap';
+import './intakestyles.scss'
 
 export default function IntakeForm() {
     return (
         <div className="Intake-Form">
-            <h1>Student Information</h1>
             <Formik
                 initialValues={{
                     student: {
@@ -38,10 +38,10 @@ export default function IntakeForm() {
                     ) {
                         errors.email = 'Invalid email address';
                     } else if (
-                        !values.studentFirst || !values.studentLast
+                        !values.name
                     ) {
-                        errors.studentFirst = 'Required';
-                        errors.studentLast = 'Required';
+                        errors.name = 'Required';
+
                     }
                     return errors;
                 }}
@@ -49,80 +49,98 @@ export default function IntakeForm() {
                     setTimeout(() => {
                         alert(JSON.stringify('Received', null, 2));
                         setSubmitting(false)
-                    }, 1400)
+                    }, 400)
 
                 }}
             >
                 {({isSubmitting}) => (
+
                     <Form>
-                        <label htmlFor="studentFirst">First Name</label>
-                        <Field type='name' name='studentFirst' placeholder='Student First Name'/>
+                        <h1 className='bg-primary'>Student Information</h1>
+                        <div className='student-info'>
+                            <div className='name-age-grade'>
+
+                            <label className='label-text' htmlFor="name">Name:</label>
+                            <Field type='name' name='name' placeholder='(Student Name)'/>
+                            <ErrorMessage name='name' component='div' />
+
+                            <label htmlFor="age">Age:</label>
+                            <Field type='number' name='age' placeholder='(Students Age)'/>
+
+                            <label htmlFor="grade">Grade:</label>
+                            <Field as='select' name='grade' placeholder='(Grade)'>
+                                {
+                                    // TODO: add loop to fill in options for more DRY code
+
+                                }
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                                <option>6</option>
+                                <option>7</option>
+                                <option>8</option>
+                                <option>9</option>
+                                <option>10</option>
+                                <option>11</option>
+                                <option>12</option>
+
+                            </Field>
+                            </div>
 
 
-                        <label htmlFor="studentLast">Last Name</label>
-                        <Field type='name' name='studentLast' placeholder='Student Last Name'/>
+                            <label htmlFor="story">BackStory:</label>
+                            <Field type='textarea' name='story' placeholder='(Students Backstory)'/>
+
+                            <label htmlFor="insurance">Insurance:</label>
+                            <Field type='checkbox' name='Y'/>
+                            <Field type='checkbox' name='N'/>
+
+                            <label htmlFor="expiration">Expiration Date:</label>
+                            <Field type='date' name='expiration'/>
+
+                            <label htmlFor="birthCertificate">Birth Certificate:</label>
+                            <Field type='checkbox' name='y'/>
+                            <Field type='checkbox' name='n'/>
 
 
-                        <label htmlFor="age">Age</label>
-                        <Field type='number' name='age'/>
-                        <br/>
-
-                        <label htmlFor="grade">Grade</label>
-                        <Field type='number' name='grade'/>
-
-                        <label htmlFor="story">BackStory</label>
-                        <Field type='textarea' name='story'/>
-                        <br/>
+                            <label htmlFor="needs">Special Needs:</label>
+                            <Field type='textarea' name='needs'/>
 
 
-                        <label htmlFor="insurance">Insurance?</label>
-                        <Field type='checkbox' name='insurance'/>
+                        </div>
 
-                        <br/>
+                        <h1 className='bg-primary'>Representative Information</h1>
+                        <div className='rep-info'>
 
 
-                        <label htmlFor="birthCertificate">Birth Certificate?</label>
-                        <Field type='checkbox' name='birthCertificate'/>
-                        <br/>
+                            <label htmlFor="repFirstName">Name:</label>
+                            <Field type='name' name='repName' placeholder=''/>
 
-                        <label htmlFor="needs">Special Needs?</label>
-                        <Field type='textarea' name='needs'/>
-                        <br/>
 
-                        <label htmlFor="expiration">Expiration Date</label>
-                        <Field type='date' name='expiration'/>
-                        <br/>
-                        <br/>
-                        <br/>
-                        <h1>Representative Information</h1>
+                            <label htmlFor="phone">Phone:</label>
+                            <Field type='phone' name='phone' placeholder='(optional)'/>
 
-                        <label htmlFor="repFirstName">First Name</label>
-                        <Field type='name' name='repFirstName' placeholder='Representative Name'/>
+                            <label htmlFor="email">Email:</label>
+                            <Field type='email' name='email' placeholder='Required'/>
+                            <ErrorMessage name='email' component='div' />
 
-                        <label htmlFor="repLastName">Last Name</label>
-                        <Field type='name' name='repLastName' placeholder='Representative Name'/>
-                        <br/>
-                        <br/>
 
-                        <label htmlFor="phone">Phone</label>
-                        <Field type='phone' name='phone' placeholder='Phone'/>
+                            <label htmlFor="relation">Relationship:</label>
+                            <Field type='textarea' name='relation' placeholder='Worker'/>
+                        </div>
 
-                        <label htmlFor="email">Email</label>
-                        <Field type='email' name='email' placeholder='Email'/>
-                        <br/>
-                        <br/>
 
-                        <label htmlFor="relation">Relationship</label>
-                        <Field type='textarea' name='relation' placeholder='Worker'/>
-
+                        <Button color='primary' type="submit" disabled={isSubmitting}>
+                            Submit
+                        </Button>
                     </Form>
+
                 )}
 
             </Formik>
 
-            <Button>
-                Submit
-            </Button>
         </div>
 
     )
