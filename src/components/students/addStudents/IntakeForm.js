@@ -2,7 +2,11 @@ import React from 'react';
 import {Formik, Form, Field, ErrorMessage} from 'formik';
 import {Button} from 'reactstrap';
 import './intakestyles.scss'
+
 import '../../assests/css/_schoolConfig.scss';
+
+import Load from "../../Loader/Loading";
+
 
 export default function IntakeForm() {
     return (
@@ -141,6 +145,7 @@ export default function IntakeForm() {
                 )}
 
             </Formik>
+            <Load/>
 
         </div>
 
