@@ -12,9 +12,10 @@ function MainNavbar(props) {
             <Nav className="mr-auto">
                 <p className='one-day-a-line'>Educell International School</p>
             </Nav>
+            <div className="only-links">
             <Nav>
 
-                <Link exact to="/sign-in">Home</Link>
+                <Link exact to="/home-page">Home</Link>
             </Nav>
             <Nav>
                 <Link to="/add-students">Add Students</Link>
@@ -25,6 +26,7 @@ function MainNavbar(props) {
             <Nav>
                <Link to="sign-out">Logout</Link>
             </Nav>
+            </div>
         </Navbar>
     );
 }
