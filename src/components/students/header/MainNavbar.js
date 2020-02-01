@@ -24,6 +24,9 @@ function MainNavbar(props) {
                 <Link to="/modify-students">Modify Students</Link>
             </Nav>
             <Nav>
+                <Link to="/administration">Administration</Link>
+            </Nav>
+            <Nav>
                <Link to="sign-out">Logout</Link>
             </Nav>
             </div>

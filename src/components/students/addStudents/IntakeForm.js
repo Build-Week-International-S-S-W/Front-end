@@ -95,19 +95,19 @@ export default function IntakeForm() {
                             <Field type='textarea' name='story' placeholder='(Students Backstory)'/>
 
                             <label htmlFor="insurance">Insurance:</label>
-                            <Field type='checkbox' name='Y'/>
-                            <Field type='checkbox' name='N'/>
+                            <Field type='checkbox' name='Y'/>Yes
+                            <Field type='checkbox' name='N'/>No
 
                             <label htmlFor="expiration">Expiration Date:</label>
                             <Field type='date' name='expiration'/>
 
                             <label htmlFor="birthCertificate">Birth Certificate:</label>
-                            <Field type='checkbox' name='y'/>
-                            <Field type='checkbox' name='n'/>
+                            <Field type='checkbox' name='y'/>Yes
+                            <Field type='checkbox' name='n'/>No
 
 
                             <label htmlFor="needs">Special Needs:</label>
-                            <Field type='textarea' name='needs'/>
+                            <Field type='textarea' name='needs' placeholder="Enter special needs"/>
 
 
                         </div>
@@ -117,7 +117,7 @@ export default function IntakeForm() {
 
 
                             <label htmlFor="repFirstName">Name:</label>
-                            <Field type='name' name='repName' placeholder=''/>
+                            <Field type='name' name='repName' placeholder='Rep Name'/>
 
 
                             <label htmlFor="phone">Phone:</label>
