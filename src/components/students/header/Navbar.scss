@@ -20,6 +20,13 @@
       text-shadow: 0.1em 0.1em 0.2em rgba(0, 0, 0, 0.6);
      }
    }
+    div.only-links {
+      display: flex;
+      width: 40%;
+      flex-direction: row;
+      justify-content: space-evenly;
+      color: palegoldenrod;
+    }
     a:hover {
         text-decoration: none;
     }
