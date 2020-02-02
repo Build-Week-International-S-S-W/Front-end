@@ -26,9 +26,7 @@ function MainNavbar(props) {
             <Nav>
                <Link to="/sign-out">Logout</Link>
             </Nav>
-                <Nav>
-                    <Link to='/about-students/'>aboutStudents</Link>
-                </Nav>
+                
             </div>
         </Navbar>
     );
