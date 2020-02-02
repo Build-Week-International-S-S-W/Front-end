@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {Navbar, Nav} from 'react-bootstrap';
 import {Link} from 'react-router-dom';
 import './Navbar.scss';
@@ -15,7 +15,7 @@ function MainNavbar(props) {
             <div className="only-links">
             <Nav>
 
-                <Link exact to="/home-page">Home</Link>
+                <Link exact to="/">Home</Link>
             </Nav>
             <Nav>
                 <Link to="/add-students">Add Students</Link>

@@ -22,9 +22,9 @@ function App() {
       </div>
       <div className="main-container">
           <Switch>
-            <Route exact path="/" component={ SignUp} />
-            <Route exact path="/sign-up" component={ SignIn } />
-            <Route path="/home-page" component={Home} />
+            <Route exact path="/" component={Home} />
+            <Route exact path="/sign-in" component={ SignIn } />
+            <Route path="/sign-up" component={SignUp} />
             <Route path="/server-error" component={ServerError} />
             <Route path="/page-not-found" component={PageNotFound} />
             <Route path="/not-authorized" component={NotAuthorized} />

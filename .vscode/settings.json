@@ -3,6 +3,7 @@
         "assests",
         "bprder",
         "educell",
-        "formik"
+        "formik",
+        "schoolname"
     ]
 }
