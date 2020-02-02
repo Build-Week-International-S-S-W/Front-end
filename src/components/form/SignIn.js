@@ -19,26 +19,26 @@ export default function SignIn(){
    }
 
    return(
-    <React.Fragment>  
-    <Formik       
+    <React.Fragment>
+    <Formik
        initialValues = {user}
-       onSubmit = {handleSubmit}  
-       validate = { validate }  
+       onSubmit = {handleSubmit}
+       validate = { validate }
       render={(props) => {
         const {isSubmitting} = props;
         console.log(isSubmitting);
         return(
           <>
-          <h1>Login Form</h1>      
+          <h1>Login Form</h1>
           <Form className="register">
-            <Field type="text" 
+            <Field type="text"
                     name="username"
-                    placeholder="Enter your name"                
+                    placeholder="Enter your username"
             />
-            <ErrorMessage name='username' component='div' className='error-message'/>            
-            <Field type="password" 
+            <ErrorMessage name='username' component='div' className='error-message'/>
+            <Field type="password"
                     name="password"
-                    placeholder="Password"                
+                    placeholder="Password"
             />
             <ErrorMessage name='password' component='div' className='error-message'/>
             { isSubmitting ? <button type="submit">Submitting...</button> :

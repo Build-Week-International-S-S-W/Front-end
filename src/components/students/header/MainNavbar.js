@@ -15,14 +15,10 @@ function MainNavbar(props) {
             <div className="only-links">
             <Nav>
 
-                <Link exact to="/">Home</Link>
                 <Link exact to="/sign-in">Login</Link>
             </Nav>
             <Nav>
                 <Link exact to="/home-page">Home</Link>
-            </Nav>
-            <Nav>
-                <Link to="/add-students">Add Students</Link>
             </Nav>
             <Nav>
                 <Link to="/modify-students">Modify Students</Link>
@@ -31,7 +27,6 @@ function MainNavbar(props) {
                 <Link to="/administration">Administration</Link>
             </Nav>
             <Nav>
-               <Link to="sign-out">Logout</Link>
                <Link to="/sign-out">Logout</Link>
             </Nav>
 

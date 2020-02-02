@@ -9,6 +9,8 @@ const PostStudent = () => {
             <div>
                 <p>View Class Page</p>
                 <div>
+                    {/*we want to give admins a view different from social workers*/}
+                    {/*this page list classes and details*/}
                     <button>View</button>
                 </div>
 

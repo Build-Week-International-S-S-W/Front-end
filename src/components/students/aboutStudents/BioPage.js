@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import '../../assests/css/_schoolConfig.scss';
+import './biostyles.scss';
 
 export default function AboutStudents() {
     const [students, setStudents] = useState([]);
@@ -15,8 +16,7 @@ export default function AboutStudents() {
     }, []);
 
     return (
-        <div className="App">
-            <h5>Current Students</h5>
+        <div className="current-student">
             {
                 students.map(student => {
                     return <div className="add-student">
