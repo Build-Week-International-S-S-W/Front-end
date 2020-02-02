@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 
+
 export default function AboutStudents() {
     const [students, setStudents] = useState([]);
 
@@ -18,14 +19,12 @@ export default function AboutStudents() {
 
             {
                 students.map(student => {
-                    return <div>
-                        <form action="">
-                            <label htmlFor="name">Students Name:</label>
-                            <input name="name" type="text" value={student.name}/>
-                            <label htmlFor="age">Students Age:</label>
-                            <input name="age" type="text" value={student.age}/>
-                            <input type="text"/>
-                        </form>
+                    return <div className="">
+
+                        <h5>Name:</h5>
+                        <p>{student.name}</p>
+
+
 
 
                     </div>
