@@ -6,7 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
 import App from './App';
 import {BrowserRouter as Router} from 'react-router-dom';
-import { usersRegister as reducer } from './reducers/usersRegister'
+import { reducer } from './reducers';
 import thunk from 'redux-thunk';
 import logger from 'redux-logger';
 
