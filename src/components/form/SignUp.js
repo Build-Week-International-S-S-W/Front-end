@@ -1,5 +1,6 @@
 import React, { useState, useEffect} from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { Link } from 'react-router-dom';
 import "./form.scss";
 import * as Yup from 'yup';
 
@@ -31,7 +32,8 @@ export default function SignUp(){
         console.log(isSubmitting);
         return(
           <>
-          <h1>Register Form</h1>      
+          <h1>Register Form</h1>  
+          <p> Already Registered<Link to="/sign-in">login here.</Link></p>    
           <Form className="register">
             <Field type="text" 
                     name="username"
@@ -60,6 +62,7 @@ export default function SignUp(){
         )
       }}
      />
+     
     </React.Fragment>
    );
 
