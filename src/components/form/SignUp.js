@@ -7,12 +7,14 @@ import "./form.scss";
 import * as Yup from 'yup';
 
 function SignUp(props){
-   const defaultUser = {username:'', email:'', phone_number:'', password:'' };
-   const [user, setUser] = useState(defaultUser);
+   const { username, name, email, phone_number, password} = props;
+   const defaultUser = { username, name, email, phone_number, password };
+   const [user, setUser]  = useState(defaultUser);
    const handleSubmit = (values,formikBag) => {
        console.log(values);
        props.userRegister(values,props);
        console.log(formikBag);
+       setUser();
        formikBag.resetForm();
    }
    const validate = (values) => {
@@ -72,8 +74,13 @@ function SignUp(props){
 };
 
 const mapStateToProps = (state) => {
+        console.log('state from the store', state);
         return {
-
+           username: state.usersRegister.username,
+           name:state.usersRegister.name,
+           email:state.usersRegister.email,
+           phone_number: state.usersRegister.phone_number,
+           password: state.usersRegister.password
         }
 }
 export default connect(mapStateToProps, { userRegister })(SignUp);
