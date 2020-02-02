@@ -2,27 +2,12 @@ import React from 'react';
 import {Formik, Form, Field, ErrorMessage} from 'formik';
 import {Button} from 'reactstrap';
 import './intakestyles.scss'
-
 import '../../assests/css/_schoolConfig.scss';
-
-import Load from "../../Loader/Loading";
 
 
 export default function IntakeForm() {
     return (
         <>
-
-
-
-{
-    console.log('hello')
-}
-
-
-
-        
-        
-
 
         <div className="Intake-Form">
             <Formik
@@ -30,18 +15,18 @@ export default function IntakeForm() {
                     student: {
                         studentFirst: '',
                         studentLast: '',
-                        age: '',
-                        grade: '',
+                        age: Number,
+                        grade: Selection,
                         story: '',
-                        insurance: '',
+                        insurance: Boolean,
                         needs: '',
-                        expiration: '',
-                        birthCertificate: '',
+                        expiration: Date,
+                        birthCertificate: Boolean,
                     },
                     representative: {
                         repFirstName: '',
                         repLastName: '',
-                        phone: '',
+                        phone: Number,
                         email: '',
                         relation: '',
                     }
@@ -65,10 +50,11 @@ export default function IntakeForm() {
                     return errors;
                 }}
                 onSubmit={(values, {setSubmitting}) => {
-                    setTimeout(() => {
-                        alert(JSON.stringify('Submitted',  null, 2));
-                        setSubmitting(false)
-                    }, 400)
+                    // setTimeout(() => {
+                    //     alert(JSON.stringify('Submitted',  null, 2));
+                    //     setSubmitting(false)
+                    // }, 400)
+                    console.log(values);
 
                 }}
             >
@@ -113,14 +99,18 @@ export default function IntakeForm() {
                             <Field type='textarea' name='story' placeholder='(Students Backstory)'/>
 
                             <label htmlFor="insurance">Insurance:</label>
+                            <label>Yes</label>
                             <Field type='checkbox' name='Y'/>
+                            <label>No</label>
                             <Field type='checkbox' name='N'/>
 
                             <label htmlFor="expiration">Expiration Date:</label>
                             <Field type='date' name='expiration'/>
 
                             <label htmlFor="birthCertificate">Birth Certificate:</label>
+                            <label>Yes</label>
                             <Field type='checkbox' name='y'/>
+                            <label>No</label>
                             <Field type='checkbox' name='n'/>
 
 
@@ -151,7 +141,7 @@ export default function IntakeForm() {
                         </div>
 
 
-                        <Button onClick={() => console.log('clicked')} color='primary' type="submit" enable={isSubmitting}>
+                        <Button onClick={() => {isSubmitting = true}} color='primary' type="submit" enable={isSubmitting}>
                             Submit
                         </Button>
                     </Form>
@@ -159,7 +149,7 @@ export default function IntakeForm() {
                 )}
 
             </Formik>
-            <Load/>
+        
 
         </div>
 
