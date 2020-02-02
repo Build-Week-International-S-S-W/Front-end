@@ -3,6 +3,7 @@ import {Formik, Form, Field, ErrorMessage} from 'formik';
 import {Button} from 'reactstrap';
 import './intakestyles.scss'
 import '../../assests/css/_schoolConfig.scss';
+// import AboutStudent from '../aboutStudents/BioPage';
 
 
 
@@ -66,8 +67,8 @@ export default function IntakeForm() {
                         <div className='student-info'>
                             <div className='name-age-grade'>
 
-                            <label className='label-text' htmlFor="studentFirstName">Name:</label>
-                            <Field type='name' name='studentFirstName' placeholder='(Student Name)'/>
+                            <label className='label-text' htmlFor="name">Name:</label>
+                            <Field type='name' name='name' placeholder='(Student Name)'/>
                             <ErrorMessage name='name' component='span' />
 
                             <label htmlFor="age">Age:</label>
@@ -100,18 +101,18 @@ export default function IntakeForm() {
                             <Field type='textarea' name='story' placeholder='(Students Backstory)'/>
 
                             <label htmlFor="insurance">Insurance:</label>
-                            <label htmlFor="Y">Yes</label>
+                            <label>Yes</label>
                             <Field type='checkbox' name='Y'/>
-                            <label htmlFor="N">No</label>
+                            <label>No</label>
                             <Field type='checkbox' name='N'/>
 
                             <label htmlFor="expiration">Expiration Date:</label>
                             <Field type='date' name='expiration'/>
 
                             <label htmlFor="birthCertificate">Birth Certificate:</label>
-                            <label htmlFor="y">Yes</label>
+                            <label>Yes</label>
                             <Field type='checkbox' name='y'/>
-                            <label htmlFor="n">No</label>
+                            <label>No</label>
                             <Field type='checkbox' name='n'/>
 
 
@@ -150,7 +151,7 @@ export default function IntakeForm() {
                 )}
 
             </Formik>
-           
+            
         
 
         </div>
