@@ -29,7 +29,8 @@ export default function SignIn(){
         console.log(isSubmitting);
         return(
           <>
-          <h1>Login Form</h1>
+          <h3>You must be a registered user to access this site.<br/><br/>
+             Please login with your credentials.</h3>
           <Form className="register">
             <Field type="text"
                     name="username"

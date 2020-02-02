@@ -11,8 +11,9 @@ export default function Home() {
         <div className = 'roster-wrapper'>
           <h1>Educell International School</h1>
           <div>
+          <h3>Current Roster</h3>
           <AboutStudents/>
-            <Button onClick={() => window.location.href = "/add-students"}>Add Student</Button>
+            
           </div>
         </div>
    );

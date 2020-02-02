@@ -15,10 +15,10 @@
   background: #ffdede;
   border-color: #ff000040;
   color: #e00000;
-  
+
 }
 
-@mixin sucessMessageBox {
+@mixin successMessageBox {
    @include messageBox;
 
    background:#deffe8;
@@ -35,7 +35,7 @@
 
 @mixin size( $height, $width) {
    width: $width;
-   height: $height; 
+   height: $height;
 }
 
 @mixin marginAuto($top-bottom) {

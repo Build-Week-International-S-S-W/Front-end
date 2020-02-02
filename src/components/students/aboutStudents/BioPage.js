@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import '../../assests/css/_schoolConfig.scss';
 import './biostyles.scss';
+import {Button} from "reactstrap";
 
 export default function AboutStudents() {
     const [students, setStudents] = useState([]);
@@ -16,6 +17,7 @@ export default function AboutStudents() {
     }, []);
 
     return (
+        <>
         <div className="current-student">
             {
                 students.map(student => {
@@ -28,7 +30,12 @@ export default function AboutStudents() {
                 })
             }
 
-
         </div>
+        <div className="btn">
+         <Button onClick={() => window.location.href = "/add-students"}>Add Student</Button>
+         </div>
+
+
+        </>
     );
 }

@@ -14,14 +14,10 @@ function MainNavbar(props) {
             </Nav>
             <div className="only-links">
             <Nav>
-
                 <Link exact to="/sign-in">Login</Link>
             </Nav>
             <Nav>
                 <Link exact to="/home-page">Home</Link>
-            </Nav>
-            <Nav>
-                <Link to="/modify-students">Modify Students</Link>
             </Nav>
             <Nav>
                 <Link to="/administration">Administration</Link>
