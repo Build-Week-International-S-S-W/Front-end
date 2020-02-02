@@ -5,6 +5,7 @@ import './intakestyles.scss'
 import '../../assests/css/_schoolConfig.scss';
 
 
+
 export default function IntakeForm() {
     return (
         <>
@@ -65,8 +66,8 @@ export default function IntakeForm() {
                         <div className='student-info'>
                             <div className='name-age-grade'>
 
-                            <label className='label-text' htmlFor="name">Name:</label>
-                            <Field type='name' name='name' placeholder='(Student Name)'/>
+                            <label className='label-text' htmlFor="studentFirstName">Name:</label>
+                            <Field type='name' name='studentFirstName' placeholder='(Student Name)'/>
                             <ErrorMessage name='name' component='span' />
 
                             <label htmlFor="age">Age:</label>
@@ -99,18 +100,18 @@ export default function IntakeForm() {
                             <Field type='textarea' name='story' placeholder='(Students Backstory)'/>
 
                             <label htmlFor="insurance">Insurance:</label>
-                            <label>Yes</label>
+                            <label htmlFor="Y">Yes</label>
                             <Field type='checkbox' name='Y'/>
-                            <label>No</label>
+                            <label htmlFor="N">No</label>
                             <Field type='checkbox' name='N'/>
 
                             <label htmlFor="expiration">Expiration Date:</label>
                             <Field type='date' name='expiration'/>
 
                             <label htmlFor="birthCertificate">Birth Certificate:</label>
-                            <label>Yes</label>
+                            <label htmlFor="y">Yes</label>
                             <Field type='checkbox' name='y'/>
-                            <label>No</label>
+                            <label htmlFor="n">No</label>
                             <Field type='checkbox' name='n'/>
 
 
@@ -149,6 +150,7 @@ export default function IntakeForm() {
                 )}
 
             </Formik>
+           
         
 
         </div>
