@@ -10,11 +10,21 @@ export default function SignUp(){
        console.log(formikBag);
        formikBag.resetForm();
    }
+   const validate = (values) => {
+      const errors = {};
+      if(!values.username) {errors.username = 'Username Required'};
+      if(!values.email) {errors.email = 'Email is required'};
+      if(!values.phoneNumber) {error.phoneNumber = 'Phone Number is required'};
+      if(!values.password) {error.password = 'Password is required'};
+      return errors;
+   }
+
    return(
     <React.Fragment>  
     <Formik       
        initialValues = {user}
-       onSubmit = {handleSubmit}    
+       onSubmit = {handleSubmit}  
+       validate = { validate }  
       render={(props) => {
         const {isSubmitting} = props;
         console.log(isSubmitting);
@@ -24,7 +34,7 @@ export default function SignUp(){
                     name="username"
                     placeholder="Enter your name"                
             />
-            <Field type="text" 
+            <Field type="email" 
                     name="email"
                     placeholder="Enter your email"                
             />
