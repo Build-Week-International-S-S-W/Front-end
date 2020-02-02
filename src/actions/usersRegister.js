@@ -11,6 +11,7 @@ export function userRegister(values,props) {
       axios.post('https://international-school-sw.herokuapp.com/api/users/register', values)
            .then(response => {
               console.log(response)
+              props.history.push('/sign-in');
            })
            .catch( error => {
               console.log(error);
