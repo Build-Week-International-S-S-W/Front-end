@@ -9,6 +9,7 @@ import PageNotFound from "../src/components/errors/PageNotFound";
 import NotAuthorized from "../src/components/errors/NotAuthorized";
 import Loading from "../src/components/Loader/Loading";
 import IntakeForm from "./components/students/addStudents/IntakeForm";
+import AboutStudent from "./components/students/aboutStudents/BioPage";
 
 
 function App() {
@@ -21,13 +22,14 @@ function App() {
       <div className="main-container">       
           <Switch>
             <Route exact path="/" component={SignUp} />
-            <Route exact path="/sign-up" component={SignIn} />
+            <Route exact path="/sign-in" component={SignIn} />
             <Route path="/home-page" component={Home} />
             <Route path="/server-error" component={ServerError} />
             <Route path="/page-not-found" component={PageNotFound} />
             <Route path="/not-authorized" component={NotAuthorized} />
             <Route path="/page-loading" component={Loading} />
             <Route path="/add-students" component={IntakeForm} />
+            <Router path="/about-students" component={AboutStudent}/>
             <Route component={SignIn} />
           </Switch>             
       </div>
