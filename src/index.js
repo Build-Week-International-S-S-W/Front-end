@@ -6,8 +6,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
 import App from './App';
 import {BrowserRouter as Router} from 'react-router-dom';
-import { reducer } from './reducers/usersRegister'
+import { usersRegister as reducer } from './reducers/usersRegister'
 import thunk from 'redux-thunk';
+import logger from 'redux-logger';
 
 const middleware = applyMiddleware(thunk,logger);
 const store = createStore(reducer, middleware);

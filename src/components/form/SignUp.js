@@ -7,11 +7,11 @@ import "./form.scss";
 import * as Yup from 'yup';
 
 function SignUp(props){
-   const defaultUser = {username:'', email:'', phoneNumber:'', password:'' };
+   const defaultUser = {username:'', email:'', phone_number:'', password:'' };
    const [user, setUser] = useState(defaultUser);
    const handleSubmit = (values,formikBag) => {
        console.log(values);
-       props.userRegister(values);
+       props.userRegister(values,props);
        console.log(formikBag);
        formikBag.resetForm();
    }

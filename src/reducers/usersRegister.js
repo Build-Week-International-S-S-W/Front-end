@@ -4,14 +4,14 @@ const initialState = {
   username:'',
   name:'',
   email:'',
-  phoneNumber:'',
+  phone_number:'',
   password:'',
   isLoading:false,
   isLoaded:false,
   error:null
 }
 
-export default function usersRegister(state=initialState, action) {
+export function usersRegister(state=initialState, action) {
       switch(action.type) {
         case SIGN_UP_START:
               return {
