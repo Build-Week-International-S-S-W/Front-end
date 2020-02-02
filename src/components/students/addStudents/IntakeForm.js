@@ -6,7 +6,7 @@ import './intakestyles.scss'
 import '../../assests/css/_schoolConfig.scss';
 
 
-export default function IntakeForm() {
+export default function IntakeForm({students}) {
     const [student, setStudent] = useState({
         
                         studentLast: '',
@@ -36,22 +36,24 @@ export default function IntakeForm() {
             <Formik
                 initialValues={{
                     student: {
-                        studentFirst: '',
-                        studentLast: '',
-                        age: Number,
-                        grade: Selection,
-                        story: '',
-                        insurance: Boolean,
-                        needs: '',
-                        expiration: Date,
-                        birthCertificate: Boolean,
+                        // studentFirst: '',
+                        // studentLast: '',
+                        // age: Number,
+                        // grade: Selection,
+                        // story: '',
+                        // insurance: Boolean,
+                        // needs: '',
+                        // expiration: Date,
+                        // birthCertificate: Boolean,
+                        student
                     },
                     representative: {
-                        repFirstName: '',
-                        repLastName: '',
-                        phone: Number,
-                        email: '',
-                        relation: '',
+                        // repFirstName: '',
+                        // repLastName: '',
+                        // phone: Number,
+                        // email: '',
+                        // relation: '',
+                        representative
                     }
 
 
@@ -60,23 +62,12 @@ export default function IntakeForm() {
                     const errors = {};
                     if (!values.email) {
                         errors.email = 'Required';
-                    } else if (
-                        !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
-                    ) {
-                        // errors.email = 'Invalid email address';
-                    } else if (
-                        !values.name
-                    )  {
-                        errors.name = 'Required';
-                        errors.name = 'Name cannot be empty';
                     }
                     return errors;
                 }}
+
                 onSubmit={(values, {isSubmitting} ) => {
-                    axios.get(' https://international-school-sw.herokuapp.com/api/students', {student})
-                    .then( res => {
-                        setStudent(res.data);
-                    });
+                    console.log(values)
 
                 }}
             >
@@ -119,7 +110,7 @@ export default function IntakeForm() {
 
 
                             <label htmlFor="story">BackStory:</label>
-                            <Field type='textarea' name='story' placeholder='(Students Backstory)'/>
+                            <Field type='textarea' name='story' placeholder=''/>
 
                             <label htmlFor="insurance">Insurance:</label>
                             <label>Yes</label>
@@ -164,7 +155,7 @@ export default function IntakeForm() {
                         </div>
 
 
-                        <Button onClick={() => {isSubmitting = true}} color='primary' type="submit" enable={isSubmitting}>
+                        <Button onChange={() => {isSubmitting = true}} color='primary' type="submit" enable={isSubmitting}>
                             Submit
                         </Button>
                     </Form>
