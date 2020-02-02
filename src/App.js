@@ -15,6 +15,7 @@ import IntakeForm from "./components/students/addStudents/IntakeForm";
 function App() {
   return (
     <div className="App">
+    cons [student, set] = 
     <Router>
       <div className="main-header">
         <MainNavbar />  
