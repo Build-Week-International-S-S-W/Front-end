@@ -1,13 +1,36 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import {Formik, Form, Field, ErrorMessage} from 'formik';
 import {Button} from 'reactstrap';
+import axios from 'axios';
 import './intakestyles.scss'
 import '../../assests/css/_schoolConfig.scss';
-// import AboutStudent from '../aboutStudents/BioPage';
+import AboutStudent from '../aboutStudents/BioPage';
 
 
 
 export default function IntakeForm() {
+    const [student, setStudent] = useState({
+        
+                        studentLast: '',
+                        age: '',
+                        grade: '',
+                        story: '',
+                        insurance: '',
+                        needs: '',
+                        expiration: '',
+                        birthCertificate: '',
+    });
+
+    const [representative, setRepresentative] = useState ({
+        repFirstName: '',
+        repLastName: '',
+        phone: '',
+        email: '',
+        relation: '',
+
+    });
+
+
     return (
         <>
 
@@ -51,12 +74,18 @@ export default function IntakeForm() {
                     }
                     return errors;
                 }}
-                onSubmit={(values, {setSubmitting}) => {
+                onSubmit={(values, {isSubmitting} ) => {
+                    axios.get(' https://international-school-sw.herokuapp.com/api/students', {student})
+                    .then( res => {
+                        console.log(res.data)
+                    });
+                    
                     // setTimeout(() => {
                     //     alert(JSON.stringify('Submitted',  null, 2));
                     //     setSubmitting(false)
                     // }, 400)
                     console.log(values);
+                    console.log('2',student)
 
                 }}
             >
@@ -69,6 +98,7 @@ export default function IntakeForm() {
 
                             <label className='label-text' htmlFor="name">Name:</label>
                             <Field type='name' name='name' placeholder='(Student Name)'/>
+                            
                             <ErrorMessage name='name' component='span' />
 
                             <label htmlFor="age">Age:</label>
@@ -152,7 +182,7 @@ export default function IntakeForm() {
 
             </Formik>
             
-        
+        <AboutStudent/>
 
         </div>
 
