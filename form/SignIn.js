@@ -1,9 +1,10 @@
 import React, { useState, useEffect} from 'react';
-import { Formik, Form, Field } from 'formik';
+import { Formik, Form, Field, ErrorMessage } from 'formik';
+import "./form.scss";
 import * as Yup from 'yup';
 
 export default function SignUp(){
-   const defaultUser = {username:'', email:'', phoneNumber:'', password:'' };
+   const defaultUser = {username:'',  password:'' };
    const [user, setUser] = useState(defaultUser);
    const handleSubmit = (values,formikBag) => {
        console.log(values);
@@ -12,10 +13,8 @@ export default function SignUp(){
    }
    const validate = (values) => {
       const errors = {};
-      if(!values.username) {errors.username = 'Username Required'};
-      if(!values.email) {errors.email = 'Email is required'};
-      if(!values.phoneNumber) {error.phoneNumber = 'Phone Number is required'};
-      if(!values.password) {error.password = 'Password is required'};
+      if(!values.username) {errors.username = 'Username Required'};      
+      if(!values.password) {errors.password = 'Password is required'};
       return errors;
    }
 
@@ -29,30 +28,26 @@ export default function SignUp(){
         const {isSubmitting} = props;
         console.log(isSubmitting);
         return(
-          <Form>
+          <>
+          <h1>Login Form</h1>      
+          <Form className="register">
             <Field type="text" 
                     name="username"
                     placeholder="Enter your name"                
             />
-            <Field type="email" 
-                    name="email"
-                    placeholder="Enter your email"                
-            />
-            <Field type="text" 
-                    name="phoneNumber"
-                    placeholder="phone number"                
-            />
+            <ErrorMessage name='username' component='div' className='error-message'/>            
             <Field type="password" 
                     name="password"
                     placeholder="Password"                
             />
+            <ErrorMessage name='password' component='div' className='error-message'/>
             { isSubmitting ? <button type="submit">Submitting...</button> :
                 <input type="submit" />}
           </Form>
+          </>
         )
       }}
      />
     </React.Fragment>
    );
-
 };
