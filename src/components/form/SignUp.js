@@ -8,11 +8,13 @@ import * as Yup from 'yup';
 
 function SignUp(props){
    const { username, name, email, phone_number, password} = props;
-   const defaultUser = { username, name, email, phone_number, password };  
+   const defaultUser = { username, name, email, phone_number, password };
+   const [user, setUser]  = useState(defaultUser);
    const handleSubmit = (values,formikBag) => {
        console.log(values);
        props.userRegister(values,props);
        console.log(formikBag);
+       setUser();
        formikBag.resetForm();
    }
    const validate = (values) => {
@@ -27,7 +29,7 @@ function SignUp(props){
    return(
     <React.Fragment>  
     <Formik       
-       initialValues = {defaultUser}
+       initialValues = {user}
        onSubmit = {handleSubmit}  
        validate = { validate }  
       render={(props) => {
