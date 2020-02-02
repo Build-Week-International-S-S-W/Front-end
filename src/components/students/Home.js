@@ -8,7 +8,7 @@ export default function Home() {
 
    return(
 
-        <div>
+        <div className = 'roster-wrapper'>
           <h1>Educell International School</h1>
           <div>
           <AboutStudents/>
