@@ -33,6 +33,12 @@ export default function IntakeForm({students}) {
         <>
 
         <div className="Intake-Form">
+            {
+                window.addEventListener('load', ev => {
+                    console.log(Date.now())
+                })
+            }
+            <h1>Student Intake Form</h1>
             <Formik
                 initialValues={{
                     student: {

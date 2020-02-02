@@ -2,9 +2,6 @@ import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import '../../assests/css/_schoolConfig.scss';
 
-
-
-
 export default function AboutStudents() {
     const [students, setStudents] = useState([]);
 
@@ -19,15 +16,12 @@ export default function AboutStudents() {
 
     return (
         <div className="App">
-
+            <h5>Current Students</h5>
             {
                 students.map(student => {
                     return <div className="add-student">
 
-                        <h5>Name:</h5>
                         <p>{student.name}</p>
-
-
 
 
                     </div>
