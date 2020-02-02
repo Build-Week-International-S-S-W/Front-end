@@ -4,8 +4,6 @@ import {Button} from 'reactstrap';
 import axios from 'axios';
 import './intakestyles.scss'
 import '../../assests/css/_schoolConfig.scss';
-import AboutStudent from '../aboutStudents/BioPage';
-
 
 
 export default function IntakeForm() {
