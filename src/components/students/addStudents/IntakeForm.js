@@ -77,15 +77,8 @@ export default function IntakeForm() {
                 onSubmit={(values, {isSubmitting} ) => {
                     axios.get(' https://international-school-sw.herokuapp.com/api/students', {student})
                     .then( res => {
-                        console.log(res.data)
+                        setStudent(res.data);
                     });
-                    
-                    // setTimeout(() => {
-                    //     alert(JSON.stringify('Submitted',  null, 2));
-                    //     setSubmitting(false)
-                    // }, 400)
-                    console.log(values);
-                    console.log('2',student)
 
                 }}
             >
@@ -181,8 +174,6 @@ export default function IntakeForm() {
                 )}
 
             </Formik>
-            
-        <AboutStudent/>
 
         </div>
 

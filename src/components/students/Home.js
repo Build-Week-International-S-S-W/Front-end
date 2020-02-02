@@ -7,9 +7,9 @@ export default function Home() {
      <div>
       <h1>Educell International School</h1>
       <div>
+      <AboutStudent/>
         <Button onClick={(e) => console.log('2', 2 + e)}>Add Student</Button>
       </div>
-      <AboutStudent/>
      </div>
    );
 }
