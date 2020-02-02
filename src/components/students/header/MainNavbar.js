@@ -14,7 +14,9 @@ function MainNavbar(props) {
             </Nav>
             <div className="only-links">
             <Nav>
-
+                <Link exact to="/sign-in">Login</Link>
+            </Nav>
+            <Nav>
                 <Link exact to="/home-page">Home</Link>
             </Nav>
             <Nav>
