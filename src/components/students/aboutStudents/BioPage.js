@@ -21,7 +21,7 @@ export default function AboutStudents() {
                 students.map(student => {
                     return <div className="add-student">
 
-                        <p>{student.name}</p>
+                        <p>Name: {student.name} Grade: {student.class}</p>
 
 
                     </div>
