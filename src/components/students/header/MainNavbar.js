@@ -14,7 +14,7 @@ function MainNavbar(props) {
             </Nav>
             <Nav>
 
-                <Link exact to="/sign-in">Home</Link>
+                <Link exact to="/home-page">Home</Link>
             </Nav>
             <Nav>
                 <Link to="/add-students">Add Students</Link>

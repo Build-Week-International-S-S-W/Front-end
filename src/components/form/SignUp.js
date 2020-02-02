@@ -32,7 +32,7 @@ export default function SignUp(){
         return(
           <>
           <h1>Register Form</h1>      
-          <Form>
+          <Form className="register">
             <Field type="text" 
                     name="username"
                     placeholder="Enter your name"                
