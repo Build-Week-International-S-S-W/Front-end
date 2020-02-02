@@ -13,6 +13,7 @@ import Administration from "./components/administration/Administration";
 
 
 
+
 function App() {
   return (
     <div className="App">
@@ -25,11 +26,17 @@ function App() {
             <Route exact path="/" component={Home} />
             <Route exact path="/sign-in" component={ SignIn } />
             <Route path="/sign-up" component={SignUp} />
+
+            <Route exact path="/" component={SignUp} />
+            <Route exact path="/sign-in" component={SignIn} />
+            <Route path="/home-page" component={Home} />
+
             <Route path="/server-error" component={ServerError} />
             <Route path="/page-not-found" component={PageNotFound} />
             <Route path="/not-authorized" component={NotAuthorized} />
             <Route path="/page-loading" component={Loading} />
             <Route path="/add-students" component={IntakeForm} />
+
             <Route component={SignIn} />
             <Route path = "/sign-in" component={Administration} />
           </Switch>

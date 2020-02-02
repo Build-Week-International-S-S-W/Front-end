@@ -1,16 +1,14 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import {Formik, Form, Field, ErrorMessage} from 'formik';
 import {Button} from 'reactstrap';
+import axios from 'axios';
 import './intakestyles.scss'
-import Load from "../../Loader/Loading";
+import '../../assests/css/_schoolConfig.scss';
 
-export default function IntakeForm() {
-    return (
-        <div className="Intake-Form">
-            <Formik
-                initialValues={{
-                    student: {
-                        studentFirst: '',
+
+export default function IntakeForm({students}) {
+    const [student, setStudent] = useState({
+
                         studentLast: '',
                         age: '',
                         grade: '',
@@ -19,13 +17,49 @@ export default function IntakeForm() {
                         needs: '',
                         expiration: '',
                         birthCertificate: '',
+    });
+
+    const [representative, setRepresentative] = useState ({
+        repFirstName: '',
+        repLastName: '',
+        phone: '',
+        email: '',
+        relation: '',
+
+    });
+
+
+    return (
+        <>
+
+        <div className="Intake-Form">
+            {
+                window.addEventListener('load', ev => {
+                    console.log(Date.now())
+                })
+            }
+            <h1>Student Intake Form</h1>
+            <Formik
+                initialValues={{
+                    student: {
+                        // studentFirst: '',
+                        // studentLast: '',
+                        // age: Number,
+                        // grade: Selection,
+                        // story: '',
+                        // insurance: Boolean,
+                        // needs: '',
+                        // expiration: Date,
+                        // birthCertificate: Boolean,
+                        student
                     },
                     representative: {
-                        repFirstName: '',
-                        repLastName: '',
-                        phone: '',
-                        email: '',
-                        relation: '',
+                        // repFirstName: '',
+                        // repLastName: '',
+                        // phone: Number,
+                        // email: '',
+                        // relation: '',
+                        representative
                     }
 
 
@@ -34,23 +68,12 @@ export default function IntakeForm() {
                     const errors = {};
                     if (!values.email) {
                         errors.email = 'Required';
-                    } else if (
-                        !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
-                    ) {
-                        errors.email = 'Invalid email address';
-                    } else if (
-                        !values.name
-                    ) {
-                        errors.name = 'Required';
-
                     }
                     return errors;
                 }}
-                onSubmit={(values, {setSubmitting}) => {
-                    setTimeout(() => {
-                        alert(JSON.stringify('Received', null, 2));
-                        setSubmitting(false)
-                    }, 400)
+
+                onSubmit={(values, {isSubmitting} ) => {
+                    console.log(values)
 
                 }}
             >
@@ -63,7 +86,8 @@ export default function IntakeForm() {
 
                             <label className='label-text' htmlFor="name">Name:</label>
                             <Field type='name' name='name' placeholder='(Student Name)'/>
-                            <ErrorMessage name='name' component='div' />
+
+                            <ErrorMessage name='name' component='span' />
 
                             <label htmlFor="age">Age:</label>
                             <Field type='number' name='age' placeholder='(Students Age)'/>
@@ -92,18 +116,29 @@ export default function IntakeForm() {
 
 
                             <label htmlFor="story">BackStory:</label>
-                            <Field type='textarea' name='story' placeholder='(Students Backstory)'/>
+                            <Field type='textarea' name='story' placeholder=''/>
 
                             <label htmlFor="insurance">Insurance:</label>
+
                             <Field type='checkbox' name='Y'/>Yes
                             <Field type='checkbox' name='N'/>No
+                            <label>Yes</label>
+                            <Field type='checkbox' name='Y'/>
+                            <label>No</label>
+                            <Field type='checkbox' name='N'/>
 
                             <label htmlFor="expiration">Expiration Date:</label>
                             <Field type='date' name='expiration'/>
 
                             <label htmlFor="birthCertificate">Birth Certificate:</label>
+
                             <Field type='checkbox' name='y'/>Yes
                             <Field type='checkbox' name='n'/>No
+
+                            <label>Yes</label>
+                            <Field type='checkbox' name='y'/>
+                            <label>No</label>
+                            <Field type='checkbox' name='n'/>
 
 
                             <label htmlFor="needs">Special Needs:</label>
@@ -133,7 +168,7 @@ export default function IntakeForm() {
                         </div>
 
 
-                        <Button color='primary' type="submit" disabled={isSubmitting}>
+                        <Button onChange={() => {isSubmitting = true}} color='primary' type="submit" enable={isSubmitting}>
                             Submit
                         </Button>
                     </Form>
@@ -141,9 +176,9 @@ export default function IntakeForm() {
                 )}
 
             </Formik>
-            <Load/>
 
         </div>
 
+    </>
     )
 }

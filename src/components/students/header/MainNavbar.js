@@ -16,6 +16,10 @@ function MainNavbar(props) {
             <Nav>
 
                 <Link exact to="/">Home</Link>
+                <Link exact to="/sign-in">Login</Link>
+            </Nav>
+            <Nav>
+                <Link exact to="/home-page">Home</Link>
             </Nav>
             <Nav>
                 <Link to="/add-students">Add Students</Link>
@@ -28,7 +32,9 @@ function MainNavbar(props) {
             </Nav>
             <Nav>
                <Link to="sign-out">Logout</Link>
+               <Link to="/sign-out">Logout</Link>
             </Nav>
+
             </div>
         </Navbar>
     );
