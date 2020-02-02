@@ -1,5 +1,6 @@
 import React, { useState, useEffect} from 'react';
-import { Formik, Form, Field } from 'formik';
+import { Formik, Form, Field, ErrorMessage } from 'formik';
+import "./form.scss";
 import * as Yup from 'yup';
 
 export default function SignUp(){
@@ -14,8 +15,8 @@ export default function SignUp(){
       const errors = {};
       if(!values.username) {errors.username = 'Username Required'};
       if(!values.email) {errors.email = 'Email is required'};
-      if(!values.phoneNumber) {error.phoneNumber = 'Phone Number is required'};
-      if(!values.password) {error.password = 'Password is required'};
+      if(!values.phoneNumber) {errors.phoneNumber = 'Phone Number is required'};
+      if(!values.password) {errors.password = 'Password is required'};
       return errors;
    }
 
@@ -29,26 +30,33 @@ export default function SignUp(){
         const {isSubmitting} = props;
         console.log(isSubmitting);
         return(
-          <Form>
+          <>
+          <h1>Register Form</h1>      
+          <Form className="register">
             <Field type="text" 
                     name="username"
                     placeholder="Enter your name"                
             />
+            <ErrorMessage name='username' component='div' className='error-message'/>
             <Field type="email" 
                     name="email"
                     placeholder="Enter your email"                
             />
+            <ErrorMessage name='email' component='div' className='error-message'/>
             <Field type="text" 
                     name="phoneNumber"
                     placeholder="phone number"                
             />
+            <ErrorMessage name='phoneNumber' component='div' className='error-message'/>
             <Field type="password" 
                     name="password"
                     placeholder="Password"                
             />
+            <ErrorMessage name='password' component='div' className='error-message'/>
             { isSubmitting ? <button type="submit">Submitting...</button> :
                 <input type="submit" />}
           </Form>
+          </>
         )
       }}
      />
