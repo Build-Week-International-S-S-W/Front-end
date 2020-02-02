@@ -1,14 +1,17 @@
 import React, { useState, useEffect} from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { connect } from 'react-redux';
+import { userRegister } from '../../actions/usersRegister';
 import { Link } from 'react-router-dom';
 import "./form.scss";
 import * as Yup from 'yup';
 
-export default function SignUp(){
+function SignUp(props){
    const defaultUser = {username:'', email:'', phoneNumber:'', password:'' };
    const [user, setUser] = useState(defaultUser);
    const handleSubmit = (values,formikBag) => {
        console.log(values);
+       props.userRegister(values);
        console.log(formikBag);
        formikBag.resetForm();
    }
@@ -67,3 +70,10 @@ export default function SignUp(){
    );
 
 };
+
+const mapStateToProps = (state) => {
+        return {
+
+        }
+}
+export default connect(mapStateToProps, { userRegister })(SignUp);
