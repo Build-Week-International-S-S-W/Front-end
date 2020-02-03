@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
-import { Button } from 'reactstrap';
+import { Button, Alert } from 'reactstrap';
 
 import './intakestyles.scss'
 import '../../assests/css/_schoolConfig.scss';
@@ -58,7 +58,7 @@ export default function IntakeForm({ students }) {
 
                         <Form>
                             <div className='student-info'>
-                                <h1 className='bg-secondary'>Student Information</h1>
+                                <Alert color="primary" className=''>Student Information</Alert>
                                 <div className='name-age-grade'>
 
                                     <label htmlFor="studentName">Name:</label>
@@ -128,7 +128,7 @@ export default function IntakeForm({ students }) {
                             <br></br>
 
                             <div className='rep-info'>
-                                <h1 className='bg-secondary'>Representative Information</h1>
+                                <Alert color="warning" className=''>Representative Information</Alert>
 
 
                                 <label htmlFor="repName">Name:</label>

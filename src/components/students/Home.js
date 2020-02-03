@@ -17,8 +17,6 @@ export default function Home(props) {
           </div>
         </div>
 
-        
-
         <br></br>
         <AboutStudents data={props}/>
     </>
