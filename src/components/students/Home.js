@@ -1,6 +1,5 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import './Home.scss';
-import {Button} from 'react-bootstrap';
 import AboutStudents from '../students/aboutStudents/BioPage'
 
 export default function Home() {

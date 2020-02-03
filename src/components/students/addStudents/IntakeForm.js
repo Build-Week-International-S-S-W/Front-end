@@ -1,15 +1,16 @@
 import React, {useState, useEffect} from 'react';
 import {Formik, Form, Field, ErrorMessage} from 'formik';
 import {Button} from 'reactstrap';
-import axios from 'axios';
+
 import './intakestyles.scss'
 import '../../assests/css/_schoolConfig.scss';
+
 
 
 export default function IntakeForm({students}) {
     const [student, setStudent] = useState({
 
-                        studentLast: '',
+                        studentName: '',
                         age: '',
                         grade: '',
                         story: '',
@@ -28,9 +29,6 @@ export default function IntakeForm({students}) {
 
     });
 
-    const [isSubmitting, setIsSubmitting] = useState(false)
-
-
     return (
         <>
 
@@ -42,18 +40,7 @@ export default function IntakeForm({students}) {
             }
             <h1>Student Intake Form</h1>
             <Formik
-                initialValues={{
-                    student: {
-              
-                        student
-                    },
-                    representative: {
-             
-                        representative
-                    }
-
-
-                }}
+                initialValues={{student, representative}}
                 validate={values => {
                     const errors = {};
                     if (!values.email) {
@@ -62,9 +49,9 @@ export default function IntakeForm({students}) {
                     return errors;
                 }}
 
-                onSubmit={(values, {isSubmitting} ) => {
+                onSubmit={(values, {isSubmitting}) => {
                     console.log(values)
-
+                    
                 }}
             >
                 {({isSubmitting}) => (
@@ -74,13 +61,13 @@ export default function IntakeForm({students}) {
                         <div className='student-info'>
                             <div className='name-age-grade'>
 
-                            <label className='label-text' htmlFor="name">Name:</label>
-                            <Field type='name' name='name' placeholder='(Student Name)'/>
+                            <label className='label-text' htmlFor="studentName">Name:</label>
+                            <Field type='name' name='studentName' placeholder='(Student Name)'/>
 
                             <ErrorMessage name='name' component='span' />
 
                             <label htmlFor="age">Age:</label>
-                            <Field type='number' name='age' placeholder='(Students Age)'/>
+                            <Field type='text' name='age' placeholder='(Students Age)'/>
 
                             <label htmlFor="grade">Grade:</label>
                             <Field as='select' name='grade' placeholder='(Grade)'>
@@ -110,24 +97,20 @@ export default function IntakeForm({students}) {
 
                             <label htmlFor="insurance">Insurance:</label>
 
-                            <Field type='checkbox' name='Y'/>Yes
-                            <Field type='checkbox' name='N'/>No
-                            <label>Yes</label>
+                            <label htmlFor="Y">Yes</label>
                             <Field type='checkbox' name='Y'/>
-                            <label>No</label>
+                            <label htmlFor="N">No</label>
                             <Field type='checkbox' name='N'/>
+                            
 
                             <label htmlFor="expiration">Expiration Date:</label>
                             <Field type='date' name='expiration'/>
 
                             <label htmlFor="birthCertificate">Birth Certificate:</label>
 
-                            <Field type='checkbox' name='y'/>Yes
-                            <Field type='checkbox' name='n'/>No
-
-                            <label>Yes</label>
+                            <label htmlFor="y">Yes</label>
                             <Field type='checkbox' name='y'/>
-                            <label>No</label>
+                            <label htmlFor="n">No</label>
                             <Field type='checkbox' name='n'/>
 
 
@@ -157,7 +140,7 @@ export default function IntakeForm({students}) {
                             <Field type='textarea' name='relation' placeholder='Worker'/>
                         </div>
 
-                        <Button onChange={() => {setIsSubmitting = true}} color='primary' type="submit" enable={isSubmitting}>
+                        <Button onChange={() => {isSubmitting = true}} color='primary' type="submit" disabled={isSubmitting}>
                             Submit
                         </Button>
 
