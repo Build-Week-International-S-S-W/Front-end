@@ -1,5 +1,6 @@
 import React, { useState} from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
+import {Alert, Button} from 'reactstrap';
 import "./form.scss";
 
 export default function SignIn(){
@@ -28,8 +29,8 @@ export default function SignIn(){
         console.log(isSubmitting);
         return(
           <>
-          <h3>You must be a registered user to access this site.<br/><br/>
-             Please login with your credentials.</h3>
+          <Alert color="danger">You must be a registered user to access this site.<br/><br/>
+             Please login with your credentials.</Alert>
           <Form className="register">
             <Field type="text"
                     name="username"
@@ -41,8 +42,8 @@ export default function SignIn(){
                     placeholder="Password"
             />
             <ErrorMessage name='password' component='div' className='error-message'/>
-            { isSubmitting ? <button type="submit">Submitting...</button> :
-                <input type="submit" />}
+            { isSubmitting === true ? <Button color="success" type="submit">Submitting...</Button> :
+                <Button color="warning" type="submit">Login</Button>}
           </Form>
           </>
         )

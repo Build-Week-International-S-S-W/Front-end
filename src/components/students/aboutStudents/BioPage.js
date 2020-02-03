@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import '../../assests/css/_schoolConfig.scss';
 import './biostyles.scss';
-import {Button} from "reactstrap";
+import {Button, Card, CardBody, CardTitle, CardText} from "reactstrap";
 
 export default function AboutStudents() {
     const [students, setStudents] = useState([]);
@@ -21,18 +21,22 @@ export default function AboutStudents() {
         <div className="current-student">
             {
                 students.map(student => {
-                    return <div className="add-student">
+                    return <Card className="add-student">
 
-                        <p>Name: {student.name} Grade: {student.class}</p>
+                        <CardTitle>{student.name}</CardTitle>
+                            <CardBody>
+                                
+                                <CardText>{student.id} Recent Visit</CardText>
+                            </CardBody>
 
 
-                    </div>
+                    </Card>
                 })
             }
 
         </div>
         <div className="btn">
-         <Button onClick={() => window.location.href = "/add-students"}>Add Student</Button>
+         <Button color="success" onClick={() => window.location.href = "/add-students"}>Add Student</Button>
          </div>
 
 

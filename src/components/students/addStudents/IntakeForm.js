@@ -140,7 +140,7 @@ export default function IntakeForm({students}) {
                             <Field type='textarea' name='relation' placeholder='Worker'/>
                         </div>
 
-                        <Button onChange={() => {isSubmitting = true}} color='primary' type="submit" disabled={isSubmitting}>
+                        <Button onChange={() => {isSubmitting = true}} color='warning' type="submit" enabled={isSubmitting}>
                             Submit
                         </Button>
 
