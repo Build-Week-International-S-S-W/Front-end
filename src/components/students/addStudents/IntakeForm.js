@@ -8,7 +8,7 @@ import '../../assests/css/_schoolConfig.scss';
 
 export default function IntakeForm({students}) {
     const [student, setStudent] = useState({
-        
+
                         studentLast: '',
                         age: '',
                         grade: '',
@@ -86,7 +86,7 @@ export default function IntakeForm({students}) {
 
                             <label className='label-text' htmlFor="name">Name:</label>
                             <Field type='name' name='name' placeholder='(Student Name)'/>
-                            
+
                             <ErrorMessage name='name' component='span' />
 
                             <label htmlFor="age">Age:</label>
@@ -119,6 +119,9 @@ export default function IntakeForm({students}) {
                             <Field type='textarea' name='story' placeholder=''/>
 
                             <label htmlFor="insurance">Insurance:</label>
+
+                            <Field type='checkbox' name='Y'/>Yes
+                            <Field type='checkbox' name='N'/>No
                             <label>Yes</label>
                             <Field type='checkbox' name='Y'/>
                             <label>No</label>
@@ -128,6 +131,10 @@ export default function IntakeForm({students}) {
                             <Field type='date' name='expiration'/>
 
                             <label htmlFor="birthCertificate">Birth Certificate:</label>
+
+                            <Field type='checkbox' name='y'/>Yes
+                            <Field type='checkbox' name='n'/>No
+
                             <label>Yes</label>
                             <Field type='checkbox' name='y'/>
                             <label>No</label>
@@ -135,7 +142,7 @@ export default function IntakeForm({students}) {
 
 
                             <label htmlFor="needs">Special Needs:</label>
-                            <Field type='textarea' name='needs'/>
+                            <Field type='textarea' name='needs' placeholder="Enter special needs"/>
 
 
                         </div>
@@ -145,7 +152,7 @@ export default function IntakeForm({students}) {
 
 
                             <label htmlFor="repFirstName">Name:</label>
-                            <Field type='name' name='repName' placeholder=''/>
+                            <Field type='name' name='repName' placeholder='Rep Name'/>
 
 
                             <label htmlFor="phone">Phone:</label>

@@ -1,0 +1,12 @@
+@import "../assests/css/schoolConfig";
+@import "../assests/css/mixins.scss";
+
+.roster-wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Cedarville Cursive', cursive;
+    margin: 10px;
+}
+

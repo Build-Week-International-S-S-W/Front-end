@@ -1,6 +1,16 @@
 {
+<<<<<<< HEAD
+    "cSpell.words": [
+        "assests",
+        "bprder",
+        "educell",
+        "formik",
+        "schoolname"
+    ]
+=======
   "cSpell.words": [
     "fragment",
     "yup"
   ]
+>>>>>>> 60712a1c4ba53ec24d94ae600c8c46c6e6c500c9
 }
