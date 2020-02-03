@@ -1,26 +1,34 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
+import {Button, Alert} from 'reactstrap';
+
 import axios from 'axios';
 
 
 function Administration() {
-const [editStudent, setEditStudent] = useState(false);
+    const [editStudent, setEditStudent] = useState(false);
 
-useEffect(() => {
-    axios.put('https://international-school-sw.herokuapp.com/api/students/:id')
-    .then((res) => {
-        console.log(res)
-    }).catch(err => console.log(err))
-}, [])
+    useEffect(() => {
+        axios.put('https://international-school-sw.herokuapp.com/api/students/')
+            .then((res) => {
+                setEditStudent(res.data)
+                console.log(res)
+            }).catch(err => console.log(err))
+    }, [])
 
 
     return (
-        <div>
-            <h2>Welcome, please choose an administrative task below:</h2>
+        <>
+                   
+            <div>
+                <Alert color="success">Welcome, please choose an administrative task below:</Alert>
+              
 
-            <button>Delete Student</button>
 
-            <button>Edit Student</button>
-        </div>
+                <Button color="danger">Delete Student</Button>
+
+                <Button color="warning">Edit Student</Button>
+            </div>
+        </>
     )
 }
 

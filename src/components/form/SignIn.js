@@ -42,8 +42,8 @@ export default function SignIn(){
                     placeholder="Password"
             />
             <ErrorMessage name='password' component='div' className='error-message'/>
-            { isSubmitting ? <Button color="success">Submitting...</Button> :
-                <Button color="warning">Login</Button>}
+            { isSubmitting === true ? <Button color="success" type="submit">Submitting...</Button> :
+                <Button color="warning" type="submit">Login</Button>}
           </Form>
           </>
         )
