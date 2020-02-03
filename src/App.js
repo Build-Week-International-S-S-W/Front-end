@@ -26,7 +26,6 @@ function App() {
             <Route exact path="/" component={SignUp} />
             <Route exact path="/sign-in" component={SignIn} />
             <Route path="/home-page" component={Home} />
-          </Switch>
             <Route path="/server-error" component={ServerError} />
             <Route path="/page-not-found" component={PageNotFound} />
             <Route path="/not-authorized" component={NotAuthorized} />
@@ -35,6 +34,7 @@ function App() {
             <Route path = "/administration" component={Administration} />
             <Route path = "/sign-out" component = {SignIn} />
             <Route component={SignIn} /> 
+          </Switch>
       </div>
       </Router>
     </div>
