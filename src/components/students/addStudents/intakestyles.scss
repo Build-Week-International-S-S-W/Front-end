@@ -17,13 +17,14 @@ $label-text: #777;
     .student-info {
      border: 1px solid black;
      width: 90%;
+     padding: 1%;
 
       .name-age-grade {
         // border: 12px solid grey;
         // justify-content: space-evenly;
         display: flex;
         flex-wrap: wrap;
-        // margin: 5%;
+        margin: 1%;
 
         .label-text {
           color: $label-text;
@@ -33,16 +34,20 @@ $label-text: #777;
 
       }
       .student-bottom {
+        margin: 1%;
         
         
-        
+      }
+
+      .back-story {
+        margin: 1%;
       }
      
     }
 
     .rep-info {
       border: 1px solid black;
-      // margin: 5%;
+      padding: 1%;
       display: flex;
       flex-direction: column;
       width: 90%;
