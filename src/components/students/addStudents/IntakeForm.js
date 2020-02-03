@@ -95,13 +95,13 @@ export default function IntakeForm({ students }) {
                                     <Field type='textarea' name='story' placeholder='' />
                                 </div>
                                 <div className="student-bottom">
-                                    <label htmlFor="insurance">Insurance:</label>
-                                    <br></br>
+                                    <label htmlFor="insurance">Insurance </label>
+                                    
 
-                                    <label htmlFor="Y">Yes</label>
+                                    <label htmlFor="Y">:  Yes</label>
                                     <Field type='checkbox' name='Y' />
 
-                                    <label htmlFor="N">No</label>
+                                    <label htmlFor="N"> No</label>
                                     <Field type='checkbox' name='N' />
 
 
@@ -109,13 +109,14 @@ export default function IntakeForm({ students }) {
                                     <Field type='date' name='expiration' />
                                     <br></br>
 
-                                    <label htmlFor="birthCertificate">Birth Certificate:</label>
-                                    <br></br>
-                                    <label htmlFor="y">Yes</label>
+                                    <label htmlFor="birthCertificate">Birth Certificate</label>
+                                    
+                                    <label htmlFor="y">: Yes</label>
                                     <Field type='checkbox' name='y' />
 
                                     <label htmlFor="n">No</label>
                                     <Field type='checkbox' name='n' />
+                                    <br></br>
 
 
                                     <label htmlFor="needs">Special Needs:</label>
