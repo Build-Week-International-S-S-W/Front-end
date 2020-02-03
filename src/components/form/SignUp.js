@@ -66,8 +66,7 @@ function SignUp(props){
                     placeholder="Password"                
             />
             <ErrorMessage name='password' component='div' className='error-message'/>
-            { isSubmitting ? <button type="submit">Submitting...</button> :
-                <input type="submit" />}
+             <button type="submit" disabled={isSubmitting}>{isSubmitting ? 'Submitting..' : 'Submit'}</button>
           </Form>
           </>
         )
