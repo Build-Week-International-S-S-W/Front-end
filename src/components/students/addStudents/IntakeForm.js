@@ -28,6 +28,8 @@ export default function IntakeForm({students}) {
 
     });
 
+    const [isSubmitting, setIsSubmitting] = useState(false)
+
 
     return (
         <>
@@ -42,23 +44,11 @@ export default function IntakeForm({students}) {
             <Formik
                 initialValues={{
                     student: {
-                        // studentFirst: '',
-                        // studentLast: '',
-                        // age: Number,
-                        // grade: Selection,
-                        // story: '',
-                        // insurance: Boolean,
-                        // needs: '',
-                        // expiration: Date,
-                        // birthCertificate: Boolean,
+              
                         student
                     },
                     representative: {
-                        // repFirstName: '',
-                        // repLastName: '',
-                        // phone: Number,
-                        // email: '',
-                        // relation: '',
+             
                         representative
                     }
 
@@ -167,10 +157,10 @@ export default function IntakeForm({students}) {
                             <Field type='textarea' name='relation' placeholder='Worker'/>
                         </div>
 
-
-                        <Button onChange={() => {isSubmitting = true}} color='primary' type="submit" enable={isSubmitting}>
+                        <Button onChange={() => {setIsSubmitting = true}} color='primary' type="submit" enable={isSubmitting}>
                             Submit
                         </Button>
+
                     </Form>
 
                 )}
@@ -180,5 +170,7 @@ export default function IntakeForm({students}) {
         </div>
 
     </>
-    )
+    ) 
+    
+    
 }
