@@ -45,7 +45,7 @@ const AboutStudents = (props) => {
 
     const classmates = students.map((student) => {
 
-        console.log();
+        console.log(student);
 
         return (
             <CarouselItem
@@ -56,7 +56,7 @@ const AboutStudents = (props) => {
                 onExited={() => setAnimating(false)}
             >
                 <CarouselCaption
-                    captionHeader={student.status} 
+                    
                     captionText={student.name}
                 
                 />
@@ -79,11 +79,9 @@ const AboutStudents = (props) => {
                     `.custom-tag {
               max-width: 100%;
               
-              height: 300px;
+              height: 100px;
               background: black;
-              font-size: 45px;
-
-            
+              font-size: 29px;
              
             }`
                 }
