@@ -1,7 +1,6 @@
-import React, { useState, useEffect} from 'react';
+import React, { useState} from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import "./form.scss";
-import * as Yup from 'yup';
 
 export default function SignIn(){
    const defaultUser = {username:'', password:'' };
