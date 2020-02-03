@@ -9,7 +9,7 @@ useEffect(() => {
     axios.put('https://international-school-sw.herokuapp.com/api/students/:id')
     .then((res) => {
         console.log(res)
-    })
+    }).catch(err => console.log(err))
 }, [])
 
 
