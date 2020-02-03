@@ -13,8 +13,10 @@ export function userRegister(values,props) {
            .then(response => {
               console.log(response);              
               // dispatch({SIGN_UP_SUCCESS, payload:response.data})
-              
-              props.history.push('/sign-in');
+              props.history.push('/page-loading');
+              setTimeout( () => {
+                props.history.push('/sign-in');
+              },1000)
            })
            .catch( error => {
               console.log(error);
