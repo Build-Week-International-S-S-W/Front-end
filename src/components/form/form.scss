@@ -1,10 +1,19 @@
-.register {
-  display:flex;
-  width: 300px;
-  margin: 100 auto;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: nowrap;
 
+h3 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 50px auto;
+  padding: 10px;
+}
+.register {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: auto;
+}
+
+input {
+  margin: 10px;
+  font-size: 20px;
 }

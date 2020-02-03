@@ -9,6 +9,8 @@ import PageNotFound from "../src/components/errors/PageNotFound";
 import NotAuthorized from "../src/components/errors/NotAuthorized";
 import Loading from "../src/components/Loader/Loading";
 import IntakeForm from "./components/students/addStudents/IntakeForm";
+import Administration from "./components/administration/Administration";
+
 
 
 
@@ -18,21 +20,25 @@ function App() {
     cons [student, set] = 
     <Router>
       <div className="main-header">
-        <MainNavbar />  
+        <MainNavbar />
       </div>
-      <div className="main-container">       
+      <div className="main-container">
           <Switch>
+
+
             <Route exact path="/" component={SignUp} />
             <Route exact path="/sign-in" component={SignIn} />
             <Route path="/home-page" component={Home} />
+
             <Route path="/server-error" component={ServerError} />
             <Route path="/page-not-found" component={PageNotFound} />
             <Route path="/not-authorized" component={NotAuthorized} />
             <Route path="/page-loading" component={Loading} />
             <Route path="/add-students" component={IntakeForm} />
-            
-            <Route component={SignIn} />
-          </Switch>             
+
+            <Route path = "/administration" component={Administration} />
+            <Route path = "/sign-out" component = {SignIn} />
+          </Switch>
       </div>
       </Router>
     </div>

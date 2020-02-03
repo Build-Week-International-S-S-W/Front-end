@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {Navbar, Nav} from 'react-bootstrap';
 import {Link} from 'react-router-dom';
 import './Navbar.scss';
@@ -20,15 +20,12 @@ function MainNavbar(props) {
                 <Link to="/home-page">Home</Link>
             </Nav>
             <Nav>
-                <Link to="/add-students">Add Students</Link>
-            </Nav>
-            <Nav>
-                <Link to="/modify-students">Modify Students</Link>
+                <Link to="/administration">Administration</Link>
             </Nav>
             <Nav>
                <Link to="/sign-out">Logout</Link>
             </Nav>
-                
+
             </div>
         </Navbar>
     );
