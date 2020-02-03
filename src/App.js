@@ -12,8 +12,6 @@ import IntakeForm from "./components/students/addStudents/IntakeForm";
 import Administration from "./components/administration/Administration";
 
 
-
-
 function App() {
   return (
     <div className="App">    

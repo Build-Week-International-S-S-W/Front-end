@@ -12,15 +12,17 @@ function SignUp(props){
    const defaultUser = { username, name, email, phone_number, password };
    const [user, setUser]  = useState(defaultUser);
    const handleSubmit = (values,formikBag) => {       
-       props.userRegister(values,props);      
+       const parsedValues = {...values, phone_number:Number(values.phone_number)}    
+       props.userRegister(parsedValues,props);      
        setUser();
        formikBag.resetForm();
    }
    const validate = (values) => {
       const errors = {};
       if(!values.username) {errors.username = 'Username Required'};
+      if(!values.name) {errors.username = 'Name Required'};
       if(!values.email) {errors.email = 'Email is required'};
-      if(!values.phoneNumber) {errors.phoneNumber = 'Phone Number is required'};
+      if(!values.phone_number) {errors.phone_number = 'Phone Number is required'};
       if(!values.password) {errors.password = 'Password is required'};
       return errors;
    }
@@ -41,26 +43,30 @@ function SignUp(props){
           <Form className="register">
             <Field type="text" 
                     name="username"
-                    placeholder="Enter your name"                
+                    placeholder="Enter your username"                
             />
             <ErrorMessage name='username' component='div' className='error-message'/>
+            <Field type="text" 
+                    name="name"
+                    placeholder="Enter your name"                
+            />
+            <ErrorMessage name='name' component='div' className='error-message'/>
             <Field type="email" 
                     name="email"
                     placeholder="Enter your email"                
             />
             <ErrorMessage name='email' component='div' className='error-message'/>
             <Field type="text" 
-                    name="phoneNumber"
+                    name="phone_number"
                     placeholder="phone number"                
             />
-            <ErrorMessage name='phoneNumber' component='div' className='error-message'/>
+            <ErrorMessage name='phone_number' component='div' className='error-message'/>
             <Field type="password" 
                     name="password"
                     placeholder="Password"                
             />
             <ErrorMessage name='password' component='div' className='error-message'/>
-            { isSubmitting ? <button type="submit">Submitting...</button> :
-                <input type="submit" />}
+             <button type="submit" disabled={isSubmitting}>{isSubmitting ? 'Submitting..' : 'Submit'}</button>
           </Form>
           </>
         )
