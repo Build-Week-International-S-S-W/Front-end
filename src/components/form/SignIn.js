@@ -1,6 +1,6 @@
 import React, { useState} from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
-import {Alert} from 'reactstrap';
+import {Alert, Button} from 'reactstrap';
 import "./form.scss";
 
 export default function SignIn(){
@@ -42,8 +42,8 @@ export default function SignIn(){
                     placeholder="Password"
             />
             <ErrorMessage name='password' component='div' className='error-message'/>
-            { isSubmitting ? <button type="submit">Submitting...</button> :
-                <input type="submit" />}
+            { isSubmitting ? <Button color="success">Submitting...</Button> :
+                <Button color="warning">Login</Button>}
           </Form>
           </>
         )
