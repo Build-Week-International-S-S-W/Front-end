@@ -15,7 +15,7 @@ export function userRegister(values,props) {
               // dispatch({SIGN_IN_SUCCESS, payload:response.data})
               props.history.push('/page-loading');
               setTimeout( () => {
-                props.history.push('/sign-in');
+                props.history.push('/home-page');
               },1000)
            })
            .catch( error => {
@@ -23,6 +23,9 @@ export function userRegister(values,props) {
               if(error.response) {                
                 if(error.response.status === 500) {
                   props.history.push('/server-error');
+                }
+                if(error.response.status === 401) {
+                  props.history.push('/not-authorized');
                 }
               }
               dispatch({type:SIGN_IN_ERROR,payload:error});
