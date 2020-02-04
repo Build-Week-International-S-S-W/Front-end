@@ -9,7 +9,7 @@ import {
     CarouselIndicators,
     CarouselCaption
 } from 'reactstrap';
-import warning from "react-redux/lib/utils/warning";
+
 
 const AboutStudents = (props) => {
     const [activeIndex, setActiveIndex] = useState(0);
@@ -31,22 +31,22 @@ const AboutStudents = (props) => {
         if (animating) return;
         const nextIndex = activeIndex === students.length - 1 ? 0 : activeIndex + 1;
         setActiveIndex(nextIndex);
-    }
+    };
 
     const previous = () => {
         if (animating) return;
         const nextIndex = activeIndex === 0 ? students.length - 1 : activeIndex - 1;
         setActiveIndex(nextIndex);
-    }
+    };
 
     const goToIndex = (newIndex) => {
         if (animating) return;
         setActiveIndex(newIndex);
-    }
+    };
 
     const classmates = students.map((student) => {
 
-        console.log(student);
+        // console.log(); <- we can see re
 
         return (
             <CarouselItem
