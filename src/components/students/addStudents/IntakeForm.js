@@ -92,25 +92,25 @@ export default function IntakeForm({ students }) {
 
                                 <div className="back-story">
                                     <label htmlFor="story">BackStory:</label>
-                                    <Field type='textarea' name='story' placeholder='' />
+                                    <Field type='textarea' name='story' placeholder='(Student Backstory)' />
                                 </div>
                                 <div className="student-bottom">
                                     <label htmlFor="insurance">Insurance </label>
-                                    
+
 
                                     <label htmlFor="Y">:  Yes</label>
                                     <Field type='checkbox' name='Y' />
 
-                                    <label htmlFor="N"> No</label>
+                                    <label htmlFor="N">: No</label>
                                     <Field type='checkbox' name='N' />
 
 
                                     <label htmlFor="expiration">Expiration Date:</label>
                                     <Field type='date' name='expiration' />
-                                    <br></br>
+                                    <br/>
 
                                     <label htmlFor="birthCertificate">Birth Certificate</label>
-                                    
+
                                     <label htmlFor="y">: Yes</label>
                                     <Field type='checkbox' name='y' />
 
@@ -120,12 +120,12 @@ export default function IntakeForm({ students }) {
 
 
                                     <label htmlFor="needs">Special Needs:</label>
-                                    <Field type='textarea' name='needs' placeholder="Alergies" />
+                                    <Field type='textarea' name='needs' placeholder="Allergies" />
                                 </div>
 
 
                             </div>
-                            <br></br>
+                            <br/>
 
                             <div className='rep-info'>
                                 <Alert color="warning" className=''>Representative Information</Alert>

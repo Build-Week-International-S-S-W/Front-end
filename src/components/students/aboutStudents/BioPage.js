@@ -8,9 +8,9 @@ import {
     CarouselControl,
     CarouselIndicators,
     CarouselCaption
-} from 'reactstrap'; 
+} from 'reactstrap';
 
-const AboutStudents = (props) => {
+const AboutStudents = () => {
     const [activeIndex, setActiveIndex] = useState(0);
     const [animating, setAnimating] = useState(false);
     const [students, setStudents] = useState([]);
@@ -19,7 +19,7 @@ const AboutStudents = (props) => {
         axios.get('https://international-school-sw.herokuapp.com/api/students')
             .then(res => {
                 setStudents(res.data)
-                console.log(res.data)
+                // console.log(res.data)
             }
             ).catch(err => console.log(err))
     }, [])
@@ -45,7 +45,7 @@ const AboutStudents = (props) => {
 
     const classmates = students.map((student) => {
 
-        console.log(student);
+        // console.log(student);
 
         return (
             <CarouselItem
@@ -56,15 +56,15 @@ const AboutStudents = (props) => {
                 onExited={() => setAnimating(false)}
             >
                 <CarouselCaption
-                    
+
                     captionText={student.name}
-                
+
                 />
-               
-            
+
+
 
             </CarouselItem>
-            
+
 
 
         );
@@ -78,11 +78,11 @@ const AboutStudents = (props) => {
                 {
                     `.custom-tag {
               max-width: 100%;
-              
+
               height: 100px;
               background: black;
               font-size: 29px;
-             
+
             }`
                 }
             </style>
