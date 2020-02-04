@@ -14,7 +14,7 @@ import Administration from "./components/administration/Administration";
 
 function App() {
   return (
-    <div className="App">    
+    <div className="App">
     <Router>
       <div className="main-header">
         <MainNavbar />
@@ -28,10 +28,11 @@ function App() {
             <Route path="/page-not-found" component={PageNotFound} />
             <Route path="/not-authorized" component={NotAuthorized} />
             <Route path="/page-loading" component={Loading} />
-            <Route path="/add-students" component={IntakeForm} />            
+            <Route path="/add-students" component={IntakeForm} />
             <Route path = "/administration" component={Administration} />
+            <Route path = "/administration/:id" component={Administration} />
             <Route path = "/sign-out" component = {SignIn} />
-            <Route component={SignIn} /> 
+            <Route component={SignIn} />
           </Switch>
       </div>
       </Router>

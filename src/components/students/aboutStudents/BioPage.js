@@ -10,8 +10,7 @@ import {
     CarouselCaption
 } from 'reactstrap';
 
-
-const AboutStudents = (props) => {
+const AboutStudents = () => {
     const [activeIndex, setActiveIndex] = useState(0);
     const [animating, setAnimating] = useState(false);
     const [students, setStudents] = useState([]);
@@ -46,7 +45,6 @@ const AboutStudents = (props) => {
 
     const classmates = students.map((student) => {
 
-        // console.log(student.valueOf());
 
         return (
             <CarouselItem
@@ -58,17 +56,15 @@ const AboutStudents = (props) => {
                 unmountOnExit={() => setAnimating(true)}
             >
                 <CarouselCaption
-                    
-                    captionText={student.name}
-                    captionH
 
-                
+                    captionText={student.name}
+
                 />
-               
-            
+
+
 
             </CarouselItem>
-            
+
 
 
         );
@@ -82,11 +78,12 @@ const AboutStudents = (props) => {
                 {
                     `.custom-tag {
               max-width: 50%;
-              
+
               height: 300px;
+
               background: black;
               font-size: 29px;
-             
+
             }`
                 }
             </style>
