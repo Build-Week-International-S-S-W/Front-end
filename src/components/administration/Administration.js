@@ -8,7 +8,7 @@ function Administration() {
     const [editStudent, setEditStudent] = useState(false);
 
     useEffect(() => {
-        axios.put('https://international-school-sw.herokuapp.com/api/students/')
+        axios.put('https://international-school-sw.herokuapp.com/api/students/:id')
             .then((res) => {
                 setEditStudent(res.data)
                 console.log(res)

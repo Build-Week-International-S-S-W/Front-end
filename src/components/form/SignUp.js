@@ -1,10 +1,11 @@
-import React, { useState, useEffect} from 'react';
+import React, { useState} from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { connect } from 'react-redux';
 import { userRegister } from '../../actions/usersRegister';
 import { Link } from 'react-router-dom';
+import { Button , Alert} from 'reactstrap';
 import "./form.scss";
-import * as Yup from 'yup';
+// import * as Yup from 'yup';
 
 function SignUp(props){
         console.log('accessing the all the props',props);
@@ -38,7 +39,7 @@ function SignUp(props){
         console.log(isSubmitting);
         return(
           <>
-          <h1>Register Form</h1>  
+          <Alert color="warning">Register Form</Alert>  
           <p> Already Registered<Link to="/sign-in">login here.</Link></p>    
           <Form className="register">
             <Field type="text" 
@@ -66,7 +67,7 @@ function SignUp(props){
                     placeholder="Password"                
             />
             <ErrorMessage name='password' component='div' className='error-message'/>
-             <button type="submit" disabled={isSubmitting}>{isSubmitting ? 'Submitting..' : 'Submit'}</button>
+             <Button color="warning" type="submit" disabled={isSubmitting}>{isSubmitting ? 'Submitting..' : 'Submit'}</Button>
           </Form>
           </>
         )

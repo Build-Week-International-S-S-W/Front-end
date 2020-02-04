@@ -3,7 +3,7 @@ import {Alert} from 'reactstrap';
 import './Home.scss';
 import AboutStudents from '../students/aboutStudents/BioPage'
 
-export default function Home() {
+export default function Home(props) {
 
 
    return(
@@ -15,12 +15,10 @@ export default function Home() {
           <Alert color="primary">Current Roster</Alert>
             
           </div>
-          <AboutStudents/>
         </div>
 
-        
-
-        
+        <br></br>
+        <AboutStudents data={props}/>
     </>
    );
 }
