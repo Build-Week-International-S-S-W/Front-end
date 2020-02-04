@@ -20,7 +20,7 @@ const AboutStudents = (props) => {
         axios.get('https://international-school-sw.herokuapp.com/api/students')
             .then(res => {
                 setStudents(res.data)
-                console.log(res.data)
+                // console.log(res.data)
             }
             ).catch(err => console.log(err))
     }, []);
@@ -55,6 +55,7 @@ const AboutStudents = (props) => {
                 key={student.id}
                 onExiting={() => setAnimating(true)}
                 onExited={() => setAnimating(false)}
+                unmountOnExit={() => setAnimating(true)}
             >
                 <CarouselCaption
                     
@@ -118,6 +119,7 @@ const AboutStudents = (props) => {
 
             <div className="btn">
                 <Button color="success" onClick={(touched) => {
+                    console.log(classmates.map( fixed => fixed.valueOf()));
                     touched = (alert('This Network is being monitor'));
 
                     window.location.href = "/add-students"}}>Add Student</Button>
@@ -127,6 +129,6 @@ const AboutStudents = (props) => {
 
         </div>
     )
-}
+};
 
 export default AboutStudents;
