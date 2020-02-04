@@ -6,10 +6,16 @@ import {Button, Alert} from 'reactstrap';
 const  Administration = () => {
     const [editStudent, setEditStudent] = useState(false)
     const [deleteStudent, setDeletStudent] = useState(false)
-    const clickHandler = () => {
-        setDeletStudent(deleteStudent.valueOf)
+
+    const deleteHandler = () => {
+        
         console.log(deleteStudent)
 
+    }
+
+    const editHandler = () => {
+
+        console.log(editStudent)
     }
 
 
@@ -31,9 +37,9 @@ const  Administration = () => {
 
 
 
-                <Button color="danger" onClick={clickHandler}>Delete Student</Button>
+                <Button color="danger" onClick={deleteHandler}>Delete Student</Button>
 
-                <Button color="warning" type="submit" onClick={setEditStudent}>Edit Student</Button>
+                <Button color="warning" type="submit" onClick={editHandler}>Edit Student</Button>
 
             </div>
 
