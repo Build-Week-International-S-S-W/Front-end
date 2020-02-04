@@ -8,7 +8,8 @@ import {
     CarouselControl,
     CarouselIndicators,
     CarouselCaption
-} from 'reactstrap'; 
+} from 'reactstrap';
+import warning from "react-redux/lib/utils/warning";
 
 const AboutStudents = (props) => {
     const [activeIndex, setActiveIndex] = useState(0);
@@ -22,7 +23,7 @@ const AboutStudents = (props) => {
                 console.log(res.data)
             }
             ).catch(err => console.log(err))
-    }, []); 
+    }, []);
 
 
 
@@ -116,7 +117,10 @@ const AboutStudents = (props) => {
             </Carousel >
 
             <div className="btn">
-                <Button color="success" onClick={() => window.location.href = "/add-students"}>Add Student</Button>
+                <Button color="success" onClick={(touched) => {
+                    touched = (alert('This Network is being monitor'));
+
+                    window.location.href = "/add-students"}}>Add Student</Button>
             </div>
 
 
