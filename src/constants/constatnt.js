@@ -1,0 +1,1 @@
+export const SESSION_KEY_INFO = 'SESSION_KEY_TOKEN';

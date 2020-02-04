@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { SESSION_KEY_INFO } from '../constants/constatnt';
 export const SIGN_IN_START = "SIGN_IN_START";
 export const SIGN_IN_SUCCESS = "SIGN_IN_SUCCESS";
 export const SIGN_IN_ERROR = "SIGN_IN_ERROR";
@@ -13,6 +14,9 @@ export function usersLogin(values,props) {
            .then(response => {
               console.log(response);              
               // dispatch({SIGN_IN_SUCCESS, payload:response.data})
+              if(response) {
+                sessionStorage.setItem(SESSION_KEY_INFO, JSON.stringify(response.data));
+              }
               props.history.push('/page-loading');
               setTimeout( () => {
                 props.history.push('/home-page');
