@@ -59,7 +59,8 @@ function SignIn(props){
    );
 
 };
-const mapStateToProps(state) {
+
+function mapStateToProps(state) {
     return {
        name:state.usersLogin.name,
        password:state.usersLogin.password

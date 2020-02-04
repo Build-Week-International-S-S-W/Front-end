@@ -3,7 +3,7 @@ export const SIGN_IN_START = "SIGN_IN_START";
 export const SIGN_IN_SUCCESS = "SIGN_IN_SUCCESS";
 export const SIGN_IN_ERROR = "SIGN_IN_ERROR";
 
-export function userRegister(values,props) {
+export function usersLogin(values,props) {
    console.log('action values', values);
    console.log('action props', props);
    

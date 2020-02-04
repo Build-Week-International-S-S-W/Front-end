@@ -1,6 +1,6 @@
 import { SIGN_IN_START,
   SIGN_IN_SUCCESS,
-  SIGN_IN_ERROR } from '../actions/userLogin';
+  SIGN_IN_ERROR } from '../actions/usersLogin';
 
 const initialState = {
 username:'', 
