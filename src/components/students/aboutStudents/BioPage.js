@@ -46,7 +46,7 @@ const AboutStudents = (props) => {
 
     const classmates = students.map((student) => {
 
-        // console.log(); <- we can see re
+        console.log(student.valueOf());
 
         return (
             <CarouselItem
@@ -60,6 +60,8 @@ const AboutStudents = (props) => {
                 <CarouselCaption
                     
                     captionText={student.name}
+                    captionH
+
                 
                 />
                
@@ -79,9 +81,9 @@ const AboutStudents = (props) => {
              <style>
                 {
                     `.custom-tag {
-              max-width: 100%;
+              max-width: 50%;
               
-              height: 100px;
+              height: 300px;
               background: black;
               font-size: 29px;
              
@@ -120,7 +122,7 @@ const AboutStudents = (props) => {
             <div className="btn">
                 <Button color="success" onClick={(touched) => {
                     console.log(classmates.map( fixed => fixed.valueOf()));
-                    touched = (alert('This Network is being monitor'));
+                    touched = (alert('Educell International network is being monitor!'));
 
                     window.location.href = "/add-students"}}>Add Student</Button>
             </div>

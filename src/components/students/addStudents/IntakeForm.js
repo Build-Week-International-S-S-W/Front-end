@@ -49,12 +49,19 @@ export default function IntakeForm({ students }) {
                         } else if (!values.studentName) {
                             errors.studentName = 'Required';
 
-                        } else if (values.age > 16) {
+                        } else if (values.age > 16 || !values.age ) {
                             errors.age = 'Not Allowed';
-                        } else if (values.Y || values.y === true) {
-                            errors.n = false;
-                            errors.N = false;
                         }
+                        //We need to handle the checkboxes state inside Boolean
+                        //expression. If Y is true, then N cannot be also true,
+                        //and if n is true, then y cannot be also true.
+
+                        //essentially we only accept one value for each slice
+                        //of state.
+                        // else if (values.Y || values.y === true) {
+                        //     errors.n = 'Disabled';
+                        //     errors.N = false;
+                        // }
 
                         return errors;
                     }}
@@ -118,12 +125,12 @@ export default function IntakeForm({ students }) {
                                     <Field type='checkbox' name='Y' />
 
                                     <label htmlFor="N"> No</label>
-                                    <ErrorMessage name='N' component='div'/>
+                                    {/*<ErrorMessage name='N' component='div'/>*/}
                                     <Field type='checkbox' name='N' />
 
 
-                                    <label htmlFor="expiration">Expiration Date:</label>
-                                    <Field type='date' name='expiration' />
+                                    <label htmlFor="date">Expiration Date:</label>
+                                    <Field type='date' name='date' />
                                     <br>
 
                                     </br>
@@ -134,7 +141,7 @@ export default function IntakeForm({ students }) {
                                     <Field type='checkbox' name='y' />
 
                                     <label htmlFor="n">No</label>
-                                    <ErrorMessage name='n' component='div'/>
+                                    {/*<ErrorMessage name='n' component='div'/>*/}
                                     <Field type='checkbox' name='n' />
                                     <br>
 
