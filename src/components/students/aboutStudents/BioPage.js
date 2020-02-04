@@ -46,7 +46,7 @@ const AboutStudents = (props) => {
 
     const classmates = students.map((student) => {
 
-        console.log(student.valueOf());
+        // console.log(student.valueOf());
 
         return (
             <CarouselItem
