@@ -1,13 +1,19 @@
 import React, { useState} from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { usersLogin } from '../../actions/usersLogin';
+import { connect } from 'react-redux';
 import {Alert, Button} from 'reactstrap';
 import "./form.scss";
 
-export default function SignIn(){
-   const defaultUser = {username:'', password:'' };
+function SignIn(props){
+   const {username, password } = props;
+   // const defaultUser = {username:'', password:'' };
+   const defaultUser = {username,password};
    const [user, setUser] = useState(defaultUser);
    const handleSubmit = (values,formikBag) => {
        console.log(values);
+       props.usersLogin(values,props);
+       setUser();
        console.log(formikBag);
        formikBag.resetForm();
    }
@@ -53,3 +59,10 @@ export default function SignIn(){
    );
 
 };
+const mapStateToProps(state) {
+    return {
+       name:state.usersLogin.name,
+       password:state.usersLogin.password
+    }
+}
+export default connect(mapStateToProps, {usersLogin})(SignIn);
