@@ -7,7 +7,7 @@ import "./form.scss";
 
 function SignIn(props){
    const {username, password } = props;
-   // const defaultUser = {username:'', password:'' };
+  
    const defaultUser = {username,password};
    const [user, setUser] = useState(defaultUser);
    const handleSubmit = (values,formikBag) => {

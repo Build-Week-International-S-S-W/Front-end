@@ -25,11 +25,11 @@ function IntakeForm(props) {
 
     });
 
-    const [representative, setRepresentative] = useState({
+    const [student_contact, setStudentConctact] = useState({
         name: '',
         phone_number: '',
         email: '',
-        relation: '',
+        social_worker: '',
 
     });
     const lastVisit = () => {
@@ -39,7 +39,7 @@ function IntakeForm(props) {
     return (
         <React.Fragment>
             <Formik
-                initialValues={{ student, representative }}
+                initialValues={{ student, student_contact }}
                 onSubmit={(values, formikBag, lastVisit) => {setStudent(); formikBag.resetForm(); lastVisit.props.push(setStudent)}}
                 validate={values => {
                     const errors = {};
@@ -163,9 +163,10 @@ function IntakeForm(props) {
                                     <ErrorMessage name='email' component='div' />
 
 
-                                    <label htmlFor="relation">Contact:</label>
-                                    <Field type='textarea' name='relation' placeholder='Contact' />
+                                    <label htmlFor="social_worker">Contact:</label>
+                                    <Field type='textarea' name='social_worker' placeholder='Social Worker' />
                                 </div>
+                                {lastVisit}
 
                                 <Button onChange={(touched) => { touched ? isSubmitting = true : console.log(ErrorMessage) }} color='warning' type="submit" disabled={isSubmitting}>
                                     Submit
