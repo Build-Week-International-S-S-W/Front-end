@@ -1,9 +1,13 @@
 import React from 'react';
-import {Alert} from 'reactstrap';
+import {Badge, Alert} from 'reactstrap';
 import './Home.scss';
 import AboutStudents from '../students/aboutStudents/BioPage'
+<<<<<<< HEAD
 
 
+=======
+import moment from 'moment';
+>>>>>>> 473426a5e5a324da19d0e9af6748ed9ea7d282c8
 export default function Home(props) {
 
 
@@ -11,14 +15,16 @@ export default function Home(props) {
      <>
 
         <div className = 'roster-wrapper'>
-          <h1>Educell International School</h1>
           <div>
           <Alert color="primary">Current Roster</Alert>
-            
+
           </div>
+          <Badge color="info">{moment().format('MMMM Do YYYY, h:mm:ss a')}</Badge>
         </div>
 
-        <br></br>
+        <br>
+
+        </br>
         <AboutStudents data={props}/>
     </>
    );

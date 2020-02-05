@@ -25,7 +25,7 @@ const AboutStudents = (props) => {
                 // console.log(res.data)
             }
             ).catch(err => console.log(err))
-    }, [])
+    }, []);
 
 
 
@@ -33,22 +33,21 @@ const AboutStudents = (props) => {
         if (animating) return;
         const nextIndex = activeIndex === students.length - 1 ? 0 : activeIndex + 1;
         setActiveIndex(nextIndex);
-    }
+    };
 
     const previous = () => {
         if (animating) return;
         const nextIndex = activeIndex === 0 ? students.length - 1 : activeIndex - 1;
         setActiveIndex(nextIndex);
-    }
+    };
 
     const goToIndex = (newIndex) => {
         if (animating) return;
         setActiveIndex(newIndex);
-    }
+    };
 
     const classmates = students.map((student) => {
 
-        // console.log(student);
 
         return (
             <CarouselItem
@@ -57,6 +56,7 @@ const AboutStudents = (props) => {
                 key={student.id}
                 onExiting={() => setAnimating(true)}
                 onExited={() => setAnimating(false)}
+                unmountOnExit={() => setAnimating(true)}
             >
                 <CarouselCaption
 
@@ -80,9 +80,10 @@ const AboutStudents = (props) => {
              <style>
                 {
                     `.custom-tag {
-              max-width: 100%;
+              max-width: 50%;
 
-              height: 100px;
+              height: 300px;
+
               background: black;
               font-size: 29px;
 
@@ -119,13 +120,21 @@ const AboutStudents = (props) => {
             </Carousel >
 
             <div className="btn">
+<<<<<<< HEAD
                 <Button color="success" onClick={handleSubmit}>Add Student</Button>
+=======
+                <Button color="success" onClick={(touched) => {
+                    console.log(classmates.map( fixed => fixed.valueOf()));
+                    touched = (alert('Educell International network is being monitor!'));
+
+                    window.location.href = "/add-students"}}>Add Student</Button>
+>>>>>>> 473426a5e5a324da19d0e9af6748ed9ea7d282c8
             </div>
 
 
 
         </div>
     )
-}
+};
 
 export default AboutStudents;
