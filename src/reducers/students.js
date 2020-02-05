@@ -14,6 +14,7 @@ import {
 
 const initialState = {
         isLoading:false,
+        error:null,
         students:[
               {
                 name:'',
@@ -28,3 +29,25 @@ const initialState = {
               }
             ]
 };
+
+export default students(state=initialState, action) {
+   switch(action.type) {
+      case STUDENTS_GETTING_START:
+        return {
+          ...state,
+          isLoading:true
+        }
+      case STUDENTS_GETTING_SUCCESS:
+        return {
+          ...state,
+          isLoading:false,
+          students:action.payload
+        }
+      case STUDENTS_GETTING_ERROR:
+        return {
+          ...state,
+          isLoading:false,
+          error:action.payload
+        }  
+   }
+}
