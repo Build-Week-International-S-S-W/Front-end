@@ -15,7 +15,7 @@ const AboutStudents = (props) => {
     const [animating, setAnimating] = useState(false);
     const [students, setStudents] = useState([]);
     const handleSubmit = (e) => {
-        props.history.push('/add-students')
+        window.location.href='/add-students';
     }
 
     useEffect(() => {
