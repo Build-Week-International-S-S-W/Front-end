@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { getStudents } from '../../../actions/students';
+import { StudentsDataTable } from './DataTable';
 import axios from 'axios';
 
 import {
@@ -63,6 +64,7 @@ const AboutStudents = (props) => {
                     <h1>{student.name}</h1>
                 </div>
             })}
+            <StudentsDataTable data={props.studentsList}/>
             <div className="btn">
                 <Button color="success" onClick={(touched) => {
                     // console.log(classmates.map( fixed => fixed.valueOf()));
