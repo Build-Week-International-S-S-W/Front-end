@@ -22,7 +22,7 @@ const AboutStudents = () => {
                 // console.log(res.data)
             }
             ).catch(err => console.log(err))
-    }, [])
+    }, []);
 
 
 
@@ -30,22 +30,21 @@ const AboutStudents = () => {
         if (animating) return;
         const nextIndex = activeIndex === students.length - 1 ? 0 : activeIndex + 1;
         setActiveIndex(nextIndex);
-    }
+    };
 
     const previous = () => {
         if (animating) return;
         const nextIndex = activeIndex === 0 ? students.length - 1 : activeIndex - 1;
         setActiveIndex(nextIndex);
-    }
+    };
 
     const goToIndex = (newIndex) => {
         if (animating) return;
         setActiveIndex(newIndex);
-    }
+    };
 
     const classmates = students.map((student) => {
 
-        // console.log(student);
 
         return (
             <CarouselItem
@@ -54,6 +53,7 @@ const AboutStudents = () => {
                 key={student.id}
                 onExiting={() => setAnimating(true)}
                 onExited={() => setAnimating(false)}
+                unmountOnExit={() => setAnimating(true)}
             >
                 <CarouselCaption
 
@@ -77,9 +77,10 @@ const AboutStudents = () => {
              <style>
                 {
                     `.custom-tag {
-              max-width: 100%;
+              max-width: 50%;
 
-              height: 100px;
+              height: 300px;
+
               background: black;
               font-size: 29px;
 
@@ -116,13 +117,17 @@ const AboutStudents = () => {
             </Carousel >
 
             <div className="btn">
-                <Button color="success" onClick={() => window.location.href = "/add-students"}>Add Student</Button>
+                <Button color="success" onClick={(touched) => {
+                    console.log(classmates.map( fixed => fixed.valueOf()));
+                    touched = (alert('Educell International network is being monitor!'));
+
+                    window.location.href = "/add-students"}}>Add Student</Button>
             </div>
 
 
 
         </div>
     )
-}
+};
 
 export default AboutStudents;
