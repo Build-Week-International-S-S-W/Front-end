@@ -30,13 +30,13 @@ function App() {
             <Route exact path="/sign-in" component={SignIn} />
             <PrivateRoute path="/home-page" component={Home} />
             <PrivateRoute path="/page-not-found" component={PageNotFound} />
-            <PrivateRoute path="/add-students" component={IntakeForm} />
+            <PrivateRoute path="/add-students" component={IntakeForm} />            
             <PrivateRoute path = "/administration" component={Administration} />
             <PrivateRoute path = "/administration/:id" component={Administration} />
             <PrivateRoute path = "/sign-out" component = {SignIn} />
             <Route path="/page-loading" component={Loading} />
             <Route path="/server-error" component={ServerError} />
-            <Route path="/not-authorized" component={NotAuthorized} />
+            <Route path="/not-authorized" component={NotAuthorized} /> 
             <Route component={SignIn} />
           </Switch>
       </div>
