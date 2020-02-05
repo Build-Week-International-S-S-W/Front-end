@@ -31,6 +31,7 @@ const initialState = {
 };
 
 export function students(state=initialState, action) {
+   console.log('action in reducers>>>>>>>>>>>', action.payload)
    switch(action.type) {
       case STUDENTS_GETTING_START:
         return {

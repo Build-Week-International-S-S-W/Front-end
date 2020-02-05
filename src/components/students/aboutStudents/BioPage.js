@@ -55,7 +55,7 @@ const AboutStudents = (props) => {
     //         </CarouselItem>
     //     );
     // });
-    console.log(props.studentsList);
+    console.log('studetns infor from store>>>>>>>>>>>>>>>>',props.studentsList);
     return (
         <React.Fragment>
             {props.studentsList.map( (student) => {
@@ -83,7 +83,7 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect( mapStateToProps, { getStudents })(AboutStudents);
+export default connect( mapStateToProps,{ getStudents })(AboutStudents);
 
 
 
