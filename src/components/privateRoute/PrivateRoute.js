@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
-import {SESSION_KEY_TOKEN } from '../../constants/constatnt';
+import {SESSION_KEY_TOKEN } from '../../constants/constant';
 
 export default function PrivateRoute({component:Component, ...rest}) {
    const token = sessionStorage.getItem(SESSION_KEY_TOKEN);

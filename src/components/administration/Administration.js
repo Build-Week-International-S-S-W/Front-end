@@ -8,7 +8,7 @@ const  Administration = () => {
     const [deleteStudent, setDeletStudent] = useState(false)
 
     const deleteHandler = () => {
-        
+
         console.log(deleteStudent)
 
     }
@@ -17,8 +17,6 @@ const  Administration = () => {
 
         console.log(editStudent)
     }
-
-
 
 
     // if(!editStudent) {

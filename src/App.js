@@ -13,6 +13,7 @@ import { withRouter } from 'react-router-dom';
 import Administration from "./components/administration/Administration";
 import PrivateRoute from './components/privateRoute/PrivateRoute';
 import { SESSION_KEY_TOKEN, SESSION_KEY_MESSAGE } from './constants/constatnt';
+import EditForm from './components/administration/EditForm';
 
 
 function App() {
@@ -30,10 +31,11 @@ function App() {
             <Route exact path="/sign-in" component={SignIn} />
             <PrivateRoute path="/home-page" component={Home} />
             <PrivateRoute path="/page-not-found" component={PageNotFound} />
-            <PrivateRoute path="/add-students" component={IntakeForm} />            
+            <PrivateRoute path="/add-students" component={IntakeForm} />
             <PrivateRoute path = "/administration" component={Administration} />
             <PrivateRoute path = "/administration/:id" component={Administration} />
             <PrivateRoute path = "/sign-out" component = {SignIn} />
+            <PrivateRoute path = "/edit/:id" component = {EditForm}/>
             <Route path="/page-loading" component={Loading} />
             <Route path="/server-error" component={ServerError} />
             <Route path="/not-authorized" component={NotAuthorized} /> 
