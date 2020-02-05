@@ -30,7 +30,7 @@ const initialState = {
             ]
 };
 
-export default students(state=initialState, action) {
+export function students(state=initialState, action) {
    switch(action.type) {
       case STUDENTS_GETTING_START:
         return {
@@ -48,6 +48,8 @@ export default students(state=initialState, action) {
           ...state,
           isLoading:false,
           error:action.payload
-        }  
+        } 
+      default:
+        return state;   
    }
 }
