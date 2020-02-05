@@ -11,6 +11,7 @@ import Loading from "../src/components/Loader/Loading";
 import IntakeForm from "./components/students/addStudents/IntakeForm";
 import { withRouter } from 'react-router-dom';
 import Administration from "./components/administration/Administration";
+import PrivateRoute from './components/privateRoute/PrivateRoute';
 import { SESSION_KEY_TOKEN, SESSION_KEY_MESSAGE } from './constants/constatnt';
 
 
@@ -27,15 +28,15 @@ function App() {
           <Switch>
             <Route exact path="/" component={SignUp} />
             <Route exact path="/sign-in" component={SignIn} />
-            <Route path="/home-page" component={Home} />
-            <Route path="/server-error" component={ServerError} />
-            <Route path="/page-not-found" component={PageNotFound} />
-            <Route path="/not-authorized" component={NotAuthorized} />
+            <PrivateRoute path="/home-page" component={Home} />
+            <PrivateRoute path="/page-not-found" component={PageNotFound} />
+            <PrivateRoute path="/add-students" component={IntakeForm} />            
+            <PrivateRoute path = "/administration" component={Administration} />
+            <PrivateRoute path = "/administration/:id" component={Administration} />
+            <PrivateRoute path = "/sign-out" component = {SignIn} />
             <Route path="/page-loading" component={Loading} />
-            <Route exact path="/add-students" render={(props) =>  <IntakeForm/>} />
-            <Route path = "/administration" component={Administration} />
-            <Route path = "/administration/:id" component={Administration} />
-            <Route path = "/sign-out" component = {SignIn} />
+            <Route path="/server-error" component={ServerError} />
+            <Route path="/not-authorized" component={NotAuthorized} /> 
             <Route component={SignIn} />
           </Switch>
       </div>

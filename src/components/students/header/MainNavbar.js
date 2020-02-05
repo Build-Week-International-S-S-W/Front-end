@@ -1,6 +1,6 @@
 import React from 'react';
 import {Navbar, Nav} from 'react-bootstrap';
-// import { SESSION_KEY_INFO } from '../../../constants/constatnt'
+import { SESSION_KEY_TOKEN } from '../../../constants/constatnt';
 import {Link} from 'react-router-dom';
 import './Navbar.scss';
 
@@ -21,10 +21,10 @@ function MainNavbar(props) {
                 <p className='one-day-a-line'>Educell International School</p>
             </Nav>
             <div className="only-links">
-            {<Nav>
+            {/* {<Nav>
                 <Link to="/sign-in">Login</Link>
             </Nav>
-            }
+            } */}
 
             {<Nav>
                 <Link to="/home-page">Home</Link>
@@ -35,7 +35,7 @@ function MainNavbar(props) {
             </Nav>
             }
             {<Nav>
-               <Link to="/sign-out">Logout</Link>
+               <Link to="/sign-out"><span onClick={() =>{sessionStorage.removeItem(SESSION_KEY_TOKEN)}}>Logout</span></Link>
             </Nav>}
             </div>
         </Navbar>
