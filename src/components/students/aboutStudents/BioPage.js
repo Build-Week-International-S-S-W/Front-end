@@ -120,15 +120,11 @@ const AboutStudents = (props) => {
             </Carousel >
 
             <div className="btn">
-<<<<<<< HEAD
-                <Button color="success" onClick={handleSubmit}>Add Student</Button>
-=======
                 <Button color="success" onClick={(touched) => {
                     console.log(classmates.map( fixed => fixed.valueOf()));
                     touched = (alert('Educell International network is being monitor!'));
 
                     window.location.href = "/add-students"}}>Add Student</Button>
->>>>>>> 473426a5e5a324da19d0e9af6748ed9ea7d282c8
             </div>
 
 
