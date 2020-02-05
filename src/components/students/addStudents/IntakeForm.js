@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { Button, Alert } from 'reactstrap';
-
 import './intakestyles.scss'
 import '../../assests/css/_schoolConfig.scss';
 
 
 
-export default function IntakeForm({ students }) {
+export default function IntakeForm(props) {
     const [student, setStudent] = useState({
 
         studentName: '',
