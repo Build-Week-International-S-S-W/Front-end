@@ -9,15 +9,19 @@ import PageNotFound from "../src/components/errors/PageNotFound";
 import NotAuthorized from "../src/components/errors/NotAuthorized";
 import Loading from "../src/components/Loader/Loading";
 import IntakeForm from "./components/students/addStudents/IntakeForm";
+import { withRouter } from 'react-router-dom';
 import Administration from "./components/administration/Administration";
+import { SESSION_KEY_TOKEN, SESSION_KEY_MESSAGE } from './constants/constatnt';
 
 
 function App() {
+  const token = sessionStorage.getItem(SESSION_KEY_TOKEN);
+  const message = sessionStorage.getItem(SESSION_KEY_MESSAGE);
   return (
     <div className="App">    
     <Router>
       <div className="main-header">
-        <MainNavbar />
+        <MainNavbar token={token} message={message} />
       </div>
       <div className="main-container">
           <Switch>
@@ -39,4 +43,4 @@ function App() {
   );
 }
 
-export default App;
+export default withRouter(App);
