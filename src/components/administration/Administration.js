@@ -32,8 +32,8 @@ const  Administration = () => {
     return (
         <>
 
-            <div>
                 <Alert color="success">Welcome, please choose an administrative task below:</Alert>
+            <div className="admin-modify-btn btn">
 
 
 
