@@ -10,10 +10,13 @@ import {
     CarouselCaption
 } from 'reactstrap';
 
-const AboutStudents = () => {
+const AboutStudents = (props) => {
     const [activeIndex, setActiveIndex] = useState(0);
     const [animating, setAnimating] = useState(false);
     const [students, setStudents] = useState([]);
+    const handleSubmit = (e) => {
+        window.location.href='/add-students';
+    }
 
     useEffect(() => {
         axios.get('https://international-school-sw.herokuapp.com/api/students')

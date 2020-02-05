@@ -32,7 +32,7 @@ function App() {
             <Route path="/page-not-found" component={PageNotFound} />
             <Route path="/not-authorized" component={NotAuthorized} />
             <Route path="/page-loading" component={Loading} />
-            <Route path="/add-students" component={IntakeForm} />
+            <Route exact path="/add-students" render={(props) =>  <IntakeForm/>} />
             <Route path = "/administration" component={Administration} />
             <Route path = "/administration/:id" component={Administration} />
             <Route path = "/sign-out" component = {SignIn} />
