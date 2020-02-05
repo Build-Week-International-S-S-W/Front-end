@@ -10,10 +10,13 @@ import {
     CarouselCaption
 } from 'reactstrap';
 
-const AboutStudents = () => {
+const AboutStudents = (props) => {
     const [activeIndex, setActiveIndex] = useState(0);
     const [animating, setAnimating] = useState(false);
     const [students, setStudents] = useState([]);
+    const handleSubmit = (e) => {
+        props.history.push('/add-students')
+    }
 
     useEffect(() => {
         axios.get('https://international-school-sw.herokuapp.com/api/students')
@@ -116,7 +119,7 @@ const AboutStudents = () => {
             </Carousel >
 
             <div className="btn">
-                <Button color="success" onClick={() => window.location.href = "/add-students"}>Add Student</Button>
+                <Button color="success" onClick={handleSubmit}>Add Student</Button>
             </div>
 
 

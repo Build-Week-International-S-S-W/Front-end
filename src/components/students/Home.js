@@ -3,6 +3,7 @@ import {Alert} from 'reactstrap';
 import './Home.scss';
 import AboutStudents from '../students/aboutStudents/BioPage'
 
+
 export default function Home(props) {
 
 
