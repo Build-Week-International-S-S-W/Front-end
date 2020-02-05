@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { SESSION_KEY_TOKEN } from '../constants/constatnt';
 export const STUDENTS_GETTING_START = 'STUDENTS_GETTING_START';
 export const STUDENTS_GETTING_SUCCESS = 'STUDENTS_GETTING_SUCCESS';
 export const STUDENTS_GETTING_ERROR = 'STUDENTS_GETTING_ERROR';
@@ -15,16 +16,19 @@ export const STUDENTS_DELETE_START = 'STUDENTS_DELETE_START';
 export const STUDENTS_DELETE_SUCCESS = 'STUDENTS_DELETE_SUCCESS';
 export const STUDENTS_DELETE_ERROR = 'STUDENTS_DELETE_ERROR';
 
+const token = sessionStorage.getItem(SESSION_KEY_TOKEN);
+const headers = { authorization: token };
+
 export function getStudents() {
    return (dispatch) => {
       dispatch({type:STUDENTS_GETTING_START});
-      axios.get('https://international-school-sw.herokuapp.com/api/students')
+      axios.get('https://international-school-sw.herokuapp.com/api/students', { headers })
            .then( res => {
                console.log(res);
                dispatch({type:STUDENTS_GETTING_SUCCESS, payload:res.data});
            })
            .catch(err => {
-               dispatch({type:STUDENTS_UPDATE_ERROR, payload:err});
+               dispatch({type:STUDENTS_GETTING_ERROR, payload:err});
            });
    }
 }
