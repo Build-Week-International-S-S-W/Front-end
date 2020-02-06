@@ -85,7 +85,25 @@ export function students(state=initialState, action) {
             ...state,
             isLoading:false,
             error:action.payload
-          }     
+          } 
+        case STUDENTS_DELETE_START:
+          return {
+            ...state,
+            isLoading:true
+          }
+        case STUDENTS_DELETE_SUCCESS:
+          return {
+            ...state,
+            isLoading:false,
+            students:action.payload
+          }
+        case STUDENTS_DELETE_ERROR:
+          return {
+            ...state,
+            isLoading:false,
+            error:action.payload
+          }   
+              
 
       default:
         return state;   
