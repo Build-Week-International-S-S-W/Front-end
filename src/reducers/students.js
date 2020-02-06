@@ -3,8 +3,8 @@ import {
         STUDENTS_GETTING_SUCCESS, 
         STUDENTS_GETTING_ERROR,
         STUDENTS_ADDING_START,
-        STUDENTS_ADDING__SUCCESS,
-        STUDENTS_ADDING__ERROR,
+        STUDENTS_ADDING_SUCCESS,
+        STUDENTS_ADDING_ERROR,
         STUDENTS_UPDATE_START,
         STUDENTS_UPDATE_SUCCESS,
         STUDENTS_UPDATE_ERROR,
@@ -49,7 +49,26 @@ export function students(state=initialState, action) {
           ...state,
           isLoading:false,
           error:action.payload
-        } 
+        }
+        
+      case STUDENTS_ADDING_START:
+        return {
+          ...state,
+          isLoading:true
+        }
+      case STUDENTS_ADDING_SUCCESS:
+        return {
+          ...state,
+          isLoading:false,
+          students:[...state.students, action.payload]
+        }
+      case STUDENTS_ADDING_ERROR:
+        return {
+          ...state,
+          isLoading:false,
+          error:action.payload
+        }   
+
       default:
         return state;   
    }
