@@ -12,7 +12,7 @@ import IntakeForm from "./components/students/addStudents/IntakeForm";
 import { withRouter } from 'react-router-dom';
 import Administration from "./components/administration/Administration";
 import PrivateRoute from './components/privateRoute/PrivateRoute';
-import { SESSION_KEY_TOKEN, SESSION_KEY_MESSAGE } from './constants/constatnt';
+import { SESSION_KEY_TOKEN, SESSION_KEY_MESSAGE } from './constants/constant';
 import EditForm from './components/administration/EditForm';
 
 
@@ -38,7 +38,7 @@ function App() {
             <PrivateRoute path = "/edit/:id" component = {EditForm}/>
             <Route path="/page-loading" component={Loading} />
             <Route path="/server-error" component={ServerError} />
-            <Route path="/not-authorized" component={NotAuthorized} /> 
+            <Route path="/not-authorized" component={NotAuthorized} />
             <Route component={SignIn} />
           </Switch>
       </div>
