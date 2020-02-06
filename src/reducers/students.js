@@ -68,6 +68,24 @@ export function students(state=initialState, action) {
           isLoading:false,
           error:action.payload
         }   
+      
+        case STUDENTS_UPDATE_START:
+          return {
+            ...state,
+            isLoading:true
+          }
+        case STUDENTS_UPDATE_SUCCESS:
+          return {
+            ...state,
+            isLoading:false,
+            students:[...state.students, action.payload]
+          }
+        case STUDENTS_UPDATE_ERROR:
+          return {
+            ...state,
+            isLoading:false,
+            error:action.payload
+          }     
 
       default:
         return state;   
