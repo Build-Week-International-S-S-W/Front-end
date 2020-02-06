@@ -1,11 +1,11 @@
 import React, {useState} from 'react';
 import {Button, Alert} from 'reactstrap';
-import Card from './Card';
+import StudentCard from './Card';
 import { connect } from 'react-redux';
 
 
 
-const  Administration = () => {
+const  Administration = (props) => {
     const [editStudent, setEditStudent] = useState(false)
     const [deleteStudent, setDeleteStudent] = useState(false)
 
@@ -19,10 +19,7 @@ const  Administration = () => {
 
     return (
         <>
-         {props.studentsList.map( (student) => {
-              return <Card student={student}/>;
-         });
-         }               
+         {props.studentsList.map((student,index) => <StudentCard key={index} student={student}/>)}                       
         </>
     )
 }
