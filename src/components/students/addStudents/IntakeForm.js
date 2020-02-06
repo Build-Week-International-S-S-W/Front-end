@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { addStudents } from '../../../actions/students';
 import { Button, Alert } from 'reactstrap';
 import './intakestyles.scss'
 import '../../assests/css/_schoolConfig.scss';
 
 
 
-export default function IntakeForm(props) {
+function IntakeForm(props) {
     const [student, setStudent] = useState({
 
         studentName: '',
@@ -65,9 +66,10 @@ export default function IntakeForm(props) {
                         return errors;
                     }}
 
-                    onSubmit={(values, { isSubmitting }) => {
-                        console.log(values)
-
+                    onSubmit={(values, { isSubmitting, resetForm }) => {
+                        console.log(values);
+                        props.addStudents(values,props);
+                        resetForm();
                     }}
                 >
                     {({ isSubmitting }) => (
@@ -190,6 +192,16 @@ export default function IntakeForm(props) {
 
         </>
     )
-
-
 }
+
+const mapStateToProps = (state) => {
+    console.log(state.students)
+    return{
+        error:state.students.error,
+        isLoading:state.students.isLoading,
+        studentsList:state.students.students
+    }
+}
+
+export default connect( mapStateToProps,{ addStudents })(IntakeForm);
+
