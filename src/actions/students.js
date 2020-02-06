@@ -16,10 +16,11 @@ export const STUDENTS_DELETE_START = 'STUDENTS_DELETE_START';
 export const STUDENTS_DELETE_SUCCESS = 'STUDENTS_DELETE_SUCCESS';
 export const STUDENTS_DELETE_ERROR = 'STUDENTS_DELETE_ERROR';
 
-const token = sessionStorage.getItem(SESSION_KEY_TOKEN);
+const token = JSON.parse(sessionStorage.getItem(SESSION_KEY_TOKEN));
 const headers = { authorization: token };
 
 export function getStudents() {
+    console.log('headers>>>>>>>>>>>>>>>>>', headers)
    return (dispatch) => {
       dispatch({type:STUDENTS_GETTING_START});
       axios.get('https://international-school-sw.herokuapp.com/api/students', { headers })
@@ -31,4 +32,12 @@ export function getStudents() {
                dispatch({type:STUDENTS_GETTING_ERROR, payload:err});
            });
    }
+}
+
+export function addStudents() {
+    return (dispatch) => {
+      axios.post('https://international-school-sw.herokuapp.com/api/students', { headers })
+           .then()
+           .catch()
+    }
 }
