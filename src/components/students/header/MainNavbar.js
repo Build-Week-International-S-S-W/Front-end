@@ -1,6 +1,6 @@
 import React from 'react';
 import {Navbar, Nav} from 'react-bootstrap';
-import { SESSION_KEY_TOKEN } from '../../../constants/constatnt';
+import { SESSION_KEY_TOKEN } from '../../../constants/constant';
 import {Link} from 'react-router-dom';
 import './Navbar.scss';
 
