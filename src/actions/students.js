@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { SESSION_KEY_TOKEN } from '../constants/constatnt';
+import { SESSION_KEY_TOKEN } from '../constants/constant';
 export const STUDENTS_GETTING_START = 'STUDENTS_GETTING_START';
 export const STUDENTS_GETTING_SUCCESS = 'STUDENTS_GETTING_SUCCESS';
 export const STUDENTS_GETTING_ERROR = 'STUDENTS_GETTING_ERROR';

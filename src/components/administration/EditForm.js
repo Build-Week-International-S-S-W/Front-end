@@ -26,7 +26,7 @@ function EditForm() {
     return (
         <div className="edit-form">
             <Formik>
-                initialValues=({editStudent, editRepresentative})
+                initialValues={{editStudent, editRepresentative}}
 
                 <Form>
                     <div className="edit-student-info">
