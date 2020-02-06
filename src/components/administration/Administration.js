@@ -1,50 +1,39 @@
 import React, {useState} from 'react';
 import {Button, Alert} from 'reactstrap';
+import Card from './Card';
+import { connect } from 'react-redux';
 
 
 
 const  Administration = () => {
     const [editStudent, setEditStudent] = useState(false)
-    const [deleteStudent, setDeletStudent] = useState(false)
+    const [deleteStudent, setDeleteStudent] = useState(false)
 
     const deleteHandler = () => {
-
-        console.log(deleteStudent)
-
+        console.log(deleteStudent);
     }
 
     const editHandler = () => {
-
         console.log(editStudent)
     }
 
-
-    // if(!editStudent) {
-    //     return (
-    //         <div>
-    //             <p>Loading...</p>
-    //         </div>
-    //     )
-    // }
-
     return (
         <>
-
-                <Alert color="success">Welcome, please choose an administrative task below:</Alert>
-            <div className="admin-modify-btn btn">
-
-
-
-                <Button color="danger" onClick={deleteHandler}>Delete Student</Button>
-
-                <Button color="warning" type="submit" onClick={editHandler}>Edit Student</Button>
-
-            </div>
-
+         {props.studentsList.map( (student) => {
+              return <Card student={student}/>;
+         });
+         }               
         </>
     )
 }
 
+const mapStateToProps = (state) => {
+    console.log(state.students)
+    return{
+        error:state.students.error,
+        isLoading:state.students.isLoading,
+        studentsList:state.students.students
+    }
+}
 
-
-export default Administration;
+export default connect(mapStateToProps,null)(Administration);
