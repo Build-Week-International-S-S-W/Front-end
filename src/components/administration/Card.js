@@ -27,7 +27,7 @@ export default class StudentCard extends Component {
                           subTitle={this.state.student.id} 
                           style={{width: '360px'}} 
                           className="ui-card-shadow" 
-                          footer={this.state.student.social_worker} 
+                          footer={footer} 
                           header={header}>
                         <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt
                             quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque quas!</div>
