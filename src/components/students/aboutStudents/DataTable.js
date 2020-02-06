@@ -31,10 +31,10 @@ export class StudentsDataTable extends Component {
           <DataTable value={this.state.students}>
               <Column field="name" header="Name" />
               <Column field="age" header="Age" />
-              <Column field="student_grade" header="Grade" />
-              <Column field="student_class" header="Class" />
+              <Column field="grade" header="Grade" />
+              <Column field="class" header="Class" />
               <Column field="background" header="Background" />
-              <Column field="student_status" header="Status" />
+              <Column field="status" header="Status" />
               <Column field="special_needs" header="Special Needs" />
               <Column field="insurance" header="Insurance" />
               <Column field="birth_certificate" header="Birth Certificate" />
