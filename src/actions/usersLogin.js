@@ -12,12 +12,10 @@ export function usersLogin(values,props) {
       dispatch({type:SIGN_IN_START});
       axios.post('https://international-school-sw.herokuapp.com/api/users/login', values)
            .then(response => {
-              console.log(response);              
-              // dispatch({SIGN_IN_SUCCESS, payload:response.data})
-              if(response) {
+              console.log('Login response>>>>>>>>>>>>>>>>>>>>>>>>>>',response.data);              
+              // dispatch({SIGN_IN_SUCCESS, payload:response.data})              
                 sessionStorage.setItem(SESSION_KEY_TOKEN, JSON.stringify(response.data.token));
-                sessionStorage.setItem(SESSION_KEY_MESSAGE, JSON.stringify(response.data.message));
-              }
+                sessionStorage.setItem(SESSION_KEY_MESSAGE, JSON.stringify(response.data.message));             
               props.history.push('/page-loading');
               setTimeout( () => {
                 props.history.push('/home-page');

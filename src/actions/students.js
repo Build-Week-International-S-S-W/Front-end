@@ -20,6 +20,8 @@ const token = JSON.parse(sessionStorage.getItem(SESSION_KEY_TOKEN));
 const headers = { authorization: token };
 
 export function getStudents() {
+    const token = JSON.parse(sessionStorage.getItem(SESSION_KEY_TOKEN));
+    const headers = { authorization: token };
     console.log('headers>>>>>>>>>>>>>>>>>', headers)
    return (dispatch) => {
       dispatch({type:STUDENTS_GETTING_START});
