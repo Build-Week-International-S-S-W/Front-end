@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { getStudents } from '../../../actions/students';
-import { StudentsDataTable } from './DataTable';
+import {DataTable} from 'primereact/datatable';
+import {Column} from 'primereact/column';
+// import { StudentsDataTable } from './DataTable';
 import axios from 'axios';
 
 import {
@@ -15,12 +17,17 @@ import {
 
 const AboutStudents = (props) => {
     
-    const [activeIndex, setActiveIndex] = useState(0);
-    const [animating, setAnimating] = useState(false);
+    // const [activeIndex, setActiveIndex] = useState(0);
+    // const [animating, setAnimating] = useState(false);
+    // const [ students, setStudents] = useState(props.studentsList);
 
     useEffect(() => {
         props.getStudents();       
     }, []);
+
+    // useEffect(() => {
+    //     setStudents(props.studentsList)       
+    // }, [props.studentsList]);
 
     // const next = () => {
     //     if (animating) return;
@@ -59,12 +66,12 @@ const AboutStudents = (props) => {
     console.log('studetns infor from store>>>>>>>>>>>>>>>>',props.studentsList);
     return (
         <React.Fragment>
-            {props.studentsList.map( (student) => {
+            {/* {props.studentsList.map( (student) => {
                 return <div>
                     <h1>{student.name}</h1>
                 </div>
-            })}
-            <StudentsDataTable data={props.studentsList}/>
+            })} */}
+            {/* <StudentsDataTable data={props.studentsList}/> */}
             <div className="btn">
                 <Button color="success" onClick={(touched) => {
                     // console.log(classmates.map( fixed => fixed.valueOf()));
@@ -72,6 +79,17 @@ const AboutStudents = (props) => {
 
                     window.location.href = "/add-students"}}>Add Student</Button>
             </div>
+            <DataTable value={props.studentsList}>
+              <Column field="name" header="Name" />
+              <Column field="age" header="Age" />
+              <Column field="grade" header="Grade" />
+              <Column field="class" header="Class" />
+              <Column field="background" header="Background" />
+              <Column field="status" header="Status" />
+              <Column field="special_needs" header="Special Needs" />
+              <Column field="insurance" header="Insurance" />
+              <Column field="birth_certificate" header="Birth Certificate" />
+          </DataTable>
         </React.Fragment>          
     )
 };
