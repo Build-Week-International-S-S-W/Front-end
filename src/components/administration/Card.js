@@ -5,6 +5,9 @@ import {Button} from 'primereact/button';
 export default class StudentCard extends Component {
     constructor(props) {
       super(props);
+      this.state = {
+        student: props.student
+      }
     }
     render() {
         const header = (
@@ -18,23 +21,14 @@ export default class StudentCard extends Component {
         );
 
         return (
-            <div>
-                <div className="content-section introduction">
-                    <div className="feature-intro">
-                        <h1>Card</h1>
-                        <p>Card is a flexible container component.</p>
-                    </div>
-                </div>
-
-                <div className="content-section implementation">
-                    <Card title="Simple Card" style={{width: '360px'}}>
-                        <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt
-                            quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque quas!</div>
-                    </Card>
-
-                    <br/><br/>
-
-                    <Card title="Advanced Card" subTitle="Subtitle" style={{width: '360px'}} className="ui-card-shadow" footer={footer} header={header}>
+            <div>   
+                <div className="content-section implementation">                    
+                    <Card title= {this.state.student.name }
+                          subTitle={this.state.student.id} 
+                          style={{width: '360px'}} 
+                          className="ui-card-shadow" 
+                          footer={this.state.student.social_worker} 
+                          header={header}>
                         <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt
                             quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque quas!</div>
                     </Card>
