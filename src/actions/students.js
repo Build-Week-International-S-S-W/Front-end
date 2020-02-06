@@ -5,8 +5,8 @@ export const STUDENTS_GETTING_SUCCESS = 'STUDENTS_GETTING_SUCCESS';
 export const STUDENTS_GETTING_ERROR = 'STUDENTS_GETTING_ERROR';
 
 export const STUDENTS_ADDING_START = 'STUDENTS_ADDING_START';
-export const STUDENTS_ADDING__SUCCESS = 'STUDENTS_ADDING_SUCCESS';
-export const STUDENTS_ADDING__ERROR = 'STUDENTS_ADDING_ERROR';
+export const STUDENTS_ADDING_SUCCESS = 'STUDENTS_ADDING_SUCCESS';
+export const STUDENTS_ADDING_ERROR = 'STUDENTS_ADDING_ERROR';
 
 export const STUDENTS_UPDATE_START = 'STUDENTS_UPDATE_START';
 export const STUDENTS_UPDATE_SUCCESS = 'STUDENTS_UPDATE_SUCCESS';
@@ -20,6 +20,8 @@ const token = JSON.parse(sessionStorage.getItem(SESSION_KEY_TOKEN));
 const headers = { authorization: token };
 
 export function getStudents() {
+    const token = JSON.parse(sessionStorage.getItem(SESSION_KEY_TOKEN));
+    const headers = { authorization: token };
     console.log('headers>>>>>>>>>>>>>>>>>', headers)
    return (dispatch) => {
       dispatch({type:STUDENTS_GETTING_START});
@@ -36,8 +38,14 @@ export function getStudents() {
 
 export function addStudents() {
     return (dispatch) => {
+      dispatch({type:STUDENTS_ADDING_START})  
       axios.post('https://international-school-sw.herokuapp.com/api/students', { headers })
-           .then()
-           .catch()
+           .then( response =>{
+               console.log('post request for students>>>>>>>', response)
+               dispatch({type:STUDENTS_ADDING_START, payload:response.data})
+           })
+           .catch(err => {
+            dispatch({type:STUDENTS_ADDING_ERROR, payload:err});
+           })
     }
 }
