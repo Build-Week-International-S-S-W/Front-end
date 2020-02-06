@@ -15,21 +15,20 @@ export default class StudentCard extends Component {
         );
         const footer = (
             <span>
-                <Button label="Edit" icon="pi pi-check"/>
-                <Button label="Delete" icon="pi pi-times" className="p-button-secondary"/>
+                <Button label="Edit" icon="pi pi-check" className="edit"/>
+                <Button label="Delete" icon="pi pi-times" className="delete"/>
             </span>
         );
 
         return (
             <div>
-                <div className="content-section implementation">
+                <div className="card-wrapper">
                     <Card title= {this.state.student.name }
                           subTitle = {this.state.student.id}
                           style={{width: '360px'}}
-                          className="ui-card-shadow"
                           footer={footer}
                           header={header}>
-                        <div>
+                        <div className="card-info">
                             <p>Grade: {this.state.student.grade}</p>
                             <p>Class: {this.state.student.class}</p>
                             <p>Background Story: {this.state.student.background}</p>
