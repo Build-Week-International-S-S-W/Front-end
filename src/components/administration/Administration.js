@@ -1,21 +1,22 @@
 import React, {useState} from 'react';
-import {Button, Alert} from 'reactstrap';
+// import {Button, Alert} from 'reactstrap';
+
 import StudentCard from './Card';
 import { connect } from 'react-redux';
 
 
 
 const  Administration = (props) => {
-    const [editStudent, setEditStudent] = useState(false)
-    const [deleteStudent, setDeleteStudent] = useState(false)
+    // const [editStudent, setEditStudent] = useState(false)
+    // const [deleteStudent, setDeleteStudent] = useState(false)
 
-    const deleteHandler = () => {
-        console.log(deleteStudent);
-    }
+    // const deleteHandler = () => {
+    //     console.log(deleteStudent);
+    // }
 
-    const editHandler = () => {
-        console.log(editStudent)
-    }
+    // const editHandler = () => {
+    //     console.log(editStudent)
+    // }
 
     return (
         <>
