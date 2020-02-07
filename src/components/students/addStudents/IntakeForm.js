@@ -20,12 +20,11 @@ function IntakeForm(props) {
         birth_certificate: ''
     });
     
-    const handleSubmit = (values,formikBag) => {  
-        console.log(values)      ;
-        props.userRegister(values,props);
-        setStudent();
-        formikBag.resetForm();
-    }
+    
+        // props.userRegister(values,props);
+        // setStudent();
+        // formikBag.resetForm();
+    
 
 
 
@@ -45,9 +44,14 @@ function IntakeForm(props) {
                         return errors;
                     }}
 
-                    onSubmit={handleSubmit}
+                    onSubmit={(data, {setSubmitting}) => {
+                        setSubmitting(true)
+                        console.log("submit", data)
+                        setSubmitting(false)
+
+                    }}
                 >
-                    {({ isSubmitting }) => (
+                    {({ values, isSubmitting }) => (
 
                         <Form>
                             <div className='student-info'>
@@ -143,9 +147,7 @@ function IntakeForm(props) {
                                 <Field type='textarea' name='relation' placeholder='Contact' />
                             </div> */}
 
-                            <Button onChange={addStudents ? console.log(student) : console.log('error')} color='warning' type="submit" enabled={isSubmitting}>
-                                Submit
-                        </Button>
+                            <Button disabled={isSubmitting} type='submit'> Submit </Button>
 
                         </Form>
 
