@@ -17,7 +17,7 @@ Navigation is present on all pages. Users can click Logout, Administration and H
 
 ## The `Signup` Page
 Users are presented this page for Name, Email, Phone, Password details. Success on this page brings up Login Page.
-![Sign up Page](https://github.com/Build-Week-International-S-S-W/Front-end/blob/FIOpwK-patch-1/Screenshot_2020-02-07%20Educell%20International%20School(2).png)
+![Sign up Page](https://github.com/Build-Week-International-S-S-W/Front-end/blob/FIOpwK-patch-1/Screenshot_2020-02-07%20Educell%20International%20School_signup.png)
 
 ## The `Login` Page
 Users can use same credentials from Signup to login where they will be greeted with a warning before entering the Home Page.
