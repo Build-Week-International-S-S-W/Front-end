@@ -24,6 +24,7 @@ Users can use same credentials from Signup to login where they will be greeted w
 ## The `Home` Page
 After a user logs in, they'll be directed to a home page.
 Users are presented a list of all students in the school, and dates of past `[Card edit]` visits. Loads all information from the intake form about all Students.
+![Home Page](https://github.com/Build-Week-International-S-S-W/Front-end/blob/FIOpwK-patch-1/Screenshot_2020-02-07%20Educell%20International%20School(3).png)
 
  
 
