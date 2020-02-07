@@ -1,33 +1,37 @@
 import React, { useState, useEffect } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { addStudents } from '../../../actions/students';
 import { Button, Alert } from 'reactstrap';
+import { connect } from 'react-redux';
 import './intakestyles.scss'
 import '../../assests/css/_schoolConfig.scss';
 
 
 
-export default function IntakeForm(props) {
+function IntakeForm(props) {
     const [student, setStudent] = useState({
 
         studentName: '',
         age: '',
-        grade: '',
-        story: '',
+        student_class: '',
+        student_grade: '',
+        background: '',
         insurance: '',
-        needs: '',
-        expiration: '',
-        birthCertificate: '',
+        special_needs: '',
+        // expiration: '',
+        birth_certificate: '',
+        // student_contact: '',
 
     });
 
-    const [representative, setRepresentative] = useState({
-        repFirstName: '',
-        repLastName: '',
-        phone: '',
-        email: '',
-        relation: '',
+    // const [representative, setRepresentative] = useState({
+    //     repFirstName: '',
+    //     repLastName: '',
+    //     phone: '',
+    //     email: '',
+    //     relation: '',
 
-    });
+    // });
 
     return (
         <>
@@ -40,15 +44,12 @@ export default function IntakeForm(props) {
                 }
 
                 <Formik
-                    initialValues={{ student, representative }}
+                    initialValues={{ ...student }}
                     validate={values => {
                         const errors = {};
-                        if (!values.email) {
-                            errors.email = 'Required';
-                        } else if (!values.studentName) {
-                            errors.studentName = 'Required';
-
-                        } else if (values.age > 16 || !values.age ) {
+                        if (!values.name) {
+                            errors.name = 'Required';
+                        } else if (values.age > 17 || !values.age ) {
                             errors.age = 'Not Allowed';
                         }
                         //We need to handle the checkboxes state inside Boolean
@@ -65,9 +66,10 @@ export default function IntakeForm(props) {
                         return errors;
                     }}
 
-                    onSubmit={(values, { isSubmitting }) => {
-                        console.log(values)
-
+                    onSubmit={(values, { isSubmitting, resetForm }) => {
+                        console.log(values);
+                        props.addStudents(values,props);
+                        resetForm();
                     }}
                 >
                     {({ isSubmitting }) => (
@@ -92,9 +94,7 @@ export default function IntakeForm(props) {
 
 
                                         }
-                                        {
-
-                                        }
+                                    
 
                                         <option value="1">1</option>
                                         <option>2</option>
@@ -176,7 +176,7 @@ export default function IntakeForm(props) {
                                 <Field type='textarea' name='relation' placeholder='Contact' />
                             </div>
 
-                            <Button onChange={(touched) => { touched ? isSubmitting = true : console.log(ErrorMessage) }} color='warning' type="submit" enabled={isSubmitting}>
+                            <Button onChange={addStudents ? console.log(student) : console.log('error')} color='warning' type="submit" enabled={isSubmitting}>
                                 Submit
                         </Button>
 
@@ -190,6 +190,16 @@ export default function IntakeForm(props) {
 
         </>
     )
-
-
 }
+
+const mapStateToProps = (state) => {
+    console.log(state.students)
+    return{
+        error:state.students.error,
+        isLoading:state.students.isLoading,
+        studentsList:state.students.students
+    }
+}
+
+export default connect( mapStateToProps,{ addStudents })(IntakeForm);
+
