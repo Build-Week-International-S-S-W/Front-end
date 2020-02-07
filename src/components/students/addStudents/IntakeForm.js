@@ -2,7 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { addStudents } from '../../../actions/students';
 import { Button, Alert } from 'reactstrap';
+<<<<<<< HEAD
 import { connect }from 'react-redux';
+=======
+import { connect } from 'react-redux';
+>>>>>>> master
 import './intakestyles.scss'
 import '../../assests/css/_schoolConfig.scss';
 
@@ -12,36 +16,46 @@ function IntakeForm(props) {
     const [student, setStudent] = useState({
         studentName: '',
         age: '',
-        grade: '',
-        story: '',
+        student_class: '',
+        student_grade: '',
+        background: '',
         insurance: '',
+<<<<<<< HEAD
         needs: '',
         expiration: '',
         birthCertificate: '',
+=======
+        special_needs: '',
+        // expiration: '',
+        birth_certificate: '',
+        // student_contact: '',
+
+>>>>>>> master
     });
 
-    const [representative, setRepresentative] = useState({
-        repFirstName: '',
-        repLastName: '',
-        phone: '',
-        email: '',
-        relation: '',
+    // const [representative, setRepresentative] = useState({
+    //     repFirstName: '',
+    //     repLastName: '',
+    //     phone: '',
+    //     email: '',
+    //     relation: '',
 
-    });
+    // });
 
     return (
         <>
             <div className="Intake-Form">               
                 <Formik
+<<<<<<< HEAD
                     initialValues={student}
+=======
+                    initialValues={{ ...student }}
+>>>>>>> master
                     validate={values => {
                         const errors = {};
-                        if (!values.email) {
-                            errors.email = 'Required';
-                        } else if (!values.studentName) {
-                            errors.studentName = 'Required';
-
-                        } else if (values.age > 16 || !values.age ) {
+                        if (!values.name) {
+                            errors.name = 'Required';
+                        } else if (values.age > 17 || !values.age ) {
                             errors.age = 'Not Allowed';
                         }
                         //We need to handle the checkboxes state inside Boolean
@@ -86,9 +100,7 @@ function IntakeForm(props) {
 
 
                                         }
-                                        {
-
-                                        }
+                                    
 
                                         <option value="1">1</option>
                                         <option>2</option>
@@ -170,7 +182,7 @@ function IntakeForm(props) {
                                 <Field type='textarea' name='relation' placeholder='Contact' />
                             </div>
 
-                            <Button onChange={(touched) => { touched ? isSubmitting = true : console.log(ErrorMessage) }} color='warning' type="submit" enabled={isSubmitting}>
+                            <Button onChange={addStudents ? console.log(student) : console.log('error')} color='warning' type="submit" enabled={isSubmitting}>
                                 Submit
                         </Button>
 

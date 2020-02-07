@@ -27,22 +27,25 @@ export default class StudentCard extends Component {
         );
 
         return (
-            <div>   
-                <div className="content-section implementation">  
-                    {/* <span>
-                    <Button label="Edit" icon="pi pi-check"/>
-                    <Button label="Delete" 
-                            onClick={() => {this.deleteFunction(this.state.student.id)}}
-                            icon="pi pi-times" className="p-button-secondary"/>
-                   </span>                   */}
+            <div>
+                <div className="card-wrapper">
                     <Card title= {this.state.student.name }
-                          subTitle={this.state.student.id} 
-                          style={{width: '360px'}} 
-                          className="ui-card-shadow" 
-                          footer={footer} 
+                          subTitle = {this.state.student.id}
+                          style={{width: '360px'}}
+                          footer={footer}
                           header={header}>
-                        <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt
-                            quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque quas!</div>
+                        <div className="card-info">
+                            <p>Grade: {this.state.student.grade}</p>
+                            <p>Class: {this.state.student.class}</p>
+                            <p>Background Story: {this.state.student.background}</p>
+                            <p>Status: {this.state.student.status}</p>
+                            <p>Age: {this.state.student.age}</p>
+                            <p>Has Insurance: {this.state.student.insurance}</p>
+                            <p>Has Birth Certificate: {this.state.student.birth_certificate}</p>
+                            <p>Special Needs: {this.state.student.special_needs}</p>
+                            <p>Student's Contact Person: {this.state.student.student_contact}</p>
+                            <p>Student's Social Worker: {this.state.student.social_worker}</p>
+                        </div>
                     </Card>
                 </div>
             </div>
