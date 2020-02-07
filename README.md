@@ -31,5 +31,5 @@ Clicking add from `Home` Page, brings up its own (this page), where a user can a
 Edit and Delete feature is available for school admins to edit or delete students, this page is loaded and laid out in a grid format showing all Students. Clicking `[view]` brings up Single Child View Page.
 
 
-# The `Single Child View` Page
+## The `Single Child View` Page
 Loads all information from the intake form about a single Student.
