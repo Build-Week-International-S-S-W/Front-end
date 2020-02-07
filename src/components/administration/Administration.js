@@ -21,7 +21,7 @@ const  Administration = (props) => {
 
     return (
         <>
-         {props.studentsList.map((student,index) => <StudentCard key={index} student={student}/>)}                       
+         {props.studentsList.map((student,index) => <StudentCard key={index} deleteStudents={deleteHandler} student={student}/>)}                       
         </>
     )
 }

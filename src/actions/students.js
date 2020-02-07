@@ -51,17 +51,18 @@ export function addStudents(values, props) {
     }
 }
 
-export function deleteStudents(values,id, props) {
-    console.log('deleting students actions>>>>>>>>>>>>>', values);
+export function deleteStudents(id, props) {
+    console.log('deleting students actions>>>>>>>>>>>>>', id);
     return (dispatch) => {
-      dispatch({type:STUDENTS_ADDING_START})  
-      axios.delete('https://international-school-sw.herokuapp.com/api/students/${id}', values, { headers })
+      dispatch({type:STUDENTS_DELETE_START})  
+      axios.delete(`https://international-school-sw.herokuapp.com/api/students/${id}`, { headers })
            .then( response =>{
                console.log('post request for students>>>>>>>', response)
-               dispatch({type:STUDENTS_ADDING_START, payload:response.data})
+               dispatch({type:STUDENTS_DELETE_START, payload:response.data})
+               props.history.push('/home-page');
            })
            .catch(err => {
-            dispatch({type:STUDENTS_ADDING_ERROR, payload:err});
+            dispatch({type:STUDENTS_DELETE_ERROR, payload:err});
            })
     }
 }
