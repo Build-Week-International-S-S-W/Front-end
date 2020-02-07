@@ -12,6 +12,8 @@ There needs are On boarding, logging in, and viewing a list of all student in th
 
 ## The `Navigation` Bar
 Navigation is present on all pages. Users can click Logout, Administration and Home links.
+![Navigation Bar](https://github.com/Build-Week-International-S-S-W/Front-end/blob/FIOpwK-patch-1/Screenshot_2020-02-07%20Educell%20International%20School.png)
+
 
 ## The `Signup` Page
 Users are presented this page for Name, Email, Phone, Password details. Success on this page brings up Login Page.
