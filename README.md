@@ -30,6 +30,7 @@ Users are presented a list of all students in the school, and dates of past `[Ca
 ## The `Add Students` Page
 
 Clicking add from `Home` Page, brings up its own (this page), where a user can add information about a new Student.
+![Add Student Page](https://github.com/Build-Week-International-S-S-W/Front-end/blob/FIOpwK-patch-1/Screenshot_2020-02-07%20Educell%20International%20School(5).png)
 
 ## The `Administrators`/`Class` Page
 
