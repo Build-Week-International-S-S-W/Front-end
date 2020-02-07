@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { addStudents } from '../../../actions/students';
 import { Button, Alert } from 'reactstrap';
+import { connect }from 'react-redux';
 import './intakestyles.scss'
 import '../../assests/css/_schoolConfig.scss';
 
@@ -32,14 +33,12 @@ function IntakeForm(props) {
 
     return (
         <>
-
             <div className="Intake-Form">
                 {
                     window.addEventListener('load', ev => {
                         console.log(Date.now())
                     })
                 }
-
                 <Formik
                     initialValues={{ student, representative }}
                     validate={values => {
