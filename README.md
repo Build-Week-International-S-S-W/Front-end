@@ -32,10 +32,11 @@ Clicking add from `Home` Page, brings up its own (this page), where a user can a
 ## The `Administrators`/`Class` Page
 
 Edit and Delete feature is available for school admins to edit or delete students, this page is loaded and laid out in a grid format showing all Students. Clicking `[view]` brings up Single Child View Page.
-
+![Administators Page](https://github.com/Build-Week-International-S-S-W/Front-end/blob/FIOpwK-patch-1/Screenshot_2020-02-07%20Educell%20International%20School(6).png)
 
 ## The `Single Child View` Page
 Loads all information from the intake form about a single Student.
+![Single Child View](https://github.com/Build-Week-International-S-S-W/Front-end/blob/FIOpwK-patch-1/Screenshot_2020-02-07%20Educell%20International%20School(6).png)
 
 ## `Project Canvas Document`
 [PVD](https://docs.google.com/document/d/1c_gXNS9hoaMEk9b5P10314ztkH6hbyImY9DXPA1C35s)
