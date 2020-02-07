@@ -11,16 +11,22 @@ export default class StudentCard extends Component {
         student: props.student
       }
     }
+    deleteFunction = (id) => {
+        console.log('Card.js line 12>>>>>>>>>',id)
+        this.props.deleteStudents(id)
+    }
     render() {
         const header = (
             <img alt="Card" src='https://via.placeholder.com/50'/>
         );
         const footer = (
-            <span id="btn">
-                <Button label="Edit" icon="pi pi-check" className="edit"/>
-
-                <Button label="Delete" icon="pi pi-times" className="delete"/>
-            </span>
+            <span>
+                <Button label="Edit"  className="edit" icon="pi pi-check"/>
+                <Button label="Delete" 
+                        onClick={() => {this.deleteFunction(this.state.student.id)}}
+                        className="delete"
+                        icon="pi pi-times"/>               
+             </span>
         );
 
         return (
