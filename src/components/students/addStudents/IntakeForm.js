@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { addStudents } from '../../../actions/students';
 import { Button, Alert } from 'reactstrap';
-import { connect } from 'react-redux';
+import { connect }from 'react-redux';
 import './intakestyles.scss'
 import '../../assests/css/_schoolConfig.scss';
 
