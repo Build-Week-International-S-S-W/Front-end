@@ -11,8 +11,7 @@ export default class StudentCard extends Component {
         student: props.student
       }
     }
-    deleteFunction = (id) => {
-        console.log('Card.js line 12>>>>>>>>>',id)
+    deleteFunction = (id) => {        
         this.props.deleteStudents(id)
     }
     render() {
