@@ -1,0 +1,28 @@
+.card-wrapper{
+    // width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: nowrap;
+
+
+        .card-container {
+            display: flex;
+            border: 2px solid blue;
+            display: flex;
+            justify-content: flex-start;
+            flex-wrap: wrap;
+            width: 30%;
+            margin: 5%;
+        }
+
+        .card-info {
+            width: 100%;
+        }
+}
+
+#btn {
+    padding: 10%;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: nowrap;
+}
