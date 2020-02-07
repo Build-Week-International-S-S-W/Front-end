@@ -2,7 +2,7 @@
 [Educell International School Demo](https://educell-international-school.netlify.com/)
 
 
-Educell International Schoo challenges us to create a remote and low resource environment app that provides a way for school administrators and social workers to create, read, update, and delete student data.
+Educell International School challenges us to create a remote and low resource environment app that provides a way for school administrators and social workers to create, read, update, and delete student data.
 
 
 
