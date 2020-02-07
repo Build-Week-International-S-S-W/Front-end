@@ -10,6 +10,12 @@ There needs are On boarding, logging in, and viewing a list of all student in th
 ## The `Navigation` Bar
 Navigation is present on all pages. Users can click Logout, Administration and Home links.
 
+## The `Signup` Page
+Users are presented this page for Name, Email, Phone, Password details. Success on this page brings up Login Page.
+
+## The `Login` Page
+Users can use same credentials from Signup to login where they will be greeted with a warning before entering the Home Page.
+
 ## The `Home` Page: 
 After a user logs in, they'll be directed to a home page.
 Users are presented a list of all students in the school, and dates of past `[Card edit]` visits. Loads all information from the intake form about all Students.
