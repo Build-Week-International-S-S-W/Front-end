@@ -16,21 +16,18 @@ function IntakeForm(props) {
         student_grade: '',
         background: '',
         insurance: '',
-        special_needs: '',
-        // expiration: '',
-        birth_certificate: '',
-        // student_contact: '',
-
+        special_needs: '',       
+        birth_certificate: ''
     });
+    
+    const handleSubmit = (values,formikBag) => {  
+        console.log(values)      ;
+        props.userRegister(values,props);
+        setStudent();
+        formikBag.resetForm();
+    }
 
-    // const [representative, setRepresentative] = useState({
-    //     repFirstName: '',
-    //     repLastName: '',
-    //     phone: '',
-    //     email: '',
-    //     relation: '',
 
-    // });
 
     return (
         <>
@@ -43,26 +40,12 @@ function IntakeForm(props) {
                             errors.name = 'Required';
                         } else if (values.age > 17 || !values.age ) {
                             errors.age = 'Not Allowed';
-                        }
-                        //We need to handle the checkboxes state inside Boolean
-                        //expression. If Y is true, then N cannot be also true,
-                        //and if n is true, then y cannot be also true.
-
-                        //essentially we only accept one value for each slice
-                        //of state.
-                        // else if (values.Y || values.y === true) {
-                        //     errors.n = 'Disabled';
-                        //     errors.N = false;
-                        // }
+                        }                       
 
                         return errors;
                     }}
 
-                    onSubmit={(values, { isSubmitting, resetForm }) => {
-                        console.log('students adding now', values);
-                        props.addStudents(values,props);
-                        resetForm();
-                    }}
+                    onSubmit={handleSubmit}
                 >
                     {({ isSubmitting }) => (
 
@@ -72,23 +55,16 @@ function IntakeForm(props) {
                                 <div className='name-age-grade'>
 
                                     <label htmlFor="studentName">Name:</label>
-
-                                    <Field type='name' name='studentName' placeholder='Required' />
+                                    <Field type='text' name='studentName' placeholder='Required' />
+                                    <ErrorMessage name='name' component='div'/>
 
                                     <label htmlFor="age">Age:</label>
                                     <Field type='text' name='age' placeholder='Student age' />
                                     <ErrorMessage name='age' component='div'/>
 
                                     <label htmlFor="grade">Grade:</label>
-                                    <Field as='select' name='grade'>
-                                        {
-                                            // TODO: add loop to fill in options for more DRY code
-
-
-                                        }
-                                    
-
-                                        <option value="1">1</option>
+                                    <Field as='select' name='grade'>                                        
+                                    <option value="1">1</option>
                                         <option>2</option>
                                         <option>3</option>
                                         <option>4</option>
@@ -100,7 +76,6 @@ function IntakeForm(props) {
                                         <option>10</option>
                                         <option>11</option>
                                         <option>12</option>
-
                                     </Field>
                                 </div>
 
@@ -148,7 +123,7 @@ function IntakeForm(props) {
                             </div>
                             <br/>
 
-                            <div className='rep-info'>
+                            {/* <div className='rep-info'>
                                 <Alert color="warning" className=''>Representative Information</Alert>
 
 
@@ -166,7 +141,7 @@ function IntakeForm(props) {
 
                                 <label htmlFor="relation">Contact:</label>
                                 <Field type='textarea' name='relation' placeholder='Contact' />
-                            </div>
+                            </div> */}
 
                             <Button onChange={addStudents ? console.log(student) : console.log('error')} color='warning' type="submit" enabled={isSubmitting}>
                                 Submit
