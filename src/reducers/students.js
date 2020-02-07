@@ -95,7 +95,7 @@ export function students(state=initialState, action) {
           return {
             ...state,
             isLoading:false,
-            students:action.payload
+            students:[...state.students, action.payload]
           }
         case STUDENTS_DELETE_ERROR:
           return {
