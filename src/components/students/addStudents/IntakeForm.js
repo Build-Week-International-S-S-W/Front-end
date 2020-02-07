@@ -10,7 +10,6 @@ import '../../assests/css/_schoolConfig.scss';
 
 function IntakeForm(props) {
     const [student, setStudent] = useState({
-
         studentName: '',
         age: '',
         grade: '',
@@ -19,7 +18,6 @@ function IntakeForm(props) {
         needs: '',
         expiration: '',
         birthCertificate: '',
-
     });
 
     const [representative, setRepresentative] = useState({
@@ -33,14 +31,9 @@ function IntakeForm(props) {
 
     return (
         <>
-            <div className="Intake-Form">
-                {
-                    window.addEventListener('load', ev => {
-                        console.log(Date.now())
-                    })
-                }
+            <div className="Intake-Form">               
                 <Formik
-                    initialValues={{ student, representative }}
+                    initialValues={student}
                     validate={values => {
                         const errors = {};
                         if (!values.email) {
@@ -66,7 +59,7 @@ function IntakeForm(props) {
                     }}
 
                     onSubmit={(values, { isSubmitting, resetForm }) => {
-                        console.log(values);
+                        console.log('students adding now', values);
                         props.addStudents(values,props);
                         resetForm();
                     }}

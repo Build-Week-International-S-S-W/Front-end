@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import {Button, Alert} from 'reactstrap';
+import { deleteStudents } from '../../actions/students';
 import StudentCard from './Card';
 import { connect } from 'react-redux';
 
@@ -9,8 +10,9 @@ const  Administration = (props) => {
     const [editStudent, setEditStudent] = useState(false)
     const [deleteStudent, setDeleteStudent] = useState(false)
 
-    const deleteHandler = () => {
-        console.log(deleteStudent);
+    const deleteHandler = (id) => {
+        console.log(id);
+        props.deleteStudents(id,props);
     }
 
     const editHandler = () => {
@@ -33,4 +35,8 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps,null)(Administration);
+const mapStateToDispatch = {
+    deleteStudents
+}
+
+export default connect(mapStateToProps,mapStateToDispatch)(Administration);
