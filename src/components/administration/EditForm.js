@@ -14,19 +14,10 @@ function EditForm() {
         birthCertificate: '',
     });
 
-    const [editRepresentative] = useState({
-        repFirstName: '',
-        repLastName: '',
-        phone: '',
-        email: '',
-        relation: '',
-
-    });
-
     return (
         <div className="edit-form">
             <Formik>
-                initialValues={{editStudent, editRepresentative}}
+                initialValues={{editStudent}}
 
                 <Form>
                     <div className="edit-student-info">
@@ -81,7 +72,7 @@ function EditForm() {
                         <label htmlFor="needs">Special Needs:</label>
                         <Field type="textarea" name="needs" placeholder="Allergies"/>
                     </div>
-                    <br/>
+                    {/* <br/>
 
                     <div className="edit-rep-info">
                         Representative Information
@@ -97,7 +88,7 @@ function EditForm() {
                     </div>
 
                     <label htmlFor="relation">Contact:</label>
-                    <Field type="textarea" name="relation" placeholder="Contact"/>
+                    <Field type="textarea" name="relation" placeholder="Contact"/> */}
                 </Form>
             </Formik>
 
