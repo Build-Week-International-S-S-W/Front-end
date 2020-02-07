@@ -1,6 +1,9 @@
 # Educell International School
+[Educell International School Demo](https://educell-international-school.netlify.com/)
+
 
 Educell International Schoo challenges us to create a remote and low resource environment app that provides a way for school administrators and social workers to create, read, update, and delete student data.
+
 
 
 ## MVP
@@ -33,3 +36,6 @@ Edit and Delete feature is available for school admins to edit or delete student
 
 ## The `Single Child View` Page
 Loads all information from the intake form about a single Student.
+
+## `Project Canvas Document`
+[PVD](https://docs.google.com/document/d/1c_gXNS9hoaMEk9b5P10314ztkH6hbyImY9DXPA1C35s)
