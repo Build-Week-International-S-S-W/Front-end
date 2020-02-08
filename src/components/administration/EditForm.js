@@ -2,19 +2,20 @@ import React, {useState} from 'react'
 import {Formik, Form, Field} from 'formik';
 import { connect } from 'react-redux';
 import { editStudents } from '../../actions/students';
+import {Button} from 'reactstrap';
 
 function EditForm(props) {
-    const defaultStudent={name:'', 
-                         age:'', 
+    const defaultStudent={name:'',
+                         age:'',
                          grade:'',
-                         class:'', 
-                         background:'', 
-                         status:'', 
-                         insurance:'', 
+                         class:'',
+                         background:'',
+                         status:'',
+                         insurance:'',
                          birth_certificate:'',
                          special_needs:''
     }
-    const [editStudent,setEditStudent] = useState(defaultStudent); 
+    const [editStudent,setEditStudent] = useState(defaultStudent);
     const handleSubmit = (values, formikBag) => {
         console.log(props, values)
         props.editStudents(values,props)
@@ -80,29 +81,22 @@ function EditForm(props) {
                         <Field type="textarea" name="story" placeholder="Student Backstory"/>
                     </div>
                     <div>
-                        <label htmlFor="Y">: Yes</label>
-                        <Field type="checkbox" name="Y"/>
-
-                        <label htmlFor="N">: No</label>
-                        <Field type="checkbox" name="N"/>
+                    <label htmlFor="insurance">Insurance </label>
+                        <Field type='text' name='insurance' placeholder='yes or no'/>
 
                         <label htmlFor="expiration">Expiration Date:</label>
                         <Field type="date" name="expiration"/>
                         <br/>
 
-                        <label htmlFor>Birth Certificate</label>
+                        <label htmlFor="birth_certificate">Birth Certificate </label>
+                        <Field type='text' name='birth_certificate' placeholder='yes or no'/>
 
-                        <label htmlFor="y">: Yes</label>
-                        <Field type="checkbox" name="y"/>
-
-                        <label htmlFor="n">: No</label>
-                        <Field type="checkbox" name="n"/>
-
-                        <label htmlFor="needs">Special Needs:</label>
-                        <Field type="textarea" name="needs" placeholder="Allergies"/>
+                        <label htmlFor="special_needs">Special Needs:</label>
+                        <Field type="textarea" name="special_needs" placeholder="Allergies"/>
                     </div>
 
-                    <button type="submit" name = "edit">Edit</button>
+                    <Button color='warning' type="submit" enabled={props.isSubmitting}>
+                        {props.isSubmitting ? 'Adding..' : 'Add'}</Button>
                 </Form>
             </>
             )
