@@ -79,16 +79,16 @@ const AboutStudents = (props) => {
 
                     window.location.href = "/add-students"}}>Add Student</Button>
             </div>
-            <DataTable value={props.studentsList}>
-              <Column field="name" header="Name" />
-              <Column field="age" header="Age" />
-              <Column field="grade" header="Grade" />
-              <Column field="class" header="Class" />
-              <Column field="background" header="Background" />
-              <Column field="status" header="Status" />
-              <Column field="special_needs" header="Special Needs" />
-              <Column field="insurance" header="Insurance" />
-              <Column field="birth_certificate" header="Birth Certificate" />
+            <DataTable value={props.studentsList} sortMode="multiple">
+              <Column field="name" header="Name" sortable={true}/>
+              <Column field="age" header="Age" sortable={true}/>
+              <Column field="grade" header="Grade" sortable={true}/>
+              <Column field="class" header="Class" sortable={true}/>
+              <Column field="background" header="Background" sortable={true}/>
+              <Column field="status" header="Status" sortable={true}/>
+              <Column field="special_needs" header="Special Needs" sortable={true}/>
+              <Column field="insurance" header="Insurance" sortable={true}/>
+              <Column field="birth_certificate" header="Birth Certificate" sortable={true}/>
           </DataTable>
         </React.Fragment>          
     )
