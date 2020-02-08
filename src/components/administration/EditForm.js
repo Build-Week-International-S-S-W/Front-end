@@ -1,10 +1,10 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import {Formik, Form, Field} from 'formik';
 import { connect } from 'react-redux';
-import { editStudents } from '../../actions/students';
+import { getStudentById, editStudents } from '../../actions/students';
 import {Button} from 'reactstrap';
 
-function EditForm(props) {
+function EditForm(props) {    
     const defaultStudent={name:'',
                          age:'',
                          grade:'',
@@ -16,6 +16,15 @@ function EditForm(props) {
                          special_needs:''
     }
     const [editStudent,setEditStudent] = useState(defaultStudent);
+
+    useEffect(() => {
+        props.getStudentById(props.match.params.id);        
+    },[]);
+
+    useEffect( () => {
+        setEditStudent(props.studentsList)
+    }, [props.studentsList]);
+
     const handleSubmit = (values, formikBag) => {
         console.log(props, values)
         props.editStudents(values,props)
@@ -36,6 +45,8 @@ function EditForm(props) {
         return errors;
      }
     console.log('edit form>>>>>>>>>>', props);
+    console.log('edit form>>>>>>>>>>>>>', editStudent);
+    console.log('students list>>>>>>>>>>>>', props.studentsList);
     return (
         <div className="edit-form">
             <Formik
@@ -52,47 +63,39 @@ function EditForm(props) {
                 <Form>
                     <div className="edit-student-info">
                         Student Information
-                        <label
-                            htmlFor="name">Name:
-                            <Field type="name" name="name" placeholder="Student Name">
+                        <label htmlFor="name">Name:
+                            <Field type="text" name="name" placeholder={editStudent.name}>
                             </Field>
                         </label>
-
-                        <label htmlFor="grade">Grade:</label>
-                            <Field as="select" name="grade" placeholder="Grade">
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
-                            <option>6</option>
-                            <option>7</option>
-                            <option>8</option>
-                            <option>9</option>
-                            <option>10</option>
-                            <option>11</option>
-                            <option>12</option>
+                        <label htmlFor="age">Age:
+                            <Field type="text" name="age" placeholder={editStudent.age}>
                             </Field>
+                        </label>
+                        <label htmlFor="grade">Grade:                         
+                            <Field type="text" name="grade" placeholder={editStudent.grade} />
+                        </label>
                     </div>
                     <div className="edit-back-story">
-                        <label
-                            htmlFor="story">Backstory:
+                        <label htmlFor="story">Backstory:                        
+                          <Field type="textarea" name="story" placeholder={editStudent.background}/>
+                        </label> 
+                        <label htmlFor="class">Class:                        
+                          <Field type="text" name="class" placeholder={editStudent.class}/>
                         </label>
-                        <Field type="textarea" name="story" placeholder="Student Backstory"/>
+                        <label htmlFor="status">Status:                        
+                          <Field type="text" name="status" placeholder={editStudent.status}/>
+                        </label>
                     </div>
                     <div>
                     <label htmlFor="insurance">Insurance </label>
-                        <Field type='text' name='insurance' placeholder='yes or no'/>
-
-                        <label htmlFor="expiration">Expiration Date:</label>
-                        <Field type="date" name="expiration"/>
-                        <br/>
+                        <Field type='text' name='insurance' placeholder={editStudent.insurance}/>
+                        
 
                         <label htmlFor="birth_certificate">Birth Certificate </label>
-                        <Field type='text' name='birth_certificate' placeholder='yes or no'/>
+                        <Field type='text' name='birth_certificate' placeholder={editStudent.birth_certificate}/>
 
                         <label htmlFor="special_needs">Special Needs:</label>
-                        <Field type="textarea" name="special_needs" placeholder="Allergies"/>
+                        <Field type="textarea" name="special_needs" placeholder={editStudent.special_needs}/>
                     </div>
 
                     <Button color='warning' type="submit" enabled={props.isSubmitting}>
@@ -116,5 +119,5 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect( mapStateToProps,{ editStudents })(EditForm);
+export default connect( mapStateToProps,{ getStudentById,editStudents })(EditForm);
 

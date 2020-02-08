@@ -4,6 +4,11 @@ export const STUDENTS_GETTING_START = 'STUDENTS_GETTING_START';
 export const STUDENTS_GETTING_SUCCESS = 'STUDENTS_GETTING_SUCCESS';
 export const STUDENTS_GETTING_ERROR = 'STUDENTS_GETTING_ERROR';
 
+export const STUDENTS_GETTING_ID_ERROR = 'STUDENTS_GETTING_ID_ERROR';
+export const STUDENTS_GETTING_ID_START = 'STUDENTS_GETTING_ID_START';
+export const STUDENTS_GETTING_ID_SUCCESS = 'STUDENTS_GETTING_ID_SUCCESS';
+
+
 export const STUDENTS_ADDING_START = 'STUDENTS_ADDING_START';
 export const STUDENTS_ADDING_SUCCESS = 'STUDENTS_ADDING_SUCCESS';
 export const STUDENTS_ADDING_ERROR = 'STUDENTS_ADDING_ERROR';
@@ -23,27 +28,46 @@ export function getStudents() {
     const token = JSON.parse(sessionStorage.getItem(SESSION_KEY_TOKEN));
     const headers = { authorization: token };
     console.log('headers>>>>>>>>>>>>>>>>>', headers)
-   return (dispatch) => {
-      dispatch({type:STUDENTS_GETTING_START});
-      axios.get('https://international-school-sw.herokuapp.com/api/students', { headers })
-           .then( res => {
-               console.log(res);
-               dispatch({type:STUDENTS_GETTING_SUCCESS, payload:res.data});
-           })
-           .catch(err => {
-               dispatch({type:STUDENTS_GETTING_ERROR, payload:err});
-           });
+    return (dispatch) => {
+        dispatch({type:STUDENTS_GETTING_START});
+        axios.get('https://international-school-sw.herokuapp.com/api/students', { headers })
+        .then( res => {
+            console.log(res);
+            dispatch({type:STUDENTS_GETTING_SUCCESS, payload:res.data});
+        })
+        .catch(err => {
+            dispatch({type:STUDENTS_GETTING_ERROR, payload:err});
+        });
+   }
+}
+
+export function getStudentById(id) {
+    const token = JSON.parse(sessionStorage.getItem(SESSION_KEY_TOKEN));
+    const headers = { authorization: token };
+    console.log('headers>>>>>>>>>>>>>>>>>', headers)
+    return (dispatch) => {
+        dispatch({type:STUDENTS_GETTING_ID_START});
+        axios.get(`https://international-school-sw.herokuapp.com/api/students/${id}`, { headers })
+        .then( res => {
+            console.log(res);
+            dispatch({type:STUDENTS_GETTING_ID_SUCCESS, payload:res.data});
+        })
+        .catch(err => {
+            dispatch({type:STUDENTS_GETTING_ID_ERROR, payload:err});
+        });
    }
 }
 
 export function addStudents(values, props) {
+    const token = JSON.parse(sessionStorage.getItem(SESSION_KEY_TOKEN));
+    const headers = { authorization: token };
     console.log('adding students actions>>>>>>>>>>>>>', values);
     return (dispatch) => {
-      dispatch({type:STUDENTS_ADDING_START})  
-      axios.post('https://international-school-sw.herokuapp.com/api/students', values, { headers })
-           .then( response =>{
-               console.log('post request for students>>>>>>>', response)
-               dispatch({type:STUDENTS_ADDING_START, payload:response.data})
+        dispatch({type:STUDENTS_ADDING_START})  
+        axios.post('https://international-school-sw.herokuapp.com/api/students', values, { headers })
+        .then( response =>{
+            console.log('post request for students>>>>>>>', response)
+            dispatch({type:STUDENTS_ADDING_START, payload:response.data})
            })
            .catch(err => {
             dispatch({type:STUDENTS_ADDING_ERROR, payload:err});

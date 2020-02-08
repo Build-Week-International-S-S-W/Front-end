@@ -2,6 +2,9 @@ import {
         STUDENTS_GETTING_START, 
         STUDENTS_GETTING_SUCCESS, 
         STUDENTS_GETTING_ERROR,
+        STUDENTS_GETTING_ID_START, 
+        STUDENTS_GETTING_ID_SUCCESS, 
+        STUDENTS_GETTING_ID_ERROR,
         STUDENTS_ADDING_START,
         STUDENTS_ADDING_SUCCESS,
         STUDENTS_ADDING_ERROR,
@@ -62,6 +65,27 @@ export function students(state=initialState, action) {
           isLoading:false,
           students:[...state.students, action.payload]
         }
+      case STUDENTS_GETTING_ID_START:
+        return {
+          ...state,
+          isLoading:true
+        }
+      case STUDENTS_GETTING_ID_SUCCESS:
+        return {
+          ...state,
+          isLoading:false,
+          students:action.payload
+        }
+
+        case STUDENTS_GETTING_ID_ERROR:
+          return {
+            ...state,
+            isLoading:false,
+            error:action.payload
+          } 
+      
+      
+        
       case STUDENTS_ADDING_ERROR:
         return {
           ...state,
