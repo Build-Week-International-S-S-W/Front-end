@@ -2,17 +2,9 @@ import React, {useState} from 'react'
 import {Formik, Form, Field} from 'formik';
 
 function EditForm(props) {
-    const [editStudent,setEditStudent] = useState({
-
-        studentName: '',
-        age: '',
-        grade: '',
-        story: '',
-        insurance: '',
-        needs: '',
-        expiration: '',
-        birthCertificate: '',
-    });
+    const defaultStudent={name, age, grade, class, background, status, insurance, birth_certificate,special_needs
+    }
+    const [editStudent,setEditStudent] = useState(defaultStudent);
 
     const handleSubmit = (values, formikBag) => {
         console.log(values)
@@ -22,22 +14,37 @@ function EditForm(props) {
         formikBag.resetForm();
     }
 
+    const validate = (values) => {
+        const errors = {};
+        if(!values.name) {errors.name = 'Name Required'};
+        if(!values.age {errors.age = 'Age Required'};
+        if(!values.grade) {errors.grade = 'Grade is required'};
+        if(!values.class) {errors.class= 'Class is required'};
+        if(!values.background) {errors.background = 'Background is required'};
+        if(!values.status) {errors.status = 'Status is required'};
+        if(!values.special_needs) {errors.special_needs = 'Needs are required'};
+        return errors;
+     }
+
     return (
         <div className="edit-form">
             <Formik
                 initialValues={{editStudent}}
+                onSubmit={handleSubmit}
+                validate={validate}
+                render={(props) => {
 
+                const {isSubmitting} = props;
+                console.log(isSubmitting)
+                return (
+                <>
 
-            onSubmit={handleSubmit}
-            >
-
-                {({isSubmitting}) => (
                 <Form>
                     <div className="edit-student-info">
                         Student Information
                         <label
-                            htmlFor="studentName">Name:
-                            <Field type="name" name="studentName" placeholder="Student Name">
+                            htmlFor="name">Name:
+                            <Field type="name" name="name" placeholder="Student Name">
                             </Field>
                         </label>
 
@@ -85,32 +92,17 @@ function EditForm(props) {
                         <label htmlFor="needs">Special Needs:</label>
                         <Field type="textarea" name="needs" placeholder="Allergies"/>
                     </div>
-                    {/* <br/>
-
-                    <div className="edit-rep-info">
-                        Representative Information
-
-                    <label htmlFor="repName">Name:</label>
-                    <Field type="name" name="repName" placeholder="Name"/>
-
-                    <label htmlFor="phone">Phone:</label>
-                    <Field type="phone" name="phone" placeholder="optional"/>
-
-                    <label htmlFor="email">Email:</label>
-                    <Field type="email" name="email" placeholder="Required"/>
-                    </div>
-
-                    <label htmlFor="relation">Contact:</label>
-                    <Field type="textarea" name="relation" placeholder="Contact"/> */}
 
                     <button type="submit" name = "edit">Edit</button>
                 </Form>
-            )}
-        </Formik>
+            </>
+            )
+            }}
+        />
 
         </div>
-    )
-}
+    );
+};
 
 
 export default EditForm;
