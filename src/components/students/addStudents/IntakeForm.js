@@ -20,15 +20,13 @@ function IntakeForm(props) {
         special_needs: '',       
         birth_certificate: ''
     }
-    const [student, setStudent] = useState(defaultStudent);
-    
+    const [student, setStudent] = useState(defaultStudent);    
     const handleSubmit = (values,formikBag) => {  
-        console.log(values)      ;
+        console.log(values);
         props.userRegister(values,props);
         setStudent();
         formikBag.resetForm();
-    }
-    
+    }    
     const validate = (values) => {
         const errors = {};        
         if(!values.name) {errors.name = 'Name Required'};
@@ -46,76 +44,86 @@ function IntakeForm(props) {
 
 
     return (
-        <>
-            <div className="Intake-Form">               
+        <React.Fragment>
+            <div className="Intake-Form">              
                 <Formik
                     initialValues={student}
                     validate={validate}
                     onSubmit={handleSubmit}                
-                    render= {(props) => (
-                        <Form>
-                            <div className='student-info'>
-                                <Alert color="primary" className='student-info'>Student Information</Alert>
-                                <div className='name-age-grade'>
-                                    <label htmlFor="studentName">Name:</label>
-                                    <Field type='text' name='studentName' placeholder='Required' />
-                                    <ErrorMessage name='name' component='div'/>
-                                    <label htmlFor="age">Age:</label>
-                                    <Field type='text' name='age' placeholder='Student age' />
-                                    <ErrorMessage name='age' component='div'/>
-                                    <label htmlFor="grade">Grade:</label>
-                                    <Field as='select' name='grade'>                                        
-                                    <option value="1">1</option>
-                                        <option>2</option>
-                                        <option>3</option>
-                                        <option>4</option>
-                                        <option>5</option>
-                                        <option>6</option>
-                                        <option>7</option>
-                                        <option>8</option>
-                                        <option>9</option>
-                                        <option>10</option>
-                                        <option>11</option>
-                                        <option>12</option>
-                                    </Field>
-                                </div>
-                                <div className="back-story">
-                                    <label htmlFor="story">BackStory:</label>
-                                    <Field type='textarea' name='story' placeholder='(Student Backstory)' />
-                                </div>
-                                <div className="student-bottom">
-                                    <label htmlFor="insurance">Insurance </label>
-                                    <label htmlFor="Y">:  Yes</label>
-                                    <Field type='checkbox' name='Y' />
-                                    <label htmlFor="N"> No</label>
-                                    {/*<ErrorMessage name='N' component='div'/>*/}
-                                    <Field type='checkbox' name='N' />
-                                    <label htmlFor="date">Expiration Date:</label>
-                                    <Field type='date' name='date' />   
-                                    <br /> 
-                                    <label htmlFor="birthCertificate">Birth Certificate</label>
-                                    <label htmlFor="y">: Yes</label>
-                                    <Field type='checkbox' name='y' />
-                                    <label htmlFor="n">No</label>
-                                    {/*<ErrorMessage name='n' component='div'/>*/}
-                                    <Field type='checkbox' name='n' />
-                                    <br />
-                                    <label htmlFor="needs">Special Needs:</label>
-                                    <Field type='textarea' name='needs' placeholder="Allergies" />
-                                </div>
-                            </div>
-                            <br/>                            
-                            <Button color='warning' type="submit" enabled={props.isSubmitting}> Submit</Button>
-                        </Form>
+                    render={(props) => {
+                        return(<Form>
+                                <div className='student-info'>
+                                    <Alert color="primary" className='student-info'>Student Information</Alert>
+                                    <div className='name-age-grade'>
+                                        <label htmlFor="name">Name:</label>
+                                        <Field type='text' name='name' placeholder='Required' />
+                                        <ErrorMessage name='name' component='div'/>
 
-                    )}
+                                        <label htmlFor="age">Age:</label>
+                                        <Field type='text' name='age' placeholder='Student age' />
+                                        <ErrorMessage name='age' component='div'/>
 
+                                        <label htmlFor="class">Class:</label>
+                                        <Field type='text' name='class' placeholder='Student Class' />
+                                        <ErrorMessage name='class' component='div'/>
+
+                                        <label htmlFor="grade">Grade:</label>
+                                        <Field as='select' name='grade'>                                        
+                                                <option value="1">1</option>
+                                                    <option>2</option>
+                                                    <option>3</option>
+                                                    <option>4</option>
+                                                    <option>5</option>
+                                                    <option>6</option>
+                                                    <option>7</option>
+                                                    <option>8</option>
+                                                    <option>9</option>
+                                                    <option>10</option>
+                                                    <option>11</option>
+                                                    <option>12</option>
+                                        </Field>
+                                    </div>
+                                    <div className="back-story">
+                                        <label htmlFor="background">BackStory:</label>
+                                        <Field type='textarea' name='background' placeholder='Background' />
+                                        <ErrorMessage name='background' component='div'/>
+                                    </div>
+
+                                    <label htmlFor="status">Status:</label>
+                                    <Field type='text' name='status' placeholder='Student Status' />
+                                    <ErrorMessage name='status' component='div'/>
+
+                                    <div className="student-bottom">
+                                        <label htmlFor="insurance">Insurance </label>
+                                        <label htmlFor="Y">:  Yes</label>
+                                        <Field type='checkbox' name='insurance' />
+                                        <label htmlFor="N"> No</label>
+                                        <ErrorMessage name='insurance' component='div'/>                                    
+                                        <Field type='checkbox' name='insurance' />
+
+                                        {/* <label htmlFor="date">Expiration Date:</label>
+                                        <Field type='date' name='date' />   
+                                        <br />  */}
+
+                                        <label htmlFor="birth_certificate">Birth Certificate</label>
+                                        <Field type='text' name='birth_certificate' placeholder='yes or no'/>
+                                        <ErrorMessage name='insurance' component='div'/>                                  
+
+                                        
+                                        <br />
+                                        <label htmlFor="special_needs">Special Needs:</label>
+                                        <Field type='textarea' name='' placeholder="accommodations" />
+                                    </div>
+                                </div>
+                                <br/>                            
+                                <Button color='warning' type="submit" enabled={props.isSubmitting}>
+                                {props.isSubmitting ? 'Adding..' : 'Add'}</Button>
+                        </Form>)
+                    }} 
                 />
-
             </div>
-
-        </>
-    )
+        </React.Fragment>
+    );
 }
 
 const mapStateToProps = (state) => {
