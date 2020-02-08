@@ -1,8 +1,9 @@
 import React, {useState} from 'react'
 import {Formik, Form, Field} from 'formik';
+import { Button} from 'reactstrap';
 
-function EditForm() {
-    const [editStudent] = useState({
+function EditForm(props) {
+    const [editStudent,setEditStudent] = useState({
 
         studentName: '',
         age: '',
@@ -14,11 +15,22 @@ function EditForm() {
         birthCertificate: '',
     });
 
+    const handleSubmit = (values, formikBag) => {
+        props.editUser(values,props)
+        setEditStudent();
+        formikBag.resetForm();
+    }
+
     return (
         <div className="edit-form">
-            <Formik>
+            <Formik
                 initialValues={{editStudent}}
 
+
+            onSubmit={handleSubmit}
+            >
+
+                {({isSubmitting}) => (
                 <Form>
                     <div className="edit-student-info">
                         Student Information
@@ -89,8 +101,11 @@ function EditForm() {
 
                     <label htmlFor="relation">Contact:</label>
                     <Field type="textarea" name="relation" placeholder="Contact"/> */}
+
+                    <Button onChange={editStudent} enabled={isSubmitting}></Button>
                 </Form>
-            </Formik>
+            )}
+        </Formik>
 
         </div>
     )
