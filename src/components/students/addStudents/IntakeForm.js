@@ -23,7 +23,7 @@ function IntakeForm(props) {
     const [student, setStudent] = useState(defaultStudent);    
     const handleSubmit = (values,formikBag) => {  
         console.log(values);
-        props.userRegister(values,props);
+        props.addStudents(values,props);
         setStudent();
         formikBag.resetForm();
     }    
@@ -95,12 +95,9 @@ function IntakeForm(props) {
 
                                     <div className="student-bottom">
                                         <label htmlFor="insurance">Insurance </label>
-                                        <label htmlFor="Y">:  Yes</label>
-                                        <Field type='checkbox' name='insurance' />
-                                        <label htmlFor="N"> No</label>
-                                        <ErrorMessage name='insurance' component='div'/>                                    
-                                        <Field type='checkbox' name='insurance' />
-
+                                        <Field type='text' name='insurance' placeholder='yes or no'/>
+                                        <ErrorMessage name='insurance' component='div'/>  
+                                        
                                         {/* <label htmlFor="date">Expiration Date:</label>
                                         <Field type='date' name='date' />   
                                         <br />  */}
@@ -112,7 +109,7 @@ function IntakeForm(props) {
                                         
                                         <br />
                                         <label htmlFor="special_needs">Special Needs:</label>
-                                        <Field type='textarea' name='' placeholder="accommodations" />
+                                        <Field type='textarea' name='special_needs' placeholder="accommodations" />
                                     </div>
                                 </div>
                                 <br/>                            
