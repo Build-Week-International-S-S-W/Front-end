@@ -2,12 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { getStudents } from '../../../actions/students';
 import {DataTable} from 'primereact/datatable';
+import {Button} from 'primereact/button';
 import {Column} from 'primereact/column';
 // import { StudentsDataTable } from './DataTable';
 import axios from 'axios';
 
 import {
-    Button,
+    // Button,
     Carousel,
     CarouselItem,
     CarouselControl,
@@ -20,6 +21,9 @@ const AboutStudents = (props) => {
     // const [activeIndex, setActiveIndex] = useState(0);
     // const [animating, setAnimating] = useState(false);
     // const [ students, setStudents] = useState(props.studentsList);
+    const paginatorLeft = <Button icon="pi pi-refresh"/>;
+    const paginatorRight = <Button icon="pi pi-cloud-upload"/>;
+
 
     useEffect(() => {
         props.getStudents();       
@@ -79,16 +83,22 @@ const AboutStudents = (props) => {
 
                     window.location.href = "/add-students"}}>Add Student</Button>
             </div>
-            <DataTable value={props.studentsList}>
-              <Column field="name" header="Name" />
-              <Column field="age" header="Age" />
-              <Column field="grade" header="Grade" />
-              <Column field="class" header="Class" />
-              <Column field="background" header="Background" />
-              <Column field="status" header="Status" />
-              <Column field="special_needs" header="Special Needs" />
-              <Column field="insurance" header="Insurance" />
-              <Column field="birth_certificate" header="Birth Certificate" />
+            <DataTable value={props.studentsList}
+                       sortMode="multiple"
+                       paginator={true} 
+                       paginatorLeft={paginatorLeft} 
+                       paginatorRight={paginatorRight} 
+                       rows={10} 
+                       rowsPerPageOptions={[5,10,20]}>
+              <Column field="name" header="Name" sortable={true} filter={true}/>
+              <Column field="age" header="Age" sortable={true} filter={true}/>
+              <Column field="grade" header="Grade" sortable={true} filter={true}/>
+              <Column field="class" header="Class" sortable={true} filter={true}/>
+              <Column field="background" header="Background" sortable={true} filter={true} />
+              <Column field="status" header="Status" sortable={true} filter={true}/>
+              <Column field="special_needs" header="Special Needs" sortable={true} filter={true}/>
+              <Column field="insurance" header="Insurance" sortable={true} filter={true}/>
+              <Column field="birth_certificate" header="Birth Certificate" sortable={true} filter={true}/>
           </DataTable>
         </React.Fragment>          
     )
