@@ -88,7 +88,7 @@ const AboutStudents = (props) => {
                        paginator={true} 
                        paginatorLeft={paginatorLeft} 
                        paginatorRight={paginatorRight} 
-                       rows={10} 
+                       rows={5} 
                        rowsPerPageOptions={[5,10,20]}>
               <Column field="name" header="Name" sortable={true} filter={true}/>
               <Column field="age" header="Age" sortable={true} filter={true}/>
