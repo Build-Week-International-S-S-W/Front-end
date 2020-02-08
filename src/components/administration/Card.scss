@@ -1,5 +1,5 @@
 .card-wrapper{
-    // width: 100%;
+    width: 100%;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -12,18 +12,21 @@
             justify-content: flex-start;
             flex-wrap: wrap;
             width: 30%;
-            // height: 100vh;
             margin: 5%;
         }
 
         .card-info {
             width: 100%;
         }
+img {
+    width: 100%;
 }
+
 
 #btn {
     padding: 10%;
     display: flex;
     justify-content: space-evenly;
     flex-wrap: nowrap;
+}
 }
