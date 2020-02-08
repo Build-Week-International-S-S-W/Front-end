@@ -51,6 +51,21 @@ export function addStudents(values, props) {
     }
 }
 
+export function editStudents(values,id, props) {
+    console.log('adding students actions>>>>>>>>>>>>>', values);
+    return (dispatch) => {
+      dispatch({type:STUDENTS_UPDATE_START})  
+      axios.post(`https://international-school-sw.herokuapp.com/api/students/${id}`, values, { headers })
+           .then( response =>{
+               console.log('post request for students>>>>>>>', response)
+               dispatch({type:STUDENTS_UPDATE_START, payload:response.data})
+           })
+           .catch(err => {
+            dispatch({type:STUDENTS_UPDATE_ERROR, payload:err});
+           })
+    }
+}
+
 export function deleteStudents(id, props) {
     console.log('deleting students actions>>>>>>>>>>>>>', id);
     return (dispatch) => {

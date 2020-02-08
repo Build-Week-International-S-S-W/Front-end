@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {Card} from 'primereact/card';
+import {Link} from 'react-router-dom';
 import {Button} from 'primereact/button';
 import './Card.scss';
 
@@ -11,30 +12,33 @@ export default class StudentCard extends Component {
         student: props.student
       }
     }
-    deleteFunction = (id) => {        
+    deleteFunction = (id) => {
         this.props.deleteStudents(id)
     }
     render() {
         const header = (
-            <img alt="Card" src='https://via.placeholder.com/50'/>
+
+            <img alt="Card" src='https://via.placeholder.com/10'/>
         );
         const footer = (
-            <span>
-                <Button label="Edit"  className="edit" icon="pi pi-check"/>
-                <Button label="Delete" 
+            <span id='btn'>
+                <Link to={`/edit-form/${this.props.student.id}`}>
+                  <Button label="Edit"  className="edit" icon="pi pi-check"/>
+                </Link>
+                <Button label="Delete"
                         onClick={() => {this.deleteFunction(this.state.student.id)}}
                         className="delete"
-                        icon="pi pi-times"/>               
+                        icon="pi pi-times"/>
              </span>
         );
 
         return (
             <div>
                 <div className="card-wrapper">
+
                     <div className="card-container">
                         <Card title= {this.state.student.name }
                             subTitle = {this.state.student.id}
-                            // style={{width: '360px'}}
                             footer={footer}
                             header={header}>
                             <div className="card-info">
@@ -49,6 +53,7 @@ export default class StudentCard extends Component {
                                 <p>Student's Contact Person: {this.state.student.student_contact}</p>
                                 <p>Student's Social Worker: {this.state.student.social_worker}</p>
                             </div>
+
                         </Card>
                     </div>
                 </div>
