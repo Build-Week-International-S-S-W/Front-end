@@ -2,12 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { getStudents } from '../../../actions/students';
 import {DataTable} from 'primereact/datatable';
+import {Button} from 'primereact/button';
 import {Column} from 'primereact/column';
 // import { StudentsDataTable } from './DataTable';
 import axios from 'axios';
 
 import {
-    Button,
+    // Button,
     Carousel,
     CarouselItem,
     CarouselControl,
@@ -20,6 +21,9 @@ const AboutStudents = (props) => {
     // const [activeIndex, setActiveIndex] = useState(0);
     // const [animating, setAnimating] = useState(false);
     // const [ students, setStudents] = useState(props.studentsList);
+    const paginatorLeft = <Button icon="pi pi-refresh"/>;
+    const paginatorRight = <Button icon="pi pi-cloud-upload"/>;
+
 
     useEffect(() => {
         props.getStudents();       
@@ -79,7 +83,13 @@ const AboutStudents = (props) => {
 
                     window.location.href = "/add-students"}}>Add Student</Button>
             </div>
-            <DataTable value={props.studentsList} sortMode="multiple">
+            <DataTable value={props.studentsList}
+                       sortMode="multiple"
+                       paginator={true} 
+                       paginatorLeft={paginatorLeft} 
+                       paginatorRight={paginatorRight} 
+                       rows={10} 
+                       rowsPerPageOptions={[5,10,20]}>
               <Column field="name" header="Name" sortable={true}/>
               <Column field="age" header="Age" sortable={true}/>
               <Column field="grade" header="Grade" sortable={true}/>
