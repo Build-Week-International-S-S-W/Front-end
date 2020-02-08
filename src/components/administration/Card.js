@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {Card} from 'primereact/card';
+import {Link} from 'react-router-dom';
 import {Button} from 'primereact/button';
 import './Card.scss';
 
@@ -20,7 +21,9 @@ export default class StudentCard extends Component {
         );
         const footer = (
             <span>
-                <Button label="Edit"  className="edit" icon="pi pi-check"/>
+                <Link to={`/edit-form/${this.props.student.id}`}>
+                  <Button label="Edit"  className="edit" icon="pi pi-check"/>
+                </Link>
                 <Button label="Delete" 
                         onClick={() => {this.deleteFunction(this.state.student.id)}}
                         className="delete"

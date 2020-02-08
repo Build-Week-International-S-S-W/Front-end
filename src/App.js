@@ -35,7 +35,7 @@ function App() {
             <PrivateRoute path = "/administration" component={Administration} />
             <PrivateRoute path = "/administration/:id" component={Administration} />
             <PrivateRoute path = "/sign-out" component = {SignIn} />
-            <PrivateRoute path = "/edit/:id" component = {EditForm}/>
+            <PrivateRoute path = "/edit-form/:id" component = {EditForm}/>
             <Route path="/page-loading" component={Loading} />
             <Route path="/server-error" component={ServerError} />
             <Route path="/not-authorized" component={NotAuthorized} />

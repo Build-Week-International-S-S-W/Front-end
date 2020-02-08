@@ -1,5 +1,7 @@
 import React, {useState} from 'react'
 import {Formik, Form, Field} from 'formik';
+import { connect } from 'react-redux';
+import { editStudents } from '../../actions/students';
 
 function EditForm(props) {
     const defaultStudent={name:'', 
@@ -12,11 +14,10 @@ function EditForm(props) {
                          birth_certificate:'',
                          special_needs:''
     }
-    const [editStudent,setEditStudent] = useState(defaultStudent);
-
+    const [editStudent,setEditStudent] = useState(defaultStudent); 
     const handleSubmit = (values, formikBag) => {
-        console.log(values)
-        props.editUser(values,props)
+        console.log(props, values)
+        props.editStudents(values,props)
         setEditStudent();
         console.log(formikBag)
         formikBag.resetForm();
@@ -33,7 +34,7 @@ function EditForm(props) {
         if(!values.special_needs) {errors.special_needs = 'Needs are required'};
         return errors;
      }
-
+    console.log('edit form>>>>>>>>>>', props);
     return (
         <div className="edit-form">
             <Formik
@@ -112,5 +113,14 @@ function EditForm(props) {
     );
 };
 
+const mapStateToProps = (state) => {
+    console.log(state.students)
+    return{
+        error:state.students.error,
+        isLoading:state.students.isLoading,
+        studentsList:state.students.students
+    }
+}
 
-export default EditForm;
+export default connect( mapStateToProps,{ editStudents })(EditForm);
+
