@@ -1,6 +1,5 @@
 import React, {useState} from 'react'
 import {Formik, Form, Field} from 'formik';
-import { Button} from 'reactstrap';
 
 function EditForm(props) {
     const [editStudent,setEditStudent] = useState({
@@ -16,8 +15,10 @@ function EditForm(props) {
     });
 
     const handleSubmit = (values, formikBag) => {
+        console.log(values)
         props.editUser(values,props)
         setEditStudent();
+        console.log(formikBag)
         formikBag.resetForm();
     }
 
@@ -102,7 +103,7 @@ function EditForm(props) {
                     <label htmlFor="relation">Contact:</label>
                     <Field type="textarea" name="relation" placeholder="Contact"/> */}
 
-                    <Button onChange={editStudent} enabled={isSubmitting}></Button>
+                    <button type="submit" name = "edit">Edit</button>
                 </Form>
             )}
         </Formik>
