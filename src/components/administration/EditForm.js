@@ -2,7 +2,15 @@ import React, {useState} from 'react'
 import {Formik, Form, Field} from 'formik';
 
 function EditForm(props) {
-    const defaultStudent={name, age, grade, class, background, status, insurance, birth_certificate,special_needs
+    const defaultStudent={name:'', 
+                         age:'', 
+                         grade:'',
+                         class:'', 
+                         background:'', 
+                         status:'', 
+                         insurance:'', 
+                         birth_certificate:'',
+                         special_needs:''
     }
     const [editStudent,setEditStudent] = useState(defaultStudent);
 
@@ -17,7 +25,7 @@ function EditForm(props) {
     const validate = (values) => {
         const errors = {};
         if(!values.name) {errors.name = 'Name Required'};
-        if(!values.age {errors.age = 'Age Required'};
+        if(!values.age) {errors.age = 'Age Required'};
         if(!values.grade) {errors.grade = 'Grade is required'};
         if(!values.class) {errors.class= 'Class is required'};
         if(!values.background) {errors.background = 'Background is required'};

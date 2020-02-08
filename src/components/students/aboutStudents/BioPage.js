@@ -5,24 +5,24 @@ import {DataTable} from 'primereact/datatable';
 // import {Button} from 'primereact/button';
 import {Button} from 'reactstrap';
 import {Column} from 'primereact/column';
-import {Redirect} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import './biostyles.scss'
 
 
-const AboutStudents = (props) => {        
+const AboutStudents = (props) => {    
+
     const paginatorLeft = <Button icon="pi pi-refresh"/>;
     const paginatorRight = <Button icon="pi pi-cloud-upload"/>;
+
     useEffect(() => {
         props.getStudents();       
     }, []);
 
-    const addStudentsHandler = () => {
-        return <Redirect to="/add-students" />        
-    }
-
     return (
         <React.Fragment>
-            <Button onClick={() => addStudentsHandler}>Add Student</Button>        
+           <Link to="/add-students">
+            <Button>Add Student</Button> 
+            </Link>     
             <DataTable value={props.studentsList}
                        sortMode="multiple"
                        paginator={true} 
@@ -55,47 +55,3 @@ const mapStateToProps = (state) => {
 
 export default connect( mapStateToProps,{ getStudents })(AboutStudents);
 
-
-
-   
-        //      <style>        
-        //         {
-        //             `.custom-tag {
-        //       max-width: 50%;
-
-        //       height: 300px;
-
-        //       background: black;
-        //       font-size: 29px;
-
-        //     }`
-        //         }
-        //     </style>
-
-        //     <Carousel
-        //         activeIndex={activeIndex}
-        //         next={next}
-        //         previous={previous}
-
-        //     >
-        //         <CarouselIndicators
-        //             items={students}
-        //             students={students}
-        //             activeIndex={activeIndex}
-        //             onClickHandler={goToIndex}
-        //         />
-
-        //         {classmates}
-        //         <CarouselControl
-        //             direction="prev"
-        //             directionText="Previous"
-        //             onClickHandler={previous}
-
-        //         />
-        //         <CarouselControl
-        //             direction="next"
-        //             directionText="Next"
-        //             onClickHandler={next}
-        //         />
-
-        //     </Carousel >
