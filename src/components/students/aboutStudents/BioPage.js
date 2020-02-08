@@ -90,15 +90,15 @@ const AboutStudents = (props) => {
                        paginatorRight={paginatorRight} 
                        rows={10} 
                        rowsPerPageOptions={[5,10,20]}>
-              <Column field="name" header="Name" sortable={true}/>
-              <Column field="age" header="Age" sortable={true}/>
-              <Column field="grade" header="Grade" sortable={true}/>
-              <Column field="class" header="Class" sortable={true}/>
-              <Column field="background" header="Background" sortable={true}/>
-              <Column field="status" header="Status" sortable={true}/>
-              <Column field="special_needs" header="Special Needs" sortable={true}/>
-              <Column field="insurance" header="Insurance" sortable={true}/>
-              <Column field="birth_certificate" header="Birth Certificate" sortable={true}/>
+              <Column field="name" header="Name" sortable={true} filter={true}/>
+              <Column field="age" header="Age" sortable={true} filter={true}/>
+              <Column field="grade" header="Grade" sortable={true} filter={true}/>
+              <Column field="class" header="Class" sortable={true} filter={true}/>
+              <Column field="background" header="Background" sortable={true} filter={true} />
+              <Column field="status" header="Status" sortable={true} filter={true}/>
+              <Column field="special_needs" header="Special Needs" sortable={true} filter={true}/>
+              <Column field="insurance" header="Insurance" sortable={true} filter={true}/>
+              <Column field="birth_certificate" header="Birth Certificate" sortable={true} filter={true}/>
           </DataTable>
         </React.Fragment>          
     )
