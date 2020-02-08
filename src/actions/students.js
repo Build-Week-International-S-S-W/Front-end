@@ -75,11 +75,11 @@ export function addStudents(values, props) {
     }
 }
 
-export function editStudents(values,id, props) {
-    console.log('adding students actions>>>>>>>>>>>>>', values);
+export function editStudents(values,props) {
+    console.log('edit students actions>>>>>>>>>>>>>', values);
     return (dispatch) => {
       dispatch({type:STUDENTS_UPDATE_START})  
-      axios.post(`https://international-school-sw.herokuapp.com/api/students/${id}`, values, { headers })
+      axios.put(`https://international-school-sw.herokuapp.com/api/students/${props.match.params.id}`, values, { headers })
            .then( response =>{
                console.log('post request for students>>>>>>>', response)
                dispatch({type:STUDENTS_UPDATE_START, payload:response.data})

@@ -113,7 +113,7 @@ function IntakeForm(props) {
                                     </div>
                                 </div>
                                 <br/>                            
-                                <Button color='warning' type="submit" enabled={props.isSubmitting}>
+                                <Button color='warning' type="submit" disabled={props.isSubmitting}>
                                 {props.isSubmitting ? 'Adding..' : 'Add'}</Button>
                         </Form>)
                     }} 
