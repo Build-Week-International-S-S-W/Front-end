@@ -34,7 +34,7 @@ export default class StudentCard extends Component {
 
         return (
             <div>
-                <div className="card-wrapper">
+                <div className="card-wrapper" style={{width: '30%', margin:'0 auto'}}>
 
                     <div className="card-container">
                         <Card title= {this.state.student.name }

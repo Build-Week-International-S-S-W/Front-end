@@ -26,9 +26,9 @@ function EditForm(props) {
     }, [props.studentsList]);
 
     const handleSubmit = (values, formikBag) => {
-        console.log('edit studetn submit button>>>>',props, values)
+        // console.log('edit studetn submit button>>>>',props, values)
         props.editStudents(values,props)
-        setEditStudent();        
+        setEditStudent(values);        
         formikBag.resetForm();        
     }
 
@@ -43,7 +43,7 @@ function EditForm(props) {
         if(!values.special_needs) {errors.special_needs = 'Needs are required'};
         return errors;
      }
-    console.log(props.studentsList)
+    // console.log(props.studentsList)
     return (
         <div className="edit-form">
             <Formik
@@ -81,7 +81,7 @@ function EditForm(props) {
 
                     <label htmlFor="special_needs">Special Needs:</label>
                     <Field type="textarea" name="special_needs" placeholder={defaultStudent.special_needs}/>                    
-                    <Button type="submit" >Edit</Button>
+                    <Button type="submit" disabled={isSubmitting}>Edit</Button>
                 </Form>
              </>
             )
@@ -92,8 +92,7 @@ function EditForm(props) {
     );
 };
 
-const mapStateToProps = (state) => {
-    console.log(state.students)
+const mapStateToProps = (state) => {   
     return{
         error:state.students.error,
         isLoading:state.students.isLoading,

@@ -8,7 +8,7 @@ import "./form.scss";
 // import * as Yup from 'yup';
 
 function SignUp(props){
-        console.log('accessing the all the props',props);
+        // console.log('accessing the all the props',props);
    const { username, name, email, phone_number, password} = props;
    const defaultUser = { username, name, email, phone_number, password };
    const [user, setUser]  = useState(defaultUser);
@@ -36,7 +36,7 @@ function SignUp(props){
        validate = { validate }
       render={(props) => {
         const {isSubmitting} = props;
-        console.log(isSubmitting);
+        // console.log(isSubmitting);
         return(
           <>
           <Alert color="warning">Register Form</Alert>

@@ -17,7 +17,7 @@ const  Administration = (props) => {
 
 
     const deleteHandler = (id) => {
-        console.log(id);
+        // console.log(id);
         props.deleteStudents(id,props);
     }
 
@@ -35,7 +35,7 @@ const  Administration = (props) => {
 }
 
 const mapStateToProps = (state) => {
-    console.log(state.students)
+    // console.log(state.students)
     return{
         error:state.students.error,
         isLoading:state.students.isLoading,

@@ -21,6 +21,7 @@ const initialState = {
         students:[
               {
                 name:'',
+                id:'',
                 student_grade:'',
                 student_class:'',
                 background:'',
@@ -34,7 +35,7 @@ const initialState = {
 };
 
 export function students(state=initialState, action) {
-   console.log('action in reducers>>>>>>>>>>>', action.payload)
+  //  console.log('action in reducers>>>>>>>>>>>', action.payload)
    switch(action.type) {
       case STUDENTS_GETTING_START:
         return {
@@ -102,7 +103,7 @@ export function students(state=initialState, action) {
           return {
             ...state,
             isLoading:false,
-            students:[action.payload, ...state.students]
+            students: action.payload
           }
         case STUDENTS_UPDATE_ERROR:
           return {
