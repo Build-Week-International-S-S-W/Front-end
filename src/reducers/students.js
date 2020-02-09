@@ -102,7 +102,7 @@ export function students(state=initialState, action) {
           return {
             ...state,
             isLoading:false,
-            students:[...state.students, action.payload]
+            students:[action.payload, ...state.students]
           }
         case STUDENTS_UPDATE_ERROR:
           return {

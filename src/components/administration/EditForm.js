@@ -59,7 +59,7 @@ function EditForm(props) {
                         <Field type="text" name="name" placeholder={defaultStudent.name} />                            
                     
                     <label htmlFor="age">Age:</label>
-                        <Field type="text" name="age" placeholder={defaultStudent.age} />                            
+                        <Field type="number" name="age" placeholder={defaultStudent.age} />                            
                     
                     <label htmlFor="grade">Grade:</label>                        
                         <Field type="text" name="student_grade" placeholder={defaultStudent.grade} />                        
@@ -68,16 +68,16 @@ function EditForm(props) {
                         <Field type="textarea" name="background" placeholder={defaultStudent.background}/>
                     
                     <label htmlFor="class">Class:</label>                       
-                        <Field type="text" name="student_class" placeholder={defaultStudent.class}/>
+                        <Field type="number" name="student_class" placeholder={defaultStudent.class}/>
                     
                     <label htmlFor="status">Status:</label>                      
                         <Field type="text" name="student_status" placeholder={defaultStudent.status}/>  
                     
                     <label htmlFor="insurance">Insurance </label>
-                        <Field type='text' name='insurance' placeholder={defaultStudent.insurance}/>                        
+                        <Field type='number' name='insurance' placeholder={defaultStudent.insurance}/>                        
 
                     <label htmlFor="birth_certificate">Birth Certificate </label>
-                    <Field type='text' name='birth_certificate' placeholder={defaultStudent.birth_certificate}/>
+                    <Field type='number' name='birth_certificate' placeholder={defaultStudent.birth_certificate}/>
 
                     <label htmlFor="special_needs">Special Needs:</label>
                     <Field type="textarea" name="special_needs" placeholder={defaultStudent.special_needs}/>                    

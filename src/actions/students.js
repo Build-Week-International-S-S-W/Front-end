@@ -67,7 +67,8 @@ export function addStudents(values, props) {
         axios.post('https://international-school-sw.herokuapp.com/api/students', values, { headers })
         .then( response =>{
             console.log('post request for students>>>>>>>', response)
-            dispatch({type:STUDENTS_ADDING_START, payload:response.data})
+            dispatch({type:STUDENTS_ADDING_SUCCESS, payload:response.data});
+            props.history.push('/home-page');
            })
            .catch(err => {
             dispatch({type:STUDENTS_ADDING_ERROR, payload:err});
@@ -82,7 +83,8 @@ export function editStudents(values,props) {
       axios.put(`https://international-school-sw.herokuapp.com/api/students/${props.match.params.id}`, values, { headers })
            .then( response =>{
                console.log('post request for students>>>>>>>', response)
-               dispatch({type:STUDENTS_UPDATE_START, payload:response.data})
+               dispatch({type:STUDENTS_UPDATE_SUCCESS, payload:response.data});
+               props.history.push('/home-page');
            })
            .catch(err => {
             dispatch({type:STUDENTS_UPDATE_ERROR, payload:err});
