@@ -4,8 +4,9 @@ import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { getStudentById, editStudents } from '../../actions/students';
 import { Button } from 'reactstrap';
+// import StudentCard from './Card';
 
-function EditForm(props) {    
+function EditForm(props) {
     const defaultStudent={name:'',
                          age:'',
                          student_grade	:'',
@@ -19,7 +20,7 @@ function EditForm(props) {
     const [editStudent,setEditStudent] = useState(defaultStudent);
 
     useEffect(() => {
-        props.getStudentById(props.match.params.id);        
+        props.getStudentById(props.match.params.id);
     },[]);
 
     useEffect( () => {
@@ -37,11 +38,12 @@ function EditForm(props) {
         setEditStudent(props.studentsList)
     }, [props.studentsList]);
 
+
     const handleSubmit = (values, formikBag) => {
         // console.log('edit studetn submit button>>>>',props, values)
         props.editStudents(values,props)
         setEditStudent(values);        
-        formikBag.resetForm();        
+        formikBag.resetForm();   
     }
 
     const validate = (values) => {
@@ -66,11 +68,12 @@ function EditForm(props) {
                 onSubmit={handleSubmit}
                 validate={validate}
                 render={(props) => {
-                const {isSubmitting} = props;  
+                const {isSubmitting} = props;
                 return (
                 <>
                 <Form>
                     <label htmlFor="name">Name:</label>
+
                         <Field type="text" name="name" placeholder={editStudent.name} />                            
                     
                     <label htmlFor="age">Age:</label>
@@ -89,12 +92,13 @@ function EditForm(props) {
                         <Field type="text" name="student_status" placeholder={editStudent.status}/>  
                     
                     <label htmlFor="insurance">Insurance </label>
-                        <Field type='number' name='insurance' placeholder={editStudent.insurance}/>                        
-
+                        <Field type='number' name='insurance' placeholder={editStudent.insurance}/>   
+                  
                     <label htmlFor="birth_certificate">Birth Certificate </label>
                     <Field type='number' name='birth_certificate' placeholder={editStudent.birth_certificate}/>
 
                     <label htmlFor="special_needs">Special Needs:</label>
+
                     <Field type="textarea" name="special_needs" placeholder={editStudent.special_needs}/>                    
                     <Button type="submit" disabled={isSubmitting}>Edit</Button>
                 </Form>
