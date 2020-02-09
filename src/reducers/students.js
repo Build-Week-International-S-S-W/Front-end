@@ -17,6 +17,7 @@ import {
 
 const initialState = {
         isLoading:false,
+        isLoaded:false,
         error:null,
         students:[
               {
@@ -69,12 +70,14 @@ export function students(state=initialState, action) {
       case STUDENTS_GETTING_ID_START:
         return {
           ...state,
-          isLoading:true
+          isLoading:true,
+          isLoaded:false
         }
       case STUDENTS_GETTING_ID_SUCCESS:
         return {
           ...state,
           isLoading:false,
+          isLoaded:true,
           students:action.payload
         }
 
@@ -82,6 +85,7 @@ export function students(state=initialState, action) {
           return {
             ...state,
             isLoading:false,
+            isLoaded:false,
             error:action.payload
           } 
       
