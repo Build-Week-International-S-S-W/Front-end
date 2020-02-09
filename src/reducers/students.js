@@ -47,7 +47,7 @@ export function students(state=initialState, action) {
         return {
           ...state,
           isLoading:false,
-          students:action.payload
+          students:action.payload.reverse()
         }
       case STUDENTS_GETTING_ERROR:
         return {
@@ -65,7 +65,7 @@ export function students(state=initialState, action) {
         return {
           ...state,
           isLoading:false,
-          students:[...state.students, action.payload]
+          students:[action.payload, ...state.students]
         }
       case STUDENTS_GETTING_ID_START:
         return {

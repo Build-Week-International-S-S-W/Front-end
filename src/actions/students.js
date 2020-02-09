@@ -61,12 +61,12 @@ export function getStudentById(id) {
 export function addStudents(values, props) {
     const token = JSON.parse(sessionStorage.getItem(SESSION_KEY_TOKEN));
     const headers = { authorization: token };
-    // console.log('adding students actions>>>>>>>>>>>>>', values);
+    console.log('adding students actions>>>>>>>>>>>>>', values);
     return (dispatch) => {
         dispatch({type:STUDENTS_ADDING_START})  
         axios.post('https://international-school-sw.herokuapp.com/api/students', values, { headers })
         .then( response =>{
-            // console.log('post request for students>>>>>>>', response)
+            console.log('post request for students>>>>>>>', response)
             dispatch({type:STUDENTS_ADDING_SUCCESS, payload:response.data});
             props.history.push('/home-page');
            })
@@ -77,14 +77,14 @@ export function addStudents(values, props) {
 }
 
 export function editStudents(values,props) {
-    console.log('edit students actions>>>>>>>>>>>>>',values);
+    // console.log('edit students actions>>>>>>>>>>>>>',values);
     const token = JSON.parse(sessionStorage.getItem(SESSION_KEY_TOKEN));
     const headers = { authorization: token };
     return (dispatch) => {
       dispatch({type:STUDENTS_UPDATE_START})  
       axios.put(`https://international-school-sw.herokuapp.com/api/students/${props.match.params.id}`, values, { headers })
            .then( response =>{
-               console.log('edit request for students>>>>>>>', response)
+            //    console.log('edit request for students>>>>>>>', response)
             //    dispatch({type:STUDENTS_UPDATE_SUCCESS, payload:response.data});
                props.history.push('/home-page');
            })
