@@ -26,12 +26,15 @@ const  Administration = (props) => {
     //     console.log(editStudent)
     // }
 
-   
+
+
+
     return (
-        <>         
-         {props.studentsList.map((student,index) => <StudentCard key={index} deleteStudents={deleteHandler} student={student}/>)}                       
+        <>
+         {props.studentsList.map((student,index) => <StudentCard key={index} deleteStudents={deleteHandler} student={student}/>)}
         </>
     )
+
 }
 
 const mapStateToProps = (state) => {

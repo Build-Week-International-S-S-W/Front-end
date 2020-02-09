@@ -3,8 +3,9 @@ import {Formik, Form, Field} from 'formik';
 import { connect } from 'react-redux';
 import { getStudentById, editStudents } from '../../actions/students';
 import { Button } from 'reactstrap';
+// import StudentCard from './Card';
 
-function EditForm(props) {    
+function EditForm(props) {
     const defaultStudent={name:'',
                          age:'',
                          student_grade	:'',
@@ -18,18 +19,19 @@ function EditForm(props) {
     const [editStudent,setEditStudent] = useState(defaultStudent);
 
     useEffect(() => {
-        props.getStudentById(props.match.params.id);        
+        props.getStudentById(props.match.params.id);
     },[]);
 
     useEffect( () => {
         setEditStudent(props.studentsList)
     }, [props.studentsList]);
 
+
     const handleSubmit = (values, formikBag) => {
-        console.log('edit studetn submit button>>>>',props, values)
+        console.log('edit student submit button>>>>',props, values)
         props.editStudents(values,props)
-        setEditStudent();        
-        formikBag.resetForm();        
+        setEditStudent(values);
+        formikBag.resetForm();
     }
 
     const validate = (values) => {
@@ -51,37 +53,37 @@ function EditForm(props) {
                 onSubmit={handleSubmit}
                 validate={validate}
                 render={(props) => {
-                const {isSubmitting} = props;  
+                const {isSubmitting} = props;
                 return (
                 <>
                 <Form>
                     <label htmlFor="name">Name:</label>
-                        <Field type="text" name="name" placeholder={defaultStudent.name} />                            
-                    
+                        <Field type="text" name="name" placeholder={defaultStudent.name} />
+
                     <label htmlFor="age">Age:</label>
-                        <Field type="text" name="age" placeholder={defaultStudent.age} />                            
-                    
-                    <label htmlFor="grade">Grade:</label>                        
-                        <Field type="text" name="student_grade" placeholder={defaultStudent.grade} />                        
-                
-                    <label htmlFor="story">Backstory:</label>                       
+                        <Field type="number" name="age" placeholder={defaultStudent.age} />
+
+                    <label htmlFor="grade">Grade:</label>
+                        <Field type="text" name="student_grade" placeholder={defaultStudent.grade} />
+
+                    <label htmlFor="story">Backstory:</label>
                         <Field type="textarea" name="background" placeholder={defaultStudent.background}/>
-                    
-                    <label htmlFor="class">Class:</label>                       
+
+                    <label htmlFor="class">Class:</label>
                         <Field type="text" name="student_class" placeholder={defaultStudent.class}/>
-                    
-                    <label htmlFor="status">Status:</label>                      
-                        <Field type="text" name="student_status" placeholder={defaultStudent.status}/>  
-                    
+
+                    <label htmlFor="status">Status:</label>
+                        <Field type="text" name="student_status" placeholder={defaultStudent.status}/>
+
                     <label htmlFor="insurance">Insurance </label>
-                        <Field type='text' name='insurance' placeholder={defaultStudent.insurance}/>                        
+                        <Field type='text' name='insurance' placeholder={defaultStudent.insurance}/>
 
                     <label htmlFor="birth_certificate">Birth Certificate </label>
                     <Field type='text' name='birth_certificate' placeholder={defaultStudent.birth_certificate}/>
 
                     <label htmlFor="special_needs">Special Needs:</label>
-                    <Field type="textarea" name="special_needs" placeholder={defaultStudent.special_needs}/>                    
-                    <Button type="submit" >Edit</Button>
+                    <Field type="textarea" name="special_needs" placeholder={defaultStudent.special_needs}/>
+                    <Button type="submit" disabled={isSubmitting}>{isSubmitting ? 'Submitting..' : 'Submit'}Edit</Button>
                 </Form>
              </>
             )
