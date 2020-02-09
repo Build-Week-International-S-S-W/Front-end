@@ -17,10 +17,12 @@ import {
 
 const initialState = {
         isLoading:false,
+        isLoaded:false,
         error:null,
         students:[
               {
                 name:'',
+                id:'',
                 student_grade:'',
                 student_class:'',
                 background:'',
@@ -34,7 +36,7 @@ const initialState = {
 };
 
 export function students(state=initialState, action) {
-   console.log('action in reducers>>>>>>>>>>>', action.payload)
+  //  console.log('action in reducers>>>>>>>>>>>', action.payload)
    switch(action.type) {
       case STUDENTS_GETTING_START:
         return {
@@ -68,12 +70,14 @@ export function students(state=initialState, action) {
       case STUDENTS_GETTING_ID_START:
         return {
           ...state,
-          isLoading:true
+          isLoading:true,
+          isLoaded:false
         }
       case STUDENTS_GETTING_ID_SUCCESS:
         return {
           ...state,
           isLoading:false,
+          isLoaded:true,
           students:action.payload
         }
 
@@ -81,6 +85,7 @@ export function students(state=initialState, action) {
           return {
             ...state,
             isLoading:false,
+            isLoaded:false,
             error:action.payload
           } 
       
@@ -102,7 +107,7 @@ export function students(state=initialState, action) {
           return {
             ...state,
             isLoading:false,
-            students:[...state.students, action.payload]
+            students: action.payload
           }
         case STUDENTS_UPDATE_ERROR:
           return {
