@@ -15,6 +15,7 @@ export default class StudentCard extends Component {
     deleteFunction = (id) => {
         this.props.deleteStudents(id)
     }
+
     render() {
         const header = (
 
@@ -23,7 +24,8 @@ export default class StudentCard extends Component {
         const footer = (
             <span id='btn'>
                 <Link to={`/edit-form/${this.props.student.id}`}>
-                  <Button label="Edit"  className="edit" icon="pi pi-check"/>
+                  <Button label="Edit"
+                  className="edit" icon="pi pi-check"/>
                 </Link>
                 <Button label="Delete"
                         onClick={() => {this.deleteFunction(this.state.student.id)}}
@@ -34,7 +36,7 @@ export default class StudentCard extends Component {
 
         return (
             <div>
-                <div className="card-wrapper">
+                <div className="card-wrapper" style={{width: '30%', margin:'0 auto'}}>
 
                     <div className="card-container">
                         <Card title= {this.state.student.name }

@@ -12,12 +12,13 @@ function IntakeForm(props) {
     const defaultStudent = {
         name: '',
         age: '',
-        class: '',
-        grade: '',
+        student_class: '',
+        student_grade: '',
         background: '',
-        status:'',
+        student_status:'',
         insurance: '',
         special_needs: '',       
+<<<<<<< HEAD
         birth_certificate: ''
 <<<<<<< HEAD
     });
@@ -29,6 +30,11 @@ function IntakeForm(props) {
     
 
 =======
+=======
+        birth_certificate: '',
+        student_contact:'',
+        social_worker:''
+>>>>>>> 1e572dc7318dd080423d127a3c42c9cb65734063
     }
     const [student, setStudent] = useState(defaultStudent);    
     const handleSubmit = (values,formikBag) => {  
@@ -42,13 +48,15 @@ function IntakeForm(props) {
         if(!values.name) {errors.name = 'Name Required'};
         if(!values.age) {errors.age = 'Age field Required'};
         if(values.age > 18) { errors.age = 'Age should be below 18'};
-        if(!values.class) {errors.class = 'Class is required'};
-        if(!values.grade) {errors.grade = 'Grade is required'};
+        if(!values.student_class) {errors.student_class = 'Class is required'};
+        if(!values.student_grade) {errors.student_grade = 'Grade is required'};
         if(!values.background) {errors.background = 'Background is required'};
-        if(!values.status) {errors.status = 'Status is required'};
+        if(!values.student_status) {errors.student_status = 'Status is required'};
         if(!values.insurance) {errors.insurance = 'Insurance is required'};
         if(!values.special_needs) {errors.special_needs = 'Special needs is required'};
         if(!values.birth_certificate) {errors.birth_certificate = 'Birth certificate is required'};
+        if(!values.student_contact) {errors.student_contact = 'Contact information is required'};
+        if(!values.social_worker) {errors.social_worker = 'Social worker is required'};
         return errors;
      }
 >>>>>>> ea312180e84310663943ae5945fa8186e0e73a4c
@@ -196,28 +204,16 @@ function IntakeForm(props) {
                                         <ErrorMessage name='name' component='div'/>
 
                                         <label htmlFor="age">Age:</label>
-                                        <Field type='text' name='age' placeholder='Student age' />
+                                        <Field type='number' name='age' placeholder='Student age' />
                                         <ErrorMessage name='age' component='div'/>
 
                                         <label htmlFor="class">Class:</label>
-                                        <Field type='text' name='class' placeholder='Student Class' />
-                                        <ErrorMessage name='class' component='div'/>
+                                        <Field type='number' name='student_class' placeholder='Student Class' />
+                                        <ErrorMessage name='student_class' component='div'/>
 
-                                        <label htmlFor="grade">Grade:</label>
-                                        <Field as='select' name='grade'>                                        
-                                                <option value="1">1</option>
-                                                    <option>2</option>
-                                                    <option>3</option>
-                                                    <option>4</option>
-                                                    <option>5</option>
-                                                    <option>6</option>
-                                                    <option>7</option>
-                                                    <option>8</option>
-                                                    <option>9</option>
-                                                    <option>10</option>
-                                                    <option>11</option>
-                                                    <option>12</option>
-                                        </Field>
+                                        <label htmlFor="grade">Grade:</label>                                    
+                                        <Field type='text' name='student_grade' placeholder='Student grade' />
+                                        <ErrorMessage name='student_grade' component='div'/>
                                     </div>
                                     <div className="back-story">
                                         <label htmlFor="background">BackStory:</label>
@@ -226,12 +222,12 @@ function IntakeForm(props) {
                                     </div>
 
                                     <label htmlFor="status">Status:</label>
-                                    <Field type='text' name='status' placeholder='Student Status' />
-                                    <ErrorMessage name='status' component='div'/>
+                                    <Field type='text' name='student_status' placeholder='Student Status' />
+                                    <ErrorMessage name='student_status' component='div'/>
 
                                     <div className="student-bottom">
                                         <label htmlFor="insurance">Insurance </label>
-                                        <Field type='text' name='insurance' placeholder='yes or no'/>
+                                        <Field type='number' name='insurance' placeholder='yes or no'/>
                                         <ErrorMessage name='insurance' component='div'/>  
                                         
                                         {/* <label htmlFor="date">Expiration Date:</label>
@@ -239,9 +235,16 @@ function IntakeForm(props) {
                                         <br />  */}
 
                                         <label htmlFor="birth_certificate">Birth Certificate</label>
-                                        <Field type='text' name='birth_certificate' placeholder='yes or no'/>
-                                        <ErrorMessage name='insurance' component='div'/>                                  
+                                        <Field type='number' name='birth_certificate' placeholder='yes or no'/>
+                                        <ErrorMessage name='birth_certificate' component='div'/> 
 
+                                        <label htmlFor="student_contact">Student Contact</label>
+                                        <Field type='textarea' name='student_contact' placeholder='contact information'/>
+                                        <ErrorMessage name='student_contact' component='div'/>                                  
+
+                                        <label htmlFor="social_worker">Social worker</label>
+                                        <Field type='textarea' name='social_worker' placeholder='contact information'/>
+                                        <ErrorMessage name='social_worker' component='div'/>                                  
                                         
                                         <br />
                                         <label htmlFor="special_needs">Special Needs:</label>
@@ -249,7 +252,7 @@ function IntakeForm(props) {
                                     </div>
                                 </div>
                                 <br/>                            
-                                <Button color='warning' type="submit" enabled={props.isSubmitting}>
+                                <Button color='warning' type="submit" disabled={props.isSubmitting}>
                                 {props.isSubmitting ? 'Adding..' : 'Add'}</Button>
                         </Form>)
                     }} 

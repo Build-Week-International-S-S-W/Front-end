@@ -10,11 +10,12 @@ function SignIn(props){
    // const defaultUser = {username:'', password:'' };
    const defaultUser = {username,password};
    const [user, setUser] = useState(defaultUser);
+   
    const handleSubmit = (values,formikBag) => {
-       console.log(values);
+      //  console.log(values);
        props.usersLogin(values,props);
        setUser();
-       console.log(formikBag);
+      //  console.log(formikBag);
        formikBag.resetForm();
    }
    const validate = (values) => {
@@ -32,7 +33,7 @@ function SignIn(props){
        validate = { validate }
       render={(props) => {
         const {isSubmitting} = props;
-        console.log(isSubmitting);
+      //   console.log(isSubmitting);
         return(
           <>
           <Alert color="danger">You must be a registered user to access this site.<br/><br/>

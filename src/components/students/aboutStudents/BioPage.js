@@ -80,7 +80,7 @@ const AboutStudents = (props) => {
 };
 
 const mapStateToProps = (state) => {
-    console.log(state.students)
+    // console.log(state.students)
     return{
         error:state.students.error,
         isLoading:state.students.isLoading,
