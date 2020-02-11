@@ -96,6 +96,8 @@ export function editStudents(values,props) {
 
 export function deleteStudents(id, props) {
     // console.log('deleting students actions>>>>>>>>>>>>>', id);
+    const token = JSON.parse(sessionStorage.getItem(SESSION_KEY_TOKEN));
+    const headers = { authorization: token };
     return (dispatch) => {
       dispatch({type:STUDENTS_DELETE_START})  
       axios.delete(`https://international-school-sw.herokuapp.com/api/students/${id}`, { headers })
