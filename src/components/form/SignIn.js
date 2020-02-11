@@ -47,6 +47,8 @@ function SignIn(props){
             <Field type="password"
                     name="password"
                     placeholder="Password"
+                    maxLength="16"
+                    minLength="6"
             />
             <ErrorMessage name='password' component='div' className='error-message'/>
             { isSubmitting === true ? <Button color="success" type="submit">Submitting...</Button> :
