@@ -11,7 +11,7 @@
     "classnames": "^2.2.6",
     "constant": "^1.0.2",
     "formik": "^2.1.4",
-    "mem": "^6.0.1",
+    "mem": "^6.1.0",
     "moment": "^2.24.0",
     "node-sass": "^4.13.1",
     "primeicons": "^2.0.0",
